@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+   <children>
+      <Text layoutX="31.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <TableView layoutX="31.0" layoutY="73.0" prefHeight="240.0" prefWidth="509.0">
+        <columns>
+          <TableColumn prefWidth="104.0" text="Transaction ID" />
+          <TableColumn prefWidth="150.39996337890625" text="Transaction Type" />
+            <TableColumn prefWidth="125.60003662109375" text="Date" />
+            <TableColumn prefWidth="129.5999755859375" text="Amount" />
+        </columns>
+      </TableView>
+      <Button layoutX="31.0" layoutY="336.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="59.0" text="Back" />
+   </children>
 </AnchorPane>
