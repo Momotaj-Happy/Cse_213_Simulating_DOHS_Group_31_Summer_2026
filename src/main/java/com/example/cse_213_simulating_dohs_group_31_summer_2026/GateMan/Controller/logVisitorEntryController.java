@@ -18,6 +18,8 @@ public class logVisitorEntryController
 
     @javafx.fxml.FXML
     public void initialize() {
+        cmbGateNo.getItems().setAll(1,2);
+
     }
 
     @javafx.fxml.FXML

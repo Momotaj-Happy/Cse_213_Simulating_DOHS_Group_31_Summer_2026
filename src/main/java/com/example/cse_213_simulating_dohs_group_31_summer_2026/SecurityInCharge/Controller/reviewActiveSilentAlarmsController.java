@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SilentAlarm;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.Tenant;
 import javafx.event.ActionEvent;
@@ -24,6 +25,7 @@ public class reviewActiveSilentAlarmsController
 
     @javafx.fxml.FXML
     public void initialize() {
+        cmbSelectedAlarm.getItems().setAll(SecurityInCharge.reviewActiveSilentAlarms());
     }
 
     @Deprecated
