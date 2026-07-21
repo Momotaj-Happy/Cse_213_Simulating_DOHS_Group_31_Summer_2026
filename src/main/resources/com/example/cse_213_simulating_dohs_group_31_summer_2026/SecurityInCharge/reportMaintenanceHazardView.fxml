@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="430.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller.reportMaintenanceHazardController">
+    <children>
+        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Report Maintenance Hazard" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
+        <Label layoutX="30.0" layoutY="70.0" text="Hazard Name:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
+        <TextField fx:id="txtHazardName" layoutX="150.0" layoutY="65.0" prefHeight="25.0" prefWidth="173.0" promptText="Enter hazard name" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="65.0" />
+        <Label layoutX="30.0" layoutY="115.0" text="Hazard Date:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="115.0" />
+        <DatePicker fx:id="dpHazardDate" layoutX="150.0" layoutY="110.0" prefHeight="25.0" prefWidth="173.0" promptText="Select Date" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="110.0" />
+        <Label layoutX="30.0" layoutY="160.0" text="Location:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="160.0" />
+        <TextField fx:id="txtHazardLocation" layoutX="150.0" layoutY="156.0" prefHeight="25.0" prefWidth="181.0" promptText="Enter hazard location" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="156.0" />
+        <Label layoutX="30.0" layoutY="205.0" text="Description:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0" />
+        <TextArea fx:id="txtHazardDescription" layoutX="150.0" layoutY="200.0" prefHeight="80.0" prefWidth="181.0" promptText="Enter hazard description" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="200.0" />
+        <Button layoutX="339.0" layoutY="293.0" onAction="#handleSubmitHazard" prefWidth="160.0" text="Store Hazard Report" AnchorPane.leftAnchor="339.0" AnchorPane.topAnchor="293.0" />
+        <Label fx:id="lblHazardStatus" layoutX="30.0" layoutY="360.0" text="" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="360.0" />
+    </children>
+</AnchorPane>

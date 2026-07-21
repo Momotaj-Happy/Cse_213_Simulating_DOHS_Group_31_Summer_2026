@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.searchResidentVehicleController">
+    <children>
+        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Search Resident Vehicle Number Plates" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
+        <TextField fx:id="txtResidentPlateSearch" layoutX="30.0" layoutY="65.0" prefHeight="25.0" prefWidth="179.0" promptText="Enter License Plate Number" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="65.0" />
+        <Button layoutX="241.0" layoutY="65.0" onAction="#handleSearchResidentPlate" prefWidth="165.0" text="Search Resident Plates" AnchorPane.rightAnchor="143.66666666666663" AnchorPane.topAnchor="65.0" />
+        <TableView fx:id="tblResidentVehicle" layoutX="30.0" layoutY="110.0" prefHeight="260.0" prefWidth="490.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="110.0">
+            <columns>
+                <TableColumn fx:id="colLicensePlate" maxWidth="1500.0" minWidth="30.0" prefWidth="150.0" text="License Plate" />
+                <TableColumn fx:id="colOwnerName" maxWidth="1800.0" minWidth="30.0" prefWidth="180.0" text="Owner Name" />
+                <TableColumn fx:id="colApartmentNo" maxWidth="1500.0" minWidth="30.0" prefWidth="158.66665649414062" text="Apartment No" />
+            </columns>
+        </TableView>
+        <Label fx:id="lblSearchResult" layoutX="30.0" layoutY="390.0" text="" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="30.0" />
+    </children>
+</AnchorPane>

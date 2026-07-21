@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller.reviewActiveSilentAlarmsController">
+    <children>
+        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Active Silent Alarms Dashboard" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
+        <Button layoutX="365.0" layoutY="23.0" onAction="#handleFetchAlarms" prefWidth="155.0" text="Fetch Active Alarms" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="23.0" />
+        <TableView fx:id="tblActiveAlarms" layoutX="30.0" layoutY="65.0" prefHeight="270.0" prefWidth="490.0" AnchorPane.bottomAnchor="115.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="65.0">
+            <columns>
+                <TableColumn fx:id="colAlarmId" prefWidth="100.0" text="Alarm ID" />
+                <TableColumn fx:id="colAlarmLocation" prefWidth="140.0" text="Location" />
+                <TableColumn fx:id="colAlarmTime" prefWidth="120.0" text="Time" />
+                <TableColumn fx:id="colAlarmType" prefWidth="120.0" text="Type" />
+            </columns>
+        </TableView>
+        <Label fx:id="lblAlarmDetails" layoutX="30.0" layoutY="395.0" text="" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="30.0" />
+      <ComboBox fx:id="cmbSelectedAlarm" layoutX="30.0" layoutY="393.0" prefWidth="150.0" />
+      <Button layoutX="231.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleMuteAlarm" text="Mute Alarm" />
+      <Label layoutX="30.0" layoutY="347.0" prefHeight="25.0" prefWidth="235.0" text="Select And Mute Alarm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
