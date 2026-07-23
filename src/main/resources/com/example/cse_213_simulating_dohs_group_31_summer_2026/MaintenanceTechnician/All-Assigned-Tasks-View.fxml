@@ -7,24 +7,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller.AllAssignedTaskController">
    <children>
       <Text layoutX="34.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Assigned Tasks">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <TableView layoutX="26.0" layoutY="110.0" prefHeight="224.0" prefWidth="547.0">
+      <TableView fx:id="allAssignedTaskTableView" layoutX="26.0" layoutY="110.0" prefHeight="224.0" prefWidth="547.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Resident ID" />
-            <TableColumn prefWidth="101.5999755859375" text="Resident Name" />
-            <TableColumn prefWidth="93.60003662109375" text="Address" />
-            <TableColumn prefWidth="135.20001220703125" text="Maintenance Type" />
-            <TableColumn prefWidth="159.20001220703125" text="Task Given Date" />
+            <TableColumn fx:id="residentIdTableCol" prefWidth="75.0" text="Resident ID" />
+            <TableColumn fx:id="residentNameTableCol" prefWidth="101.5999755859375" text="Resident Name" />
+            <TableColumn fx:id="addressTableCol" prefWidth="93.60003662109375" text="Address" />
+            <TableColumn fx:id="maintenanceTypeTableCol" prefWidth="135.20001220703125" text="Maintenance Type" />
+            <TableColumn fx:id="taskGivenDateTableCol" prefWidth="139.20000000000005" text="Task Given Date" />
          </columns>
       </TableView>
       <Text layoutX="25.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assigned Tasks:" />
-      <Button layoutX="26.0" layoutY="343.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Back" />
-      <Button layoutX="434.0" layoutY="343.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Accept Selected Task" />
+      <Button layoutX="26.0" layoutY="343.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <Button layoutX="434.0" layoutY="343.0" mnemonicParsing="false" onAction="#acceptSelectedTaskOnAction" prefHeight="26.0" prefWidth="138.0" text="Accept Selected Task" />
    </children>
 </AnchorPane>

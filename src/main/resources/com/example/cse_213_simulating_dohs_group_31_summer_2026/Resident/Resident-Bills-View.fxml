@@ -16,15 +16,15 @@
       </Text>
       <Text layoutX="50.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Month:" />
       <Text layoutX="312.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Year:" />
-      <TextField layoutX="381.0" layoutY="98.0" promptText="e.g. 2026" />
-      <ComboBox layoutX="136.0" layoutY="98.0" prefHeight="26.0" prefWidth="114.0" />
-      <Button layoutX="182.0" layoutY="145.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="236.0" text="Search Bill" />
-      <Text layoutX="277.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 TK">
+      <TextField fx:id="enterYearTextField" layoutX="381.0" layoutY="98.0" promptText="e.g. 2026" />
+      <ComboBox fx:id="selectMonthComboBox" layoutX="136.0" layoutY="98.0" prefHeight="26.0" prefWidth="114.0" />
+      <Button layoutX="182.0" layoutY="145.0" mnemonicParsing="false" onAction="#searchBillButtonOnAction" prefHeight="26.0" prefWidth="236.0" text="Search Bill" />
+      <Text fx:id="billAmountText" layoutX="277.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 TK">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button layoutX="182.0" layoutY="243.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="236.0" text="Pay Bill" />
-      <Button layoutX="18.0" layoutY="353.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="106.0" text="Back" />
+      <Button layoutX="182.0" layoutY="243.0" mnemonicParsing="false" onAction="#payBillButtonOnAction" prefHeight="26.0" prefWidth="236.0" text="Pay Bill" />
+      <Button layoutX="18.0" layoutY="353.0" mnemonicParsing="false" onAction="#backButtonOnAction" prefHeight="32.0" prefWidth="106.0" text="Back" />
    </children>
 </AnchorPane>

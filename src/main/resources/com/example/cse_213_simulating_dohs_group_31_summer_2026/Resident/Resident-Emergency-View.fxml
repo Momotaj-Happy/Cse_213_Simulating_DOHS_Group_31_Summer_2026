@@ -14,7 +14,7 @@
       </Text>
       <Text layoutX="40.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Contact Number: 01*********" />
       <Text layoutX="40.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Mail Adress: email" />
-      <Button layoutX="40.0" layoutY="167.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="147.0" text="Trigger Silent Alarm" />
-      <Button layoutX="31.0" layoutY="328.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="88.0" text="Back" />
+      <Button layoutX="40.0" layoutY="167.0" mnemonicParsing="false" onAction="#triggerSilentAlarmOnActon" prefHeight="34.0" prefWidth="147.0" text="Trigger Silent Alarm" />
+      <Button layoutX="31.0" layoutY="328.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="34.0" prefWidth="88.0" text="Back" />
    </children>
 </AnchorPane>

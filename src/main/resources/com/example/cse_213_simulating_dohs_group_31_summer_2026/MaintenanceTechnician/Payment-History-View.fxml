@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
    <children>
       <Text layoutX="44.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment History">
@@ -15,12 +14,12 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="80.0" text="Back" />
-      <TableView layoutX="26.0" layoutY="100.0" prefHeight="230.0" prefWidth="546.0">
+      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <TableView fx:id="paymentHistoryTableView" layoutX="26.0" layoutY="100.0" prefHeight="230.0" prefWidth="546.0">
         <columns>
-          <TableColumn prefWidth="176.00006103515625" text="Transaction ID" />
-          <TableColumn prefWidth="164.7999267578125" text="Transaction Date" />
-            <TableColumn prefWidth="204.7999267578125" text="Amount of Transaction" />
+          <TableColumn fx:id="transactionIdTableCol" prefWidth="176.00006103515625" text="Transaction ID" />
+          <TableColumn fx:id="transactionDateTableCol" prefWidth="164.7999267578125" text="Transaction Date" />
+            <TableColumn fx:id="amountOfTransactionTableCol" prefWidth="204.7999267578125" text="Amount of Transaction" />
         </columns>
       </TableView>
    </children>

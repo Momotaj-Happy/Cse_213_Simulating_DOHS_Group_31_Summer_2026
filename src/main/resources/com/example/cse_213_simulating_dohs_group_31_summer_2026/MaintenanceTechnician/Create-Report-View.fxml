@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
    <children>
       <Text layoutX="36.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generate Report">
@@ -15,8 +14,8 @@
          </font>
       </Text>
       <Text layoutX="35.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write a Report of that Task:" />
-      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="194.0" text="Back to Current Active Task" />
-      <Button layoutX="365.0" layoutY="353.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="217.0" text="Submit Report &amp; Finalize the Task" />
-      <TextArea layoutX="33.0" layoutY="121.0" prefHeight="200.0" prefWidth="550.0" />
+      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="194.0" text="Back to Current Active Task" />
+      <Button layoutX="365.0" layoutY="353.0" mnemonicParsing="false" onAction="#submitReportOnAction" prefHeight="26.0" prefWidth="217.0" text="Submit Report &amp; Finalize the Task" />
+      <TextArea fx:id="reportDescriptionTextField" layoutX="33.0" layoutY="121.0" prefHeight="200.0" prefWidth="550.0" />
    </children>
 </AnchorPane>

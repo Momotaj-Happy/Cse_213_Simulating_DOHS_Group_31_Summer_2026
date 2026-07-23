@@ -12,38 +12,38 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <Button layoutX="34.0" layoutY="90.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Current Task">
+      <Button layoutX="34.0" layoutY="90.0" mnemonicParsing="false" onAction="#currentTaskOnAction" prefHeight="32.0" prefWidth="138.0" text="Current Task">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="34.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="137.0" text="Payment History">
+      <Button layoutX="34.0" layoutY="131.0" mnemonicParsing="false" onAction="#paymentHistoryOnAction" prefHeight="32.0" prefWidth="137.0" text="Payment History">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="32.0" layoutY="176.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Inventory">
+      <Button layoutX="32.0" layoutY="176.0" mnemonicParsing="false" onAction="#inventoryOnAction" prefHeight="32.0" prefWidth="138.0" text="Inventory">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="212.0" layoutY="93.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="All Assigned Tasks">
+      <Button layoutX="212.0" layoutY="93.0" mnemonicParsing="false" onAction="#AllAssignedTaskOnAction" prefHeight="30.0" prefWidth="154.0" text="All Assigned Tasks">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="211.0" layoutY="132.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="153.0" text="All Accepted Tasks">
+      <Button layoutX="211.0" layoutY="132.0" mnemonicParsing="false" onAction="#allAcceptedTaskOnAction" prefHeight="30.0" prefWidth="153.0" text="All Accepted Tasks">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="211.0" layoutY="177.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="153.0" text="View Reports">
+      <Button layoutX="211.0" layoutY="177.0" mnemonicParsing="false" onAction="#viewReportOnAction" prefHeight="30.0" prefWidth="153.0" text="View Reports">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="510.0" layoutY="28.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="77.0" text="Log Out" />
-      <Button layoutX="120.0" layoutY="220.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="138.0" text="Request Parts">
+      <Button layoutX="510.0" layoutY="28.0" mnemonicParsing="false" onAction="#logOutOnAction" prefHeight="32.0" prefWidth="77.0" text="Log Out" />
+      <Button layoutX="120.0" layoutY="220.0" mnemonicParsing="false" onAction="#requestPartsOnAction" prefHeight="32.0" prefWidth="138.0" text="Request Parts">
          <font>
             <Font size="14.0" />
          </font>

@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
    <children>
       <Text layoutX="36.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utility Consumption">
@@ -15,13 +14,13 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <TableView layoutX="36.0" layoutY="100.0" prefHeight="200.0" prefWidth="506.0">
+      <TableView fx:id="utilityConsumptionTableView" layoutX="36.0" layoutY="100.0" prefHeight="200.0" prefWidth="506.0">
         <columns>
-          <TableColumn prefWidth="179.20001220703125" text="Water" />
-            <TableColumn prefWidth="187.20001220703125" text="Electricity" />
-            <TableColumn minWidth="5.5999755859375" prefWidth="140.0" text="Gas" />
+          <TableColumn fx:id="waterTableCol" prefWidth="179.20001220703125" text="Water" />
+            <TableColumn fx:id="electricityTableCol" prefWidth="187.20001220703125" text="Electricity" />
+            <TableColumn fx:id="gasTableCol" minWidth="5.5999755859375" prefWidth="140.0" text="Gas" />
         </columns>
       </TableView>
-      <Button layoutX="36.0" layoutY="331.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" text="Back" />
+      <Button layoutX="36.0" layoutY="331.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="27.0" prefWidth="76.0" text="Back" />
    </children>
 </AnchorPane>
