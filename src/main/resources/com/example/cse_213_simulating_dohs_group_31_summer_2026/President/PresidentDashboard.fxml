@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="480.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.President.Controller.PresidentDashboardController">
+   <children>
+      <Label layoutX="30.0" layoutY="14.0" text="President Dashboard">
+         <font><Font name="System Bold" size="22.0" /></font>
+      </Label>
+      <Label fx:id="summaryLabel" layoutX="30.0" layoutY="50.0" prefWidth="560.0" text="Total plots: - | Allotted: - | Vacant: - | Pending tenancy: -" />
+
+      <Button layoutX="30.0" layoutY="95.0" prefWidth="260.0" onAction="#goRegisterAllotment" text="Register New Plot Allotment" />
+      <Button layoutX="310.0" layoutY="95.0" prefWidth="260.0" onAction="#goPlotTransfer" text="Plot Transfer" />
+
+      <Button layoutX="30.0" layoutY="140.0" prefWidth="260.0" onAction="#goTenancyApplications" text="Tenancy Applications" />
+      <Button layoutX="310.0" layoutY="140.0" prefWidth="260.0" onAction="#goEncroachmentViolations" text="Encroachment &amp; Violations" />
+
+      <Button layoutX="30.0" layoutY="185.0" prefWidth="260.0" onAction="#goPlotRegistry" text="Plot Registry" />
+      <Button layoutX="310.0" layoutY="185.0" prefWidth="260.0" onAction="#goOccupancyCertificate" text="Occupancy Certificate" />
+
+      <Button layoutX="30.0" layoutY="230.0" prefWidth="260.0" onAction="#goPlotStatusReport" text="Plot Status Report" />
+      <Button layoutX="310.0" layoutY="230.0" prefWidth="260.0" onAction="#goTenancyManagement" text="Tenancy Management (Departure)" />
+
+      <Button layoutX="30.0" layoutY="410.0" prefWidth="120.0" onAction="#signOutOnAction" text="Sign Out" />
+   </children>
+</AnchorPane>
