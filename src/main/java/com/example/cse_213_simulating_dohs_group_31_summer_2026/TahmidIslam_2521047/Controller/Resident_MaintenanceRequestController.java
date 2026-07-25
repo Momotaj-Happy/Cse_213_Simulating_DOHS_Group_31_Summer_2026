@@ -1,0 +1,21 @@
+package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
+
+public class Resident_MaintenanceRequestController
+{
+    @javafx.fxml.FXML
+    private ComboBox selectRequiredMaintenanceComboBox;
+    @javafx.fxml.FXML
+    private TextArea maintenanceWorkTextField;
+
+    @javafx.fxml.FXML
+    public void initialize() {
+    }
+
+    @javafx.fxml.FXML
+    public void backOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void requestMaintenanceWorkOnAction(ActionEvent actionEvent) {
+    }
+}

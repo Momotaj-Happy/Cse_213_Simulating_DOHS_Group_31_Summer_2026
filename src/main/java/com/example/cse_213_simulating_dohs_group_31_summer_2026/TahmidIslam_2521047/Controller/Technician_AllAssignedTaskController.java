@@ -1,21 +1,19 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
-public class AllAcceptedTaskController
+public class Technician_AllAssignedTaskController
 {
     @javafx.fxml.FXML
     private TableColumn residentNameTableCol;
     @javafx.fxml.FXML
-    private TableColumn isCompletedTableCol;
-    @javafx.fxml.FXML
-    private TableView allAcceptedTaskTableView;
+    private TableView allAssignedTaskTableView;
     @javafx.fxml.FXML
     private TableColumn addressTableCol;
     @javafx.fxml.FXML
     private TableColumn taskGivenDateTableCol;
     @javafx.fxml.FXML
-    private TableColumn residentIdTaleCol;
+    private TableColumn maintenanceTypeTableCol;
     @javafx.fxml.FXML
-    private TableColumn typeTableCol;
+    private TableColumn residentIdTableCol;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -23,5 +21,9 @@ public class AllAcceptedTaskController
 
     @javafx.fxml.FXML
     public void backOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void acceptSelectedTaskOnAction(ActionEvent actionEvent) {
     }
 }
