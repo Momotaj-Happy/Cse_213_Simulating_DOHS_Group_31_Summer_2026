@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller.fileIncidentLogController">
+    <children>
+        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="File Digital Incident Log" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
+        <Label layoutX="30.0" layoutY="70.0" text="Reporter Name:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
+        <TextField fx:id="txtReporterName" layoutX="150.0" layoutY="65.0" prefHeight="25.0" prefWidth="140.0" promptText="Enter reporter name" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="65.0" />
+        <Label layoutX="30.0" layoutY="115.0" text="Time:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="115.0" />
+        <TextField fx:id="txtIncidentTime" layoutX="150.0" layoutY="110.0" prefHeight="25.0" prefWidth="140.0" promptText="HH:MM" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="110.0" />
+        <Label layoutX="30.0" layoutY="160.0" text="Date:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="160.0" />
+        <DatePicker fx:id="dpIncidentDate" layoutX="150.0" layoutY="156.0" prefHeight="25.0" prefWidth="140.0" promptText="Select Date" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="156.0" />
+        <Label layoutX="30.0" layoutY="205.0" text="Location:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0" />
+        <TextField fx:id="txtIncidentLocation" layoutX="150.0" layoutY="200.0" prefHeight="25.0" prefWidth="140.0" promptText="Enter location" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="200.0" />
+        <Label layoutX="30.0" layoutY="250.0" text="Description:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="250.0" />
+        <TextArea fx:id="txtIncidentDescription" layoutX="150.0" layoutY="245.0" prefHeight="59.0" prefWidth="302.0" promptText="Enter incident description" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="245.0" />
+        <Label layoutX="30.0" layoutY="345.0" text="Person Involved:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="345.0" />
+        <TextField fx:id="txtPersonInvolved" layoutX="150.0" layoutY="340.0" prefHeight="25.0" prefWidth="140.0" promptText="Enter person involved" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="340.0" />
+        <Button layoutX="321.0" layoutY="341.0" onAction="#handleSaveIncident" prefWidth="160.0" text="Save Incident Data" AnchorPane.leftAnchor="321.0" AnchorPane.topAnchor="341.0" />
+        <Label fx:id="lblIncidentStatus" layoutX="30.0" layoutY="440.0" text="" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="440.0" />
+    </children>
+</AnchorPane>
