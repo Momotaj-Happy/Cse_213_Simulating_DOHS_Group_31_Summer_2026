@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller.SupervisorDashboardController">
+   <children>
+      <Text layoutX="25.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Supervisor Dashboard">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <Button layoutX="510.0" layoutY="28.0" mnemonicParsing="false" onAction="#logOutOnAction" prefHeight="32.0" prefWidth="77.0" text="Log Out" />
+      <Button layoutX="34.0" layoutY="95.0" mnemonicParsing="false" onAction="#dailyTaskAssignmentOnAction" prefHeight="32.0" prefWidth="138.0" text="Daily Task
+Assignment">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="34.0" layoutY="140.0" mnemonicParsing="false" onAction="#weeklyDutyRotationOnAction" prefHeight="32.0" prefWidth="138.0" text="Weekly Duty Rotation">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="34.0" layoutY="185.0" mnemonicParsing="false" onAction="#liveTaskProgressOnAction" prefHeight="32.0" prefWidth="138.0" text="Live Task Progress">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="34.0" layoutY="230.0" mnemonicParsing="false" onAction="#occasionScheduleOnAction" prefHeight="32.0" prefWidth="138.0" text="Occasion Schedule">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="212.0" layoutY="95.0" mnemonicParsing="false" onAction="#problemReportsOnAction" prefHeight="32.0" prefWidth="154.0" text="Problem Reports">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="212.0" layoutY="140.0" mnemonicParsing="false" onAction="#supplyRequestsOnAction" prefHeight="32.0" prefWidth="154.0" text="Supply Requests">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="212.0" layoutY="185.0" mnemonicParsing="false" onAction="#attendanceLeaveOnAction" prefHeight="32.0" prefWidth="154.0" text="Attendance &amp; Leave">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="212.0" layoutY="230.0" mnemonicParsing="false" onAction="#staffNoticeOnAction" prefHeight="32.0" prefWidth="154.0" text="Staff Notice">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
