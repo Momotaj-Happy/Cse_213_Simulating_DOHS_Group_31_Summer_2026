@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.BillingAndFinanceOfficer.Controller.GenerateTaxDemandNoticesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.Accountant.Controller.GenerateTaxDemandNoticesController">
    <children>
       <Label layoutX="30.0" layoutY="14.0" text="Generate Tax Demand Notices"><font><Font name="System Bold" size="18.0" /></font></Label>
       <Label layoutX="30.0" layoutY="70.0" text="Financial Year:" />
