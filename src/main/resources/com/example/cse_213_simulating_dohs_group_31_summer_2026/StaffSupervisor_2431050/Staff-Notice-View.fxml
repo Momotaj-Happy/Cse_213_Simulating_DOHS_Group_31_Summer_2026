@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller.Supervisor_StaffNoticeController">
+   <children>
+      <Text layoutX="34.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Notice">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notice Audience:" />
+      <ComboBox fx:id="selectAudienceComboBox" layoutX="180.0" layoutY="81.0" prefWidth="200.0" />
+      <Text layoutX="34.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notice Title:" />
+      <TextField fx:id="noticeTitleTextField" layoutX="180.0" layoutY="116.0" prefWidth="356.0" />
+      <Text layoutX="34.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message:" />
+      <TextArea fx:id="noticeMessageTextArea" layoutX="34.0" layoutY="176.0" prefHeight="140.0" prefWidth="530.0" />
+      <Button layoutX="36.0" layoutY="373.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <Button layoutX="300.0" layoutY="373.0" mnemonicParsing="false" onAction="#previewNoticeOnAction" prefHeight="26.0" prefWidth="130.0" text="Preview Notice" />
+      <Button layoutX="440.0" layoutY="373.0" mnemonicParsing="false" onAction="#sendNoticeOnAction" prefHeight="26.0" prefWidth="134.0" text="Send Notice" />
+   </children>
+</AnchorPane>

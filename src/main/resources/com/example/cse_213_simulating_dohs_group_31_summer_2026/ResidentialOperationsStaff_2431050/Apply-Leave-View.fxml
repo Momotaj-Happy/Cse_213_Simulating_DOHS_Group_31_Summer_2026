@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller.Staff_LeaveController">
+   <children>
+      <Text layoutX="34.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apply for Leave">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leave Type:" />
+      <ComboBox fx:id="selectLeaveTypeComboBox" layoutX="150.0" layoutY="66.0" prefWidth="170.0" />
+      <Text layoutX="34.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date:" />
+      <DatePicker fx:id="startDateDatePicker" layoutX="150.0" layoutY="96.0" prefHeight="26.0" prefWidth="150.0" />
+      <Text layoutX="320.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date:" />
+      <DatePicker fx:id="endDateDatePicker" layoutX="400.0" layoutY="96.0" prefHeight="26.0" prefWidth="150.0" />
+      <Text layoutX="34.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reason:" />
+      <TextArea fx:id="reasonTextArea" layoutX="34.0" layoutY="156.0" prefHeight="60.0" prefWidth="530.0" />
+      <Button layoutX="34.0" layoutY="225.0" mnemonicParsing="false" onAction="#attachDocumentOnAction" prefHeight="26.0" prefWidth="150.0" text="Attach Document" />
+      <Text layoutX="200.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Leave Days:" />
+      <Text fx:id="totalLeaveDaysText" layoutX="340.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Button layoutX="420.0" layoutY="225.0" mnemonicParsing="false" onAction="#submitApplicationOnAction" prefHeight="26.0" prefWidth="160.0" text="Submit Application" />
+      <Text layoutX="34.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leave History:" />
+      <TableView fx:id="leaveHistoryTableView" layoutX="26.0" layoutY="290.0" prefHeight="130.0" prefWidth="548.0">
+         <columns>
+            <TableColumn fx:id="leaveIdTableCol" prefWidth="90.0" text="Leave ID" />
+            <TableColumn fx:id="startDateTableCol" prefWidth="130.0" text="Start Date" />
+            <TableColumn fx:id="endDateTableCol" prefWidth="130.0" text="End Date" />
+            <TableColumn fx:id="statusTableCol" prefWidth="130.0" text="Status" />
+         </columns>
+      </TableView>
+      <Button layoutX="36.0" layoutY="460.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+   </children>
+</AnchorPane>
