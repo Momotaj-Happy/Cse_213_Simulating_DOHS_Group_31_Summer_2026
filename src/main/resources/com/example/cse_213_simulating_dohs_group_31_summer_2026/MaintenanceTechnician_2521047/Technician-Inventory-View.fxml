@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller.TechnicianInventoryController">
+   <children>
+      <Text layoutX="44.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <TableView fx:id="inventoryTableView" layoutX="36.0" layoutY="92.0" prefHeight="235.0" prefWidth="532.0">
+        <columns>
+          <TableColumn fx:id="toolIdTableCol" prefWidth="172.00006103515625" text="Tools ID" />
+          <TableColumn fx:id="toolNameTableCol" prefWidth="156.0" text="Tool Name" />
+            <TableColumn fx:id="quantityTableCol" prefWidth="203.2000732421875" text="Quantity" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
