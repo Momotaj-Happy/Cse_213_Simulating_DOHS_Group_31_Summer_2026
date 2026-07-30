@@ -23,6 +23,9 @@ public class User {
         this.isLoggedIn = isLoggedIn;
     }
 
+    public User(String userId, String name, String role, boolean isLoggedIn) {
+    }
+
     public boolean login(String username, String password) {
         if (username != null && password != null &&
                 (username.trim().equalsIgnoreCase(this.userId) || username.trim().equalsIgnoreCase(this.name)) &&

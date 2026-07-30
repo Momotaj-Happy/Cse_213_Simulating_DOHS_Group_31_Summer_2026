@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -14,11 +15,13 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="150.0" layoutY="100.0" text="Staff ID (7 digits):" />
+      <Label layoutX="150.0" layoutY="100.0" text="User ID (7 digits):" />
       <TextField fx:id="staffIdTextField" layoutX="300.0" layoutY="96.0" promptText="e.g. 2520900" />
       <Label layoutX="150.0" layoutY="140.0" text="Password:" />
       <PasswordField fx:id="passwordField" layoutX="300.0" layoutY="136.0" promptText="Password" />
-      <Label fx:id="statusLabel" layoutX="150.0" layoutY="175.0" prefWidth="350.0" textFill="RED" />
-      <Button layoutX="260.0" layoutY="220.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="30.0" prefWidth="100.0" text="Login" />
+      <Label fx:id="statusLabel" layoutX="150.0" layoutY="231.0" prefWidth="350.0" textFill="RED" />
+      <Button layoutX="260.0" layoutY="276.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="30.0" prefWidth="100.0" text="Login" />
+      <Label layoutX="148.0" layoutY="177.0" text="User Type:" />
+      <ComboBox fx:id="userTypeComboBox" layoutX="299.0" layoutY="173.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
