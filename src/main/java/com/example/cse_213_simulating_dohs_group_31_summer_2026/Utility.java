@@ -145,9 +145,7 @@ public class Utility {
             fileOut = new FileOutputStream(file, append);
             objOut = new AppendableObjectOutputStream(fileOut);
 
-        }
-
-        else {
+        } else {
             fileOut = new FileOutputStream(file);
             objOut = new ObjectOutputStream(fileOut);
 
@@ -158,7 +156,6 @@ public class Utility {
 
 
     }
-
 
 
     public static <T> void loadFrom(String fileName, ArrayList<T> list) throws IOException {
@@ -185,14 +182,13 @@ public class Utility {
                     break;
                 } catch (ClassNotFoundException e) {
                     throw new RuntimeException("Class mismatch during deserialization", e);
+                }
             }
-        }
 
 
-        //catch (ClassNotFoundException e) {
+            //catch (ClassNotFoundException e) {
             //throw new RuntimeException(e);
-        }
-        finally {
+        } finally {
             objIn.close();
 
         }
@@ -200,9 +196,33 @@ public class Utility {
 
     }
 
+    /*public static <T> void loadFrom2(String fileName, ArrayList<T> list) throws IOException {
+        File file = new File(fileName);
+
+        if (!file.exists()) {
+            showAlert("Error", "File missing.");
+            return;
+        }
+
+        // Try-with-resources automatically closes BOTH streams even if a crash happens
+        try (FileInputStream fileIn = new FileInputStream(file);
+             ObjectInputStream objIn = new ObjectInputStream(fileIn)) {
+
+            while (fileIn.available() > 0) {
+                try {
+                    @SuppressWarnings("unchecked")
+                    T obj = (T) objIn.readObject();
+                    list.add(obj);
+                } catch (EOFException e) {
+                    break; // Safely stop if end of file is reached unexpectedly
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException("Class mismatch during deserialization", e);
+                }
+            }
+        }
 
 
-
+    }*/
 }
 
 

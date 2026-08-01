@@ -25,7 +25,7 @@
         <columns>
           <TableColumn fx:id="facilityTypeTableCol" prefWidth="121.5999755859375" text="Facility Type" />
           <TableColumn fx:id="locationTableCol" prefWidth="130.39996337890625" text="Location" />
-            <TableColumn fx:id="availableTimeTableCol" prefWidth="129.60003662109375" text="Available Time" />
+            <TableColumn fx:id="facilityNameTableCol" prefWidth="129.60003662109375" text="Facility Name" />
             <TableColumn fx:id="bookingPriceTableCol" prefWidth="140.0" text="Booking Price" />
         </columns>
       </TableView>

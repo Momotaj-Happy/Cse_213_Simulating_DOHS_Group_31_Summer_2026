@@ -21,8 +21,8 @@ public class DummyDataGenerator extends Application {
         }
 
         try {
-            Resident resident = new Resident(1234, "ABCD", "EFGI", true);
-            Utility.writeInto("ResidentData.bin", resident, true);
+            Resident resident = new Resident("1234", "ABCD", "EFGH", true, 1234, "ABCD", "EFGI", true);
+            Utility.writeInto("ResidentData.bin", resident, false);
             System.out.println("Resident Save Successfull");
         } catch (Exception e) {
             System.out.println("Error saving Resident: " + e);

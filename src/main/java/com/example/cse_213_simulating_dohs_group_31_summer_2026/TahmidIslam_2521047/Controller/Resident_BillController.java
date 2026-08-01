@@ -43,7 +43,7 @@ public class Resident_BillController
         billAmountText.setText("0 TK");
         Utility.showAlert("Success", "Bill Paid Successfully");
         try {
-            Utility.writeInto("BillData", billList, false);
+            Utility.writeInto("BillData.bin", billList, false);
         }
         catch (Exception e){
             System.out.println("Save Failed");
