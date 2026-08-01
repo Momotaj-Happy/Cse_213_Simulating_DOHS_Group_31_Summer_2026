@@ -28,8 +28,13 @@ public class LoginViewController
 
     @javafx.fxml.FXML
     public void loginButtonOnAction(ActionEvent actionEvent) {
-        if (userTypeComboBox==null){
-            Utility.showAlert("  ","User Type can not be empty");
+        String userType = userTypeComboBox.getValue();
+        String userId = staffIdTextField.getText();
+        String password = passwordField.getText();
+
+
+        if (userType==null || userId.isEmpty() || password.isEmpty()){
+            Utility.showAlert("Error","Please fill all fields.");
             return;
         }
         if (userTypeComboBox.getValue().equals("Resident")) {
