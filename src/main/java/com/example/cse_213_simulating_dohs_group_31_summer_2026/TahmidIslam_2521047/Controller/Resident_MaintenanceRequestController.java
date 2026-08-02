@@ -1,19 +1,27 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.MaintenanceRequest;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class Resident_MaintenanceRequestController
 {
     @javafx.fxml.FXML
-    private ComboBox selectRequiredMaintenanceComboBox;
+    private ComboBox<String> selectRequiredMaintenanceComboBox;
     @javafx.fxml.FXML
     private TextArea maintenanceWorkTextField;
 
+    ArrayList<Resident> rList;
     @javafx.fxml.FXML
     public void initialize() {
+        selectRequiredMaintenanceComboBox.getItems().addAll("Electricity", "Water", "Gas", "Others");
+
     }
 
     @javafx.fxml.FXML
@@ -23,5 +31,26 @@ public class Resident_MaintenanceRequestController
 
     @javafx.fxml.FXML
     public void requestMaintenanceWorkOnAction(ActionEvent actionEvent) {
+        String s = selectRequiredMaintenanceComboBox.getValue();
+        if (s==null){
+            Utility.showAlert("Error", "Please select the maintenance Type");
+            return;
+        }
+        if (maintenanceWorkTextField.getText().isEmpty()){
+            Utility.showAlert("Error", "Please write about the maintenance Problem");
+            return;
+        }
+        try{
+            Utility.loadFrom("ResidentData.bin", rList);
+        }
+        catch (Exception e){
+            Utility.showAlert("Error", "Load Failed");
+            return;
+        }
+        Resident r = rList.getFirst();
+        MaintenanceRequest m = new MaintenanceRequest(r.getResidentId(), r.getResidentName(),
+                selectRequiredMaintenanceComboBox.getValue(), r.getResidentAddress(), maintenanceWorkTextField.getText(),
+                LocalDate.now());
+        r.requestMaintenanceWork(m);
     }
 }

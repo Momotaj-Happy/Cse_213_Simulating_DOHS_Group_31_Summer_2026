@@ -3,14 +3,15 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_252
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import java.io.File;
 import java.util.ArrayList;
 
-public class Resident_BillController
-{
+public class Resident_BillController {
     @javafx.fxml.FXML
     private TextField enterYearTextField;
     @javafx.fxml.FXML
@@ -31,23 +32,30 @@ public class Resident_BillController
 
     @javafx.fxml.FXML
     public void payBillButtonOnAction(ActionEvent actionEvent) {
-        if (billAmountText.getText().equals("0 TK")){
+        if (billAmountText.getText().equals("0 TK")) {
             Utility.showAlert("Error", "Can't Pay Bill for 0 TK");
             return;
         }
-        if (billObj==null){
-            Utility.showAlert("Error", "Pay Bill Failed");
+        if (billObj == null) {
+            Utility.showAlert("Error", "You do not have any bill");
             return;
         }
         billList.remove(billObj);
         billAmountText.setText("0 TK");
-        Utility.showAlert("Success", "Bill Paid Successfully");
         try {
-            Utility.writeInto("BillData.bin", billList, false);
-        }
-        catch (Exception e){
+            File billFile = new File("BillData.bin");
+            if (billFile.exists()) {
+                billFile.delete();
+            }
+            for(Bill b: billList){
+                Utility.writeInto("BillData.bin", b, true);
+            }
+
+        } catch (Exception e) {
             System.out.println("Save Failed");
+            return;
         }
+        Utility.showAlert("Success", "Bill Paid Successfully");
         return;
     }
 
@@ -55,6 +63,7 @@ public class Resident_BillController
     public void searchBillButtonOnAction(ActionEvent actionEvent) {
         String month = selectMonthComboBox.getValue();
         String year = enterYearTextField.getText();
+        billObj = null;
 
         if (month == null || year.isEmpty()) {
             Utility.showAlert("Error", "Please fill up all the fields");
@@ -62,41 +71,31 @@ public class Resident_BillController
         }
 
 
-
-
-
-
         try {
             Utility.loadFrom("BillData.bin", billList);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Utility.showAlert("Error", "Load Failed.");
             return;
 
 
         }
 
-        try{
+        try {
             int year2 = Integer.parseInt(enterYearTextField.getText());
-            for (Bill b: billList) {
+            for (Bill b : billList) {
                 billAmountText.setText("0 TK");
-                if(b.getYear()==year2 && b.getMonth().equals(month)){
-                    int billAmount=b.getAmount();
-                    billAmountText.setText(String.valueOf(billAmount)+ " TK");
+                if (b.getYear() == year2 && b.getMonth().equals(month)) {
+                    int billAmount = b.getAmount();
+                    billAmountText.setText(String.valueOf(billAmount) + " TK");
                     billObj = b;
                     break;
                 }
             }
 
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             Utility.showAlert("Error", "Year can't be a String");
             return;
         }
-
-
-
-
 
 
     }

@@ -20,8 +20,10 @@ public class DummyDataGenerator extends Application {
             residentFile.delete();
         }
 
+        int id=1234;
+
         try {
-            Resident resident = new Resident("1234", "ABCD", "EFGH", true, 1234, "ABCD", "EFGI", true);
+            Resident resident = new Resident(id, "ABCD", "EFGI");
             Utility.writeInto("ResidentData.bin", resident, false);
             System.out.println("Resident Save Successfull");
         } catch (Exception e) {
@@ -38,7 +40,7 @@ public class DummyDataGenerator extends Application {
         }
 
         try {
-            Bill bill = new Bill(1, 100, 2026, "January");
+            Bill bill = new Bill(id, 100, 2026, "January");
             Utility.writeInto("BillData.bin", bill, true);
             System.out.println("Bill Save Successfull");
         } catch (Exception e) {

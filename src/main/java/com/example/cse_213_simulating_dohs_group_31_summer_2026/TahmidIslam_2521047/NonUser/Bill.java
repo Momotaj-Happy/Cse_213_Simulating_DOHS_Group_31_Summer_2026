@@ -5,8 +5,15 @@ import java.time.LocalDate;
 
 public class Bill implements Serializable {
     private int billId, amount, year;
-    private String month;
+    private String month, transactionType;
 
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
+    }
 
     public int getBillId() {
         return billId;

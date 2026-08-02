@@ -26,9 +26,10 @@ public class Resident_ProfileController
 
     ArrayList<Resident> rList= new ArrayList<Resident>();
 
+
     @javafx.fxml.FXML
     public void initialize() {
-        ArrayList<Resident> rList= new ArrayList<Resident>();
+
         try {
             Utility.loadFrom("ResidentData.bin", rList);
 
@@ -37,10 +38,10 @@ public class Resident_ProfileController
             Utility.showAlert("Error", "Load Failed");
             return;
         }
-
-        idText.setText(String.valueOf(rList.getFirst().getResidentId()));
-        nameText.setText(rList.getFirst().getResidentName());
-        addressText.setText(rList.getFirst().getResidentAddress());
+        Resident r = rList.getFirst();
+        idText.setText(String.valueOf(r.getResidentId()));
+        nameText.setText(r.getResidentName());
+        addressText.setText(r.getResidentAddress());
 
 
     }

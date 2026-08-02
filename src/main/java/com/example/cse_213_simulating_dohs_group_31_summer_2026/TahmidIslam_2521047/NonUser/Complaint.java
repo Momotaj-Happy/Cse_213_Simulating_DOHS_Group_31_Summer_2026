@@ -29,7 +29,9 @@ public class Complaint {
         this.status = status;
     }
 
-    public Complaint(String complaintContent, String status) {
+
+    public Complaint(int complaintId, String complaintContent, String status) {
+        this.complaintId = complaintId;
         this.complaintContent = complaintContent;
         this.status = status;
     }

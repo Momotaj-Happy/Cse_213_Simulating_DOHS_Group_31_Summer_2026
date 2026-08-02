@@ -29,6 +29,7 @@ public class Resident_FacilitiesController
     private ComboBox<String> selectFacilityTypeComboBox;
     @javafx.fxml.FXML
     private TableColumn<Facility, String> facilityNameTableCol;
+    ArrayList<Facility> fac;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -63,7 +64,6 @@ public class Resident_FacilitiesController
 
         }
         rList.getFirst().bookFacility(f);
-        Utility.showAlert("Success", "Facility Booking Successful");
     }
 
         @javafx.fxml.FXML
@@ -75,7 +75,20 @@ public class Resident_FacilitiesController
             Utility.showAlert("Error", "Please fill all the fields");
             return;
         }
+        try{
+            Utility.loadFrom("FacilityData.bin", fac);
+        }
+        catch (Exception e){
+            Utility.showAlert("Error", "Load Failed");
+            return;
+        }
 
 
+        for(Facility fTable: fac){
+            if(selectFacilityTypeComboBox.getValue().equals(s) && SelectTheDateOfBookingDatePicker.getValue().equals(l)){
+                availableFacilitiesTableView.getItems().add(fTable);
+            }
+
+        }
     }
 }
