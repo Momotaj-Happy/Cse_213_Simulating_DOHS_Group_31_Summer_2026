@@ -12,7 +12,7 @@
    <children>
       <Label alignment="CENTER" layoutX="105.0" layoutY="14.0" prefHeight="43.0" prefWidth="389.0" text="DOHS Management System">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="150.0" layoutY="100.0" text="User ID (7 digits):" />
