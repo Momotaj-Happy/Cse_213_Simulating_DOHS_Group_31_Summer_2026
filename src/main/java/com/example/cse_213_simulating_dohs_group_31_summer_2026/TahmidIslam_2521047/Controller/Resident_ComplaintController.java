@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Complaint;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
@@ -13,7 +14,7 @@ public class Resident_ComplaintController
     @javafx.fxml.FXML
     private TextArea complaintTextField;
 
-    ArrayList<Resident> rList = new ArrayList<Resident>();
+    Resident res = SessionManager.resident;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -31,18 +32,11 @@ public class Resident_ComplaintController
             Utility.showAlert("Error", "Please write something for submitting a complaint");
             return;
         }
-        try{
-            Utility.loadFrom("ResidentData.bin", rList);
-        }
-        catch (Exception e) {
-            Utility.showAlert("Error", "Load Failed");
-            return;
-        }
-        Resident r = rList.getFirst();
 
-        Complaint c = new Complaint(r.getResidentId(), complaintTextField.getText(), "Submitted");
+
+        Complaint c = new Complaint(res.getResidentId(), complaintTextField.getText(), "Submitted");
         complaintTextField.clear();
-        r.submitComplaint(c);
+        res.submitComplaint(c);
 
     }
 }

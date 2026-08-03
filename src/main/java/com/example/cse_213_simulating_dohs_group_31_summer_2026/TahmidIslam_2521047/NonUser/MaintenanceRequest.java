@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MaintenanceRequest {
+public class MaintenanceRequest implements Serializable {
     private int requestId;
     private String residentName, requestType, residentAddress, requestDescription;
     private LocalDate taskGivenDate;

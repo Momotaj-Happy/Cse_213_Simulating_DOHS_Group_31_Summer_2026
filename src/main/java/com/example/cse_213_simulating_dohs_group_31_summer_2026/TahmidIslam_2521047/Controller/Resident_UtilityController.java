@@ -1,6 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.UtilityConsumption;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
@@ -20,21 +22,19 @@ public class Resident_UtilityController
     @javafx.fxml.FXML
     private TableColumn<UtilityConsumption, Integer> waterTableCol;
 
+    Resident res = SessionManager.resident;
+
     @javafx.fxml.FXML
     public void initialize() {
-        electricityTableCol.setCellValueFactory(new PropertyValueFactory<UtilityConsumption, Integer>("electricityTableCol"));
-        gasTableCol.setCellValueFactory(new PropertyValueFactory<UtilityConsumption, Integer>("gasTableCol"));
-        waterTableCol.setCellValueFactory(new PropertyValueFactory<UtilityConsumption, Integer>("waterTableCol"));
+        electricityTableCol.setCellValueFactory(new PropertyValueFactory<UtilityConsumption, Integer>("electricityAmount"));
+        gasTableCol.setCellValueFactory(new PropertyValueFactory<UtilityConsumption, Integer>("gasAmount"));
+        waterTableCol.setCellValueFactory(new PropertyValueFactory<UtilityConsumption, Integer>("waterAmount"));
 
-        ArrayList<UtilityConsumption> cList = new ArrayList<UtilityConsumption>();
-        try {
-            Utility.loadFrom("ResidentData.bin", cList);
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed");
-        }
-        for (UtilityConsumption uc: cList){
-            uc = new UtilityConsumption(uc.getElectricityAmount(), uc.getWaterAmount(), uc.getGasAmount());
+        ArrayList<UtilityConsumption> ucList = Utility.loadObject("UtilityConsumptionData.bin");
+
+        for (UtilityConsumption uc: ucList){
+            uc = new UtilityConsumption(uc.getUtilityConsumptionId(),
+                    uc.getElectricityAmount(), uc.getWaterAmount(), uc.getGasAmount());
             utilityConsumptionTableView.getItems().add(uc);
 
         }

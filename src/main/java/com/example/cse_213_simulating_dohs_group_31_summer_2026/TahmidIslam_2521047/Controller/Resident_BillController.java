@@ -1,9 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -18,7 +19,7 @@ public class Resident_BillController {
     private ComboBox<String> selectMonthComboBox;
     @javafx.fxml.FXML
     private Text billAmountText;
-
+    Resident res;
 
     Bill billObj = null;
     ArrayList<Bill> billList = new ArrayList<Bill>();
@@ -32,6 +33,7 @@ public class Resident_BillController {
 
     @javafx.fxml.FXML
     public void payBillButtonOnAction(ActionEvent actionEvent) {
+        Resident res = SessionManager.resident;
         if (billAmountText.getText().equals("0 TK")) {
             Utility.showAlert("Error", "Can't Pay Bill for 0 TK");
             return;
@@ -41,21 +43,10 @@ public class Resident_BillController {
             return;
         }
         billList.remove(billObj);
-        billAmountText.setText("0 TK");
-        try {
-            File billFile = new File("BillData.bin");
-            if (billFile.exists()) {
-                billFile.delete();
-            }
-            for(Bill b: billList){
-                Utility.writeInto("BillData.bin", b, true);
-            }
+        String str = res.payBill(billList);
+        billAmountText.setText(str);
 
-        } catch (Exception e) {
-            System.out.println("Save Failed");
-            return;
-        }
-        Utility.showAlert("Success", "Bill Paid Successfully");
+
         return;
     }
 
@@ -71,14 +62,9 @@ public class Resident_BillController {
         }
 
 
-        try {
-            Utility.loadFrom("BillData.bin", billList);
-        } catch (Exception e) {
-            Utility.showAlert("Error", "Load Failed.");
-            return;
 
+        billList = Utility.loadObject("BillData.bin");
 
-        }
 
         try {
             int year2 = Integer.parseInt(enterYearTextField.getText());

@@ -24,7 +24,7 @@ public class SecurityInCharge extends User {
         this.securityId = "";
     }
 
-    public SecurityInCharge(String userId, String name, String role, String password, boolean isLoggedIn, String securityId) {
+    public SecurityInCharge(int userId, String name, String role, String password, boolean isLoggedIn, String securityId) {
         super(userId, name, role, password, isLoggedIn);
         this.securityId = securityId;
 

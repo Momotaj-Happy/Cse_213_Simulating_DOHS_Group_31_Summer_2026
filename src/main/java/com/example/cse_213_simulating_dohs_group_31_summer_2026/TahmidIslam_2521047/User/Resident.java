@@ -7,25 +7,25 @@ import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.User;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
-import jdk.jshell.execution.Util;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Resident extends User implements Serializable {
     private final int residentId;
     private String residentName, residentAddress;
-    private Facility bookedFacility;
+    private ArrayList<Facility> bookedFacility;
 
-    public Facility getBookedFacility() {
+    public ArrayList<Facility> getBookedFacility() {
         return bookedFacility;
     }
 
-    public void setBookedFacility(Facility bookedFacility) {
+    public void setBookedFacility(ArrayList<Facility> bookedFacility) {
         this.bookedFacility = bookedFacility;
     }
 
-    //private static final long serialVersionUID = 1L;
 
     public int getResidentId() {
         return residentId;
@@ -55,11 +55,12 @@ public class Resident extends User implements Serializable {
         this.bookedFacility = null;
     }
 
-    public Resident(String userId, String name, String role, boolean isLoggedIn, int residentId, String residentName, String residentAddress) {
-        super(userId, name, role, isLoggedIn);
-        this.residentId = residentId;
-        this.residentName = residentName;
+    public Resident(int userId, String name, String password, String residentAddress, ArrayList<Facility> bookedFacility) {
+        super(userId, name, password);
+        this.residentId = userId;
+        this.residentName = name;
         this.residentAddress = residentAddress;
+        this.bookedFacility = bookedFacility;
     }
 
     @Override
@@ -77,22 +78,18 @@ public class Resident extends User implements Serializable {
     public void updateProfile(ActionEvent actionEvent, String newName, String newAddress) {
         setResidentName(newName);
         setResidentAddress(newAddress);
-        Resident resident = new Resident(getResidentId(), newName, newAddress);
-        try {
-            Utility.writeInto("ResidentData.bin", resident, false);
-            Utility.showAlert("Success", "Profile Updated");
-        } catch (Exception e) {
-            System.out.println("Save Failed");
-            Utility.showAlert("Error", "Save Failed");
-            return;
-        }
-        //Utility.openFxml(actionEvent, "Profile", "Resident_2521047/Resident-Profile-View.fxml");
+        Resident resident = new Resident(getResidentId(), newName,super.getPassword(),
+                newAddress, bookedFacility);
+
+        Utility.saveObject("ResidentData.bin", resident, false);
+        Utility.showAlert("Success", "Profile Updated");
+        Utility.openFxml(actionEvent, "Profile", "Resident_2521047/Resident-Profile-View.fxml");
     }
 
     public void bookFacility(Facility f){
-        bookedFacility= f;
+        bookedFacility.add(f);
         try{
-            Utility.writeInto("ResidentData.bin", this, false);
+            Utility.saveObject("ResidentData.bin", this, false);
         }
         catch(Exception e){
             Utility.showAlert("Error", "Save Failed");
@@ -106,18 +103,33 @@ public class Resident extends User implements Serializable {
     }
 
     public void requestMaintenanceWork(MaintenanceRequest m){
-        try{
-            Utility.writeInto("MaintenanceRequest.bin", m, true);
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed");
-            return;
-        }
+
+        Utility.saveObject("MaintenanceRequest.bin", m, true);
+
         Utility.showAlert("Success", "Maintenance Request Submitted");
     }
 
     public void submitComplaint(Complaint c){
 
         Utility.showAlert("Success", "Successfully submitted complaint");
+        Utility.saveObject("ComplaintData.bin", c, true);
+    }
+
+    public String payBill(ArrayList<Bill> billList) {
+        try {
+            File billFile = new File("BillData.bin");
+            if (billFile.exists()) {
+                billFile.delete();
+            }
+            for (Bill b : billList) {
+                Utility.saveObject("BillData.bin", b, true);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Save Failed");
+            return "0 TK";
+        }
+        Utility.showAlert("Success", "Bill Paid Successfully");
+        return "0 TK";
     }
 }

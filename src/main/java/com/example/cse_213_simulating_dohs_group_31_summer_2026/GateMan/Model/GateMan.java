@@ -14,7 +14,7 @@ public class GateMan extends User {
         super();
     }
 
-    public GateMan(String userId, String name, String role, boolean isLoggedIn, String gateManId) {
+    public GateMan(int userId, String name, String role, boolean isLoggedIn, String gateManId) {
         super(userId, name, role, isLoggedIn);
         this.gateManId = gateManId;
     }

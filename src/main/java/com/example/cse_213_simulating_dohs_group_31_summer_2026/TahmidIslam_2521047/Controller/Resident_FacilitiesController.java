@@ -56,7 +56,7 @@ public class Resident_FacilitiesController
         }
         ArrayList<Resident> rList = new ArrayList<Resident>();
         try {
-            Utility.loadFrom("ResidentData.bin", rList);
+            Utility.loadFrom2("ResidentData.bin", rList);
 
         } catch (Exception e) {
             Utility.showAlert("Error", "Load Failed");
@@ -76,7 +76,7 @@ public class Resident_FacilitiesController
             return;
         }
         try{
-            Utility.loadFrom("FacilityData.bin", fac);
+            Utility.loadFrom2("FacilityData.bin", fac);
         }
         catch (Exception e){
             Utility.showAlert("Error", "Load Failed");

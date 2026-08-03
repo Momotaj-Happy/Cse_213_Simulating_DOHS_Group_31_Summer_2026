@@ -33,7 +33,7 @@ public class Resident_TransactionsController
         transactionIdTableCol.setCellValueFactory(new PropertyValueFactory<Bill, Integer>("billId"));
         transactionTypeTableCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("transactionType"));
         try{
-            Utility.loadFrom("ResidentData.bin", rList);
+            Utility.loadFrom2("ResidentData.bin", rList);
         }
         catch (Exception e){
             Utility.showAlert("Error", "Load Failed");
@@ -41,7 +41,7 @@ public class Resident_TransactionsController
         }
 
         try{
-            Utility.loadFrom("BillData.bin", transaction);
+            Utility.loadFrom2("BillData.bin", transaction);
         }
         catch (Exception e){
             Utility.showAlert("Error", "Load Failed");

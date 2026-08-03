@@ -1,21 +1,21 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
 public class User {
-    private String userId;
+    private int userId;
     private String name;
     private String role;
     private String password;
     private boolean isLoggedIn;
 
     public User() {
-        this.userId = "";
+        this.userId = 0;
         this.name = "";
         this.role = "";
         this.password = "";
         this.isLoggedIn = false;
     }
 
-    public User(String userId, String name, String role, String password, boolean isLoggedIn) {
+    public User(int userId, String name, String role, String password, boolean isLoggedIn) {
         this.userId = userId;
         this.name = name;
         this.role = role;
@@ -23,13 +23,21 @@ public class User {
         this.isLoggedIn = isLoggedIn;
     }
 
-    public User(String userId, String name, String role, boolean isLoggedIn) {
+    public User(int userId, String name, String role, boolean isLoggedIn) {
+        this.userId = userId;
+        this.name = name;
+        this.role = role;
+        this.isLoggedIn = isLoggedIn;
     }
 
-    public boolean login(String username, String password) {
-        if (username != null && password != null &&
-                (username.trim().equalsIgnoreCase(this.userId) || username.trim().equalsIgnoreCase(this.name)) &&
-                password.equals(this.password)) {
+    public User(int userId, String name, String password) {
+        this.userId = userId;
+        this.name = name;
+        this.password = password;
+    }
+
+    public boolean login(int userid, String password) {
+        if (password.equals(this.password) && userid == this.userId) {
 
             this.isLoggedIn = true;
             return true;
@@ -43,11 +51,11 @@ public class User {
         return true;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 

@@ -41,7 +41,7 @@ public class Resident_MaintenanceRequestController
             return;
         }
         try{
-            Utility.loadFrom("ResidentData.bin", rList);
+            Utility.loadFrom2("ResidentData.bin", rList);
         }
         catch (Exception e){
             Utility.showAlert("Error", "Load Failed");

@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -38,12 +39,35 @@ public class LoginViewController
             return;
         }
         if (userTypeComboBox.getValue().equals("Resident")) {
+            Resident r = new Resident(Integer.parseInt(staffIdTextField.getText()),
+                    "Resident", passwordField.getText(), "Address",
+                    null);
+            Utility.saveObject("ResidentData.bin", r, true);
+            SessionManager.resident= r;
+
             Utility.openFxml(actionEvent, "Resident Dashboard", "Resident_2521047/Resident-Dashboard-View.fxml");
         }
         else if (userTypeComboBox.getValue().equals("Maintenance Technician")) {
             Utility.openFxml(actionEvent, "Maintenance Technician", "MaintenanceTechnician_2521047/Technician-Dashboard-View.fxml");
         }
-        else {
+        else if (userTypeComboBox.getValue().equals("Accountant")) {
+            Utility.openFxml(actionEvent, "Accountant", "Accountant/AccountantDashboard.fxml");
+
+        }
+        else if (userTypeComboBox.getValue().equals("President")) {
+            Utility.openFxml(actionEvent, "President", "President/PresidentDashboard.fxml");
+
+        }
+        else if (userTypeComboBox.getValue().equals("Residential Operations Staff")) {
+            Utility.openFxml(actionEvent, "Residential Operations Staff", "ResidentialOperationsStaff_2431050/Staff-Dashboard-View.fxml");
+
+        }
+        else if (userTypeComboBox.getValue().equals("Staff Supervisor")) {
+            Utility.openFxml(actionEvent, "Staff Supervisor", "StaffSupervisor_2431050/Supervisor-Dashboard-View.fxml");
+
+        }
+
+        else{
 
         }
     }

@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
@@ -24,42 +25,27 @@ public class Resident_ProfileController
     private Text idText;
 
 
-    ArrayList<Resident> rList= new ArrayList<Resident>();
+    Resident res = SessionManager.resident;
 
 
     @javafx.fxml.FXML
     public void initialize() {
 
-        try {
-            Utility.loadFrom("ResidentData.bin", rList);
-
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed");
-            return;
-        }
-        Resident r = rList.getFirst();
-        idText.setText(String.valueOf(r.getResidentId()));
-        nameText.setText(r.getResidentName());
-        addressText.setText(r.getResidentAddress());
+        idText.setText(String.valueOf(res.getResidentId()));
+        nameText.setText(res.getResidentName());
+        addressText.setText(res.getResidentAddress());
 
 
     }
 
     @javafx.fxml.FXML
     public void updateProfileOnAction(ActionEvent actionEvent) {
-        /*try {
-            Utility.loadFrom("ResidentData.bin", rList);
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed" + e);
-            return;
-        }*/
+
         if (enterNewAddressTextField.getText().isEmpty() || enterNameTextField.getText().isEmpty()){
             Utility.showAlert("Error", "Please fill up all the fields");
             return;
         }
-        rList.getFirst().updateProfile(actionEvent, enterNewAddressTextField.getText(), enterNewAddressTextField.getText());
+        res.updateProfile(actionEvent, enterNameTextField.getText(), enterNewAddressTextField.getText());
     }
 
     @javafx.fxml.FXML
