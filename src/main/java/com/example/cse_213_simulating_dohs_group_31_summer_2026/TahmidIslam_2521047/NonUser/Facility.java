@@ -1,8 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser;
 
-public class Facility {
+import java.io.Serializable;
+
+public class Facility implements Serializable {
     private int facilityId, bookingPrice;
-    private String facilityType, Location, facilityName;
+    private String facilityType, location, facilityName;
     private boolean availability;
 
     public int getFacilityId() {
@@ -14,7 +16,7 @@ public class Facility {
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setBookingPrice(int bookingPrice) {
@@ -38,17 +40,18 @@ public class Facility {
     }
 
     public void setLocation(String location) {
-        Location = location;
+        location = location;
     }
 
     public void setFacilityName(String facilityName) {
         this.facilityName = facilityName;
     }
 
-    public Facility(int facilityId, String facilityType, String location, String facilityName, boolean availability) {
+    public Facility(int facilityId, int bookingPrice, String facilityType, String location, String facilityName, boolean availability) {
         this.facilityId = facilityId;
+        this.bookingPrice = bookingPrice;
         this.facilityType = facilityType;
-        Location = location;
+        this.location = location;
         this.facilityName = facilityName;
         this.availability = availability;
     }

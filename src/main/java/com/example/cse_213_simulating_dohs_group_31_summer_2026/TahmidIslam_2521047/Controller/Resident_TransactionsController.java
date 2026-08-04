@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
@@ -23,32 +24,28 @@ public class Resident_TransactionsController
     @javafx.fxml.FXML
     private TableColumn<Bill, String> transactionTypeTableCol;
     @javafx.fxml.FXML
-    private TableColumn<Bill, LocalDate> dateTableCol;
-    ArrayList<Bill> transaction;
-    ArrayList<Resident> rList;
+    private TableColumn<Bill, String> monthTableCol;
+    @javafx.fxml.FXML
+    private TableColumn<Bill, Integer> yearTableCol;
+
+    Resident res = SessionManager.resident;
+    ArrayList<Bill> bList;
 
     @javafx.fxml.FXML
     public void initialize() {
         amountTableCol.setCellValueFactory(new PropertyValueFactory<Bill, Integer>("amount"));
         transactionIdTableCol.setCellValueFactory(new PropertyValueFactory<Bill, Integer>("billId"));
         transactionTypeTableCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("transactionType"));
-        try{
-            Utility.loadFrom2("ResidentData.bin", rList);
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed");
-            return;
-        }
+        monthTableCol.setCellValueFactory(new PropertyValueFactory<Bill, String>("month"));
+        yearTableCol.setCellValueFactory(new PropertyValueFactory<Bill, Integer>("year"));
 
-        try{
-            Utility.loadFrom2("BillData.bin", transaction);
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed");
-            return;
-        }
-        for (Bill b: transaction){
-            transactionsTableView.getItems().add(b);
+        bList = Utility.loadObject("BillData.bin");
+
+
+        for (Bill b: bList){
+            if(b.getPaid()) {
+                transactionsTableView.getItems().add(b);
+            }
         }
     }
 

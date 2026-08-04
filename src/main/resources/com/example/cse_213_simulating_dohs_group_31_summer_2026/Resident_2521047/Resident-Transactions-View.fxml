@@ -14,12 +14,13 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <TableView fx:id="transactionsTableView" layoutX="31.0" layoutY="73.0" prefHeight="240.0" prefWidth="509.0">
+      <TableView fx:id="transactionsTableView" layoutX="31.0" layoutY="73.0" prefHeight="240.0" prefWidth="550.0">
         <columns>
           <TableColumn fx:id="transactionIdTableCol" prefWidth="104.0" text="Transaction ID" />
-          <TableColumn fx:id="transactionTypeTableCol" prefWidth="150.39996337890625" text="Transaction Type" />
-            <TableColumn fx:id="dateTableCol" prefWidth="125.60003662109375" text="Date" />
-            <TableColumn fx:id="amountTableCol" prefWidth="129.5999755859375" text="Amount" />
+          <TableColumn fx:id="transactionTypeTableCol" prefWidth="144.0" text="Transaction Type" />
+            <TableColumn fx:id="monthTableCol" prefWidth="104.79998779296875" text="Month" />
+            <TableColumn fx:id="yearTableCol" prefWidth="93.60003662109375" text="Year" />
+            <TableColumn fx:id="amountTableCol" prefWidth="103.20001220703125" text="Amount" />
         </columns>
       </TableView>
       <Button layoutX="31.0" layoutY="336.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="33.0" prefWidth="59.0" text="Back" />

@@ -43,6 +43,8 @@ public class Resident_BillController {
             return;
         }
         billList.remove(billObj);
+        billObj.setPaid(true);
+        billList.add(billObj);
         String str = res.payBill(billList);
         billAmountText.setText(str);
 
@@ -70,7 +72,7 @@ public class Resident_BillController {
             int year2 = Integer.parseInt(enterYearTextField.getText());
             for (Bill b : billList) {
                 billAmountText.setText("0 TK");
-                if (b.getYear() == year2 && b.getMonth().equals(month)) {
+                if (b.getYear() == year2 && b.getMonth().equals(month) && !b.getPaid()) {
                     int billAmount = b.getAmount();
                     billAmountText.setText(String.valueOf(billAmount) + " TK");
                     billObj = b;

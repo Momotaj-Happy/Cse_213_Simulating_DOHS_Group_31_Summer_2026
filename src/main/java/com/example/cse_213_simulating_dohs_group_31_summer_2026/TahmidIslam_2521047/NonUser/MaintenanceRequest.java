@@ -65,4 +65,16 @@ public class MaintenanceRequest implements Serializable {
         this.requestDescription = requestDescription;
         this.taskGivenDate = taskGivenDate;
     }
+
+    @Override
+    public String toString() {
+        return "MaintenanceRequest{" +
+                "requestId=" + requestId +
+                ", residentName='" + residentName + '\'' +
+                ", requestType='" + requestType + '\'' +
+                ", residentAddress='" + residentAddress + '\'' +
+                ", requestDescription='" + requestDescription + '\'' +
+                ", taskGivenDate=" + taskGivenDate +
+                '}';
+    }
 }

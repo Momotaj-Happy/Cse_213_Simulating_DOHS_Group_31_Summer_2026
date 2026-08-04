@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.MaintenanceRequest;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
@@ -17,8 +18,10 @@ public class Resident_MaintenanceRequestController
     @javafx.fxml.FXML
     private TextArea maintenanceWorkTextField;
 
-    ArrayList<Resident> rList;
     @javafx.fxml.FXML
+
+    Resident res = SessionManager.resident;
+
     public void initialize() {
         selectRequiredMaintenanceComboBox.getItems().addAll("Electricity", "Water", "Gas", "Others");
 
@@ -40,17 +43,10 @@ public class Resident_MaintenanceRequestController
             Utility.showAlert("Error", "Please write about the maintenance Problem");
             return;
         }
-        try{
-            Utility.loadFrom2("ResidentData.bin", rList);
-        }
-        catch (Exception e){
-            Utility.showAlert("Error", "Load Failed");
-            return;
-        }
-        Resident r = rList.getFirst();
-        MaintenanceRequest m = new MaintenanceRequest(r.getResidentId(), r.getResidentName(),
-                selectRequiredMaintenanceComboBox.getValue(), r.getResidentAddress(), maintenanceWorkTextField.getText(),
+
+        MaintenanceRequest m = new MaintenanceRequest(res.getResidentId(), res.getResidentName(),
+                selectRequiredMaintenanceComboBox.getValue(), res.getResidentAddress(), maintenanceWorkTextField.getText(),
                 LocalDate.now());
-        r.requestMaintenanceWork(m);
+        res.requestMaintenanceWork(m);
     }
 }

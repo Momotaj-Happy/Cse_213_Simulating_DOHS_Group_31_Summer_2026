@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class SilentAlarm {
+public class SilentAlarm implements Serializable {
     private String alarmId;
     private String location;
     private String time;

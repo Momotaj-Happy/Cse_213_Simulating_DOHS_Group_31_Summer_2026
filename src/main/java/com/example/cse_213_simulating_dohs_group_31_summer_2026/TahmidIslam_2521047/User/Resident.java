@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SilentAlarm;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Complaint;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
@@ -10,6 +11,7 @@ import javafx.event.ActionEvent;
 
 import java.io.File;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -88,17 +90,29 @@ public class Resident extends User implements Serializable {
 
     public void bookFacility(Facility f){
         bookedFacility.add(f);
-        try{
-            Utility.saveObject("ResidentData.bin", this, false);
+        ArrayList<Facility> fac= Utility.loadObject("FacilityData.bin");
+        fac.remove(f);
+        f.setAvailability(false);
+        fac.add(f);
+        File facilityFile = new File("FacilityData.bin");
+        if (facilityFile.exists()){
+            facilityFile.delete();
         }
-        catch(Exception e){
-            Utility.showAlert("Error", "Save Failed");
-            return;
+
+        for(Facility facility:fac){
+            Utility.saveObject("FacilityData.bin", facility, true);
         }
+
+
+        Utility.saveObject("ResidentData.bin", this, true);
+
         Utility.showAlert("Success", "Facility Booking Successful");
     }
 
     public void triggerSilentAlarm(){
+        SilentAlarm sa = new SilentAlarm(String.valueOf(getResidentId()), getResidentAddress(),
+                LocalDate.now().toString(),"Resident Silent Alarm", true);
+        Utility.saveObject("SilentAlarmData.bin", sa, true);
         Utility.showAlert("Silent Alarm", "Successfully Triggered Silent Alarm");
     }
 

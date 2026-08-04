@@ -1,8 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.UtilityConsumption;
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -22,10 +22,10 @@ public class DummyDataGenerator extends Application {
             billFile.delete();
         }
 
-        Bill bill = new Bill(1, 100, 2026, "January");
-        Bill bill2 = new Bill(2, 150, 2026, "March");
-        Bill bill3= new Bill(3, 200, 2026, "April");
-        Bill bill4 = new Bill(4, 5000, 2026, "July");
+        Bill bill = new Bill(1, 100, 2026, "January","Pay Bill", false);
+        Bill bill2 = new Bill(2, 150, 2026, "March","Pay Bill", false);
+        Bill bill3= new Bill(3, 200, 2026, "April", "Pay Bill", false);
+        Bill bill4 = new Bill(4, 5000, 2026, "July", "Pay Bill",  false);
         Utility.saveObject("BillData.bin", bill, true);
         Utility.saveObject("BillData.bin", bill2, true);
         Utility.saveObject("BillData.bin", bill3, true);
@@ -51,6 +51,29 @@ public class DummyDataGenerator extends Application {
         System.out.println("Utility Consumption Save Successfull");
 
 
+
+
+        File facilityFile = new File("FacilityData.bin");
+        if (facilityFile.exists()) {
+            facilityFile.delete();
+        }
+
+        Facility facility = new Facility(1, 10000, "Park",
+                "Block A", "ABC Park", true);
+        Facility facility2 = new Facility(2, 15000, "Community Center",
+                "Block B", "DEF Convention Centre", true);
+        Facility facility3 = new Facility(3, 8000, "Parking",
+                "Block C", "GHI Parking", true);
+        Facility facility4 = new Facility(4, 22000, "Gym",
+                "Block B", "JKL Gym", true);
+        Facility facility5 = new Facility(5, 11500, "Park",
+                "Block C", "XYZ Park", true);
+        Utility.saveObject("FacilityData.bin", facility, true);
+        Utility.saveObject("FacilityData.bin", facility2, true);
+        Utility.saveObject("FacilityData.bin", facility3, true);
+        Utility.saveObject("FacilityData.bin", facility4, true);
+        Utility.saveObject("FacilityData.bin", facility5, true);
+        System.out.println("Facility Save Successfull");
 
     }
 }

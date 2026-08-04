@@ -6,6 +6,19 @@ import java.time.LocalDate;
 public class Bill implements Serializable {
     private int billId, amount, year;
     private String month, transactionType;
+    private Boolean isPaid;
+
+    public void setBillId(int billId) {
+        this.billId = billId;
+    }
+
+    public Boolean getPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(Boolean paid) {
+        isPaid = paid;
+    }
 
     public String getTransactionType() {
         return transactionType;
@@ -44,10 +57,24 @@ public class Bill implements Serializable {
     }
 
 
-    public Bill(int billId, int amount, int year, String month) {
+    public Bill(int billId, int amount, int year, String month,String transactionType, boolean isPaid) {
         this.billId = billId;
         this.amount = amount;
         this.year = year;
         this.month = month;
+        this.transactionType = transactionType;
+        this.isPaid = isPaid;
+    }
+
+    @Override
+    public String toString() {
+        return "Bill{" +
+                "billId=" + billId +
+                ", amount=" + amount +
+                ", year=" + year +
+                ", month='" + month + '\'' +
+                ", transactionType='" + transactionType + '\'' +
+                ", isPaid=" + isPaid +
+                '}';
     }
 }

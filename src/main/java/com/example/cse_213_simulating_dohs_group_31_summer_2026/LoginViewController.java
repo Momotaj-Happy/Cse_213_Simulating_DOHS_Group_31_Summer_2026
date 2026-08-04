@@ -1,5 +1,6 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
@@ -8,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LoginViewController
 {
@@ -41,7 +43,7 @@ public class LoginViewController
         if (userTypeComboBox.getValue().equals("Resident")) {
             Resident r = new Resident(Integer.parseInt(staffIdTextField.getText()),
                     "Resident", passwordField.getText(), "Address",
-                    null);
+                    new ArrayList<Facility>());
             Utility.saveObject("ResidentData.bin", r, true);
             SessionManager.resident= r;
 
