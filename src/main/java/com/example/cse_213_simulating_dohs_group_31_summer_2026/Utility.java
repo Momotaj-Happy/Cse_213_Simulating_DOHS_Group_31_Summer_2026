@@ -40,67 +40,7 @@ public class Utility {
         }
     }
 
-    public static <T> void saveObject2(String fileName, T data, boolean append) throws IOException {
 
-        File file = new File(fileName);
-        FileOutputStream fileOut;
-        ObjectOutputStream objOut;
-
-        if (file.exists()) {
-            fileOut = new FileOutputStream(file, append);
-            objOut = new AppendableObjectOutputStream(fileOut);
-
-        } else {
-            fileOut = new FileOutputStream(file);
-            objOut = new ObjectOutputStream(fileOut);
-
-        }
-
-        objOut.writeObject(data);
-        objOut.close();
-
-
-    }
-
-
-    public static <T> void loadFrom2(String fileName, ArrayList<T> list) throws IOException {
-        File file = new File(fileName);
-
-        if (!file.exists()) {
-            showAlert("Error", "File missing.");
-            return;
-
-        }
-
-        FileInputStream fileIn = new FileInputStream(file);
-        ObjectInputStream objIn = new ObjectInputStream(fileIn);
-
-        try {
-            while (true) {
-                //T obj = (T) objIn.readObject();
-                //list.add(obj);
-                try {
-                    T obj = (T) objIn.readObject();
-                    list.add(obj);
-                } catch (EOFException e) {
-
-                    break;
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException("Class not found", e);
-                }
-
-            }
-
-
-            //catch (ClassNotFoundException e) {
-            //throw new RuntimeException(e);
-        } finally {
-            objIn.close();
-
-        }
-
-
-    }
 
 
     // Save a single object (overwrites the file) also append if file exists
