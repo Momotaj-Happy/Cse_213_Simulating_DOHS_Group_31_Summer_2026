@@ -4,7 +4,7 @@ import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Complaint;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.MaintenanceRequest;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.MaintenanceTask;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.User;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Resident extends User implements Serializable {
     private final int residentId;
@@ -116,9 +115,9 @@ public class Resident extends User implements Serializable {
         Utility.showAlert("Silent Alarm", "Successfully Triggered Silent Alarm");
     }
 
-    public void requestMaintenanceWork(MaintenanceRequest m){
+    public void requestMaintenanceWork(MaintenanceTask m){
 
-        Utility.saveObject("MaintenanceRequest.bin", m, true);
+        Utility.saveObject("MaintenanceTaskData.bin", m, true);
 
         Utility.showAlert("Success", "Maintenance Request Submitted");
     }

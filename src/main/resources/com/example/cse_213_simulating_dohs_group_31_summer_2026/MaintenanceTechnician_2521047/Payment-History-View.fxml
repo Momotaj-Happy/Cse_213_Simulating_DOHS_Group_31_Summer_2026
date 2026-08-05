@@ -17,9 +17,10 @@
       <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
       <TableView fx:id="paymentHistoryTableView" layoutX="26.0" layoutY="100.0" prefHeight="230.0" prefWidth="546.0">
         <columns>
-          <TableColumn fx:id="transactionIdTableCol" prefWidth="176.00006103515625" text="Transaction ID" />
-          <TableColumn fx:id="transactionDateTableCol" prefWidth="164.7999267578125" text="Transaction Date" />
-            <TableColumn fx:id="amountOfTransactionTableCol" prefWidth="204.7999267578125" text="Amount of Transaction" />
+          <TableColumn fx:id="transactionIdTableCol" prefWidth="132.79998779296875" text="Transaction ID" />
+          <TableColumn fx:id="monthTableCol" prefWidth="114.39996337890625" text="Month" />
+            <TableColumn fx:id="yearTableCol" prefWidth="136.800048828125" text="Year" />
+            <TableColumn fx:id="amountOfTransactionTableCol" prefWidth="161.5999755859375" text="Amount of Transaction" />
         </columns>
       </TableView>
    </children>

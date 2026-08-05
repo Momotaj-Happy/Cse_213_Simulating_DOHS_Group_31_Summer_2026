@@ -1,12 +1,20 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.MaintenanceTechnician;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
+import javafx.scene.text.Text;
 
 public class TechnicianDashboardController
 {
+    MaintenanceTechnician mt = SessionManager.technician;
+    @javafx.fxml.FXML
+    private Text techinicianIdText;
+
     @javafx.fxml.FXML
     public void initialize() {
+        techinicianIdText.setText(String.valueOf(mt.getTechnicianId()));
     }
 
     @javafx.fxml.FXML
@@ -36,6 +44,10 @@ public class TechnicianDashboardController
 
     @javafx.fxml.FXML
     public void currentTaskOnAction(ActionEvent actionEvent) {
+        if(mt.getCurrentAcceptedTask()==null){
+            Utility.showAlert("No Current Accepted Task", "You do not have any unfinished accepted tasks");
+            return;
+        }
         Utility.openFxml(actionEvent, "Current Task", "MaintenanceTechnician_2521047/Current-Task-View.fxml");
     }
 

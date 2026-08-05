@@ -1,6 +1,7 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.MaintenanceTechnician;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
@@ -8,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginViewController
@@ -34,6 +34,15 @@ public class LoginViewController
         String userType = userTypeComboBox.getValue();
         String userId = staffIdTextField.getText();
         String password = passwordField.getText();
+        int userid;
+
+        try{
+            userid = Integer.parseInt(userId);
+        }
+        catch (Exception e){
+            Utility.showAlert("Error", "User ID must be an Integer");
+            return;
+        }
 
 
         if (userType==null || userId.isEmpty() || password.isEmpty()){
@@ -41,15 +50,19 @@ public class LoginViewController
             return;
         }
         if (userTypeComboBox.getValue().equals("Resident")) {
-            Resident r = new Resident(Integer.parseInt(staffIdTextField.getText()),
-                    "Resident", passwordField.getText(), "Address",
-                    new ArrayList<Facility>());
+            Resident r = new Resident(userid,"Resident", passwordField.getText(),
+                    "Address", new ArrayList<Facility>());
             Utility.saveObject("ResidentData.bin", r, true);
             SessionManager.resident= r;
 
             Utility.openFxml(actionEvent, "Resident Dashboard", "Resident_2521047/Resident-Dashboard-View.fxml");
         }
         else if (userTypeComboBox.getValue().equals("Maintenance Technician")) {
+            MaintenanceTechnician mt = new MaintenanceTechnician(userid, "Maintenance Technician",
+                    "Maintenance Technician", password, true, false,
+                    null, null, null);
+
+            SessionManager.technician = mt;
             Utility.openFxml(actionEvent, "Maintenance Technician", "MaintenanceTechnician_2521047/Technician-Dashboard-View.fxml");
         }
         else if (userTypeComboBox.getValue().equals("Accountant")) {

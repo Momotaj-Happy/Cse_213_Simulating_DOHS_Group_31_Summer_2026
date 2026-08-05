@@ -1,7 +1,7 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.MaintenanceRequest;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.MaintenanceTask;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
@@ -9,7 +9,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Resident_MaintenanceRequestController
 {
@@ -44,9 +43,9 @@ public class Resident_MaintenanceRequestController
             return;
         }
 
-        MaintenanceRequest m = new MaintenanceRequest(res.getResidentId(), res.getResidentName(),
+        MaintenanceTask m = new MaintenanceTask(res.getResidentId(), res.getResidentName(),
                 selectRequiredMaintenanceComboBox.getValue(), res.getResidentAddress(), maintenanceWorkTextField.getText(),
-                LocalDate.now());
+                LocalDate.now(), false);
         res.requestMaintenanceWork(m);
     }
 }
