@@ -24,61 +24,33 @@ public class OccasionSchedule {
         this.status = status;
     }
 
-    public String getOccasionName() {
-        return occasionName;
-    }
+    public String getOccasionName() {return occasionName;}
 
-    public void setOccasionName(String occasionName) {
-        this.occasionName = occasionName;
-    }
+    public void setOccasionName(String occasionName) {this.occasionName = occasionName;}
 
-    public String getStatus() {
-        return status;
-    }
+    public String getStatus() {return status;}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    public void setStatus(String status) {this.status = status;}
 
-    public String getAffectedAreas() {
-        return affectedAreas;
-    }
+    public String getAffectedAreas() {return affectedAreas;}
 
-    public void setAffectedAreas(String affectedAreas) {
-        this.affectedAreas = affectedAreas;
-    }
+    public void setAffectedAreas(String affectedAreas) {this.affectedAreas = affectedAreas;}
 
-    public String getEndTime() {
-        return endTime;
-    }
+    public String getEndTime() {return endTime;}
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
+    public void setEndTime(String endTime) {this.endTime = endTime;}
 
-    public String getServiceType() {
-        return serviceType;
-    }
+    public String getServiceType() {return serviceType;}
 
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
-    }
+    public void setServiceType(String serviceType) {this.serviceType = serviceType;}
 
-    public String getStartTime() {
-        return startTime;
-    }
+    public String getStartTime() {return startTime;}
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
+    public void setStartTime(String startTime) {this.startTime = startTime;}
 
-    public LocalDate getDate() {
-        return date;
-    }
+    public LocalDate getDate() {return date;}
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
+    public void setDate(LocalDate date) {this.date = date;}
 
     @Override
     public String toString() {

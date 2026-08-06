@@ -28,85 +28,45 @@ public class Task {
         this.notes = notes;
     }
 
-    public String getTaskId() {
-        return taskId;
-    }
+    public String getTaskId() {return taskId;}
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+    public void setTaskId(String taskId) {this.taskId = taskId;}
 
-    public String getStaffName() {
-        return staffName;
-    }
+    public String getStaffName() {return staffName;}
 
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
-    }
+    public void setStaffName(String staffName) {this.staffName = staffName;}
 
-    public String getDutyType() {
-        return dutyType;
-    }
+    public String getDutyType() {return dutyType;}
 
-    public void setDutyType(String dutyType) {
-        this.dutyType = dutyType;
-    }
+    public void setDutyType(String dutyType) {this.dutyType = dutyType;}
 
-    public String getLocation() {
-        return location;
-    }
+    public String getLocation() {return location;}
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    public void setLocation(String location) {this.location = location;}
 
-    public String getTimeSlot() {
-        return timeSlot;
-    }
+    public String getTimeSlot() {return timeSlot;}
 
-    public void setTimeSlot(String timeSlot) {
-        this.timeSlot = timeSlot;
-    }
+    public void setTimeSlot(String timeSlot) {this.timeSlot = timeSlot;}
 
-    public String getStatus() {
-        return status;
-    }
+    public String getStatus() {return status;}
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    public void setStatus(String status) {this.status = status;}
 
-    public String getAvailability() {
-        return availability;
-    }
+    public String getAvailability() {return availability;}
 
-    public void setAvailability(String availability) {
-        this.availability = availability;
-    }
+    public void setAvailability(String availability) {this.availability = availability;}
 
-    public String getInstruction() {
-        return instruction;
-    }
+    public String getInstruction() {return instruction;}
 
-    public void setInstruction(String instruction) {
-        this.instruction = instruction;
-    }
+    public void setInstruction(String instruction) {this.instruction = instruction;}
 
-    public String getCompletionTime() {
-        return completionTime;
-    }
+    public String getCompletionTime() {return completionTime;}
 
-    public void setCompletionTime(String completionTime) {
-        this.completionTime = completionTime;
-    }
+    public void setCompletionTime(String completionTime) {this.completionTime = completionTime;}
 
-    public String getNotes() {
-        return notes;
-    }
+    public String getNotes() {return notes;}
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+    public void setNotes(String notes) {this.notes = notes;}
 
     @Override
     public String toString() {
