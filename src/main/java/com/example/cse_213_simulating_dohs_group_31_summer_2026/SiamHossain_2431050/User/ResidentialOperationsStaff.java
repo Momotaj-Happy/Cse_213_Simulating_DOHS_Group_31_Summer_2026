@@ -18,6 +18,8 @@ public class ResidentialOperationsStaff extends User {
     private LocalTime checkOutTime;
 
 
+
+
     public ResidentialOperationsStaff() {
         super();
         this.staffId = "";
