@@ -45,7 +45,7 @@ public class Resident_MaintenanceRequestController
 
         MaintenanceTask m = new MaintenanceTask(res.getResidentId(), res.getResidentName(),
                 selectRequiredMaintenanceComboBox.getValue(), res.getResidentAddress(), maintenanceWorkTextField.getText(),
-                LocalDate.now(), false);
+                LocalDate.now(),false);
         res.requestMaintenanceWork(m);
     }
 }
