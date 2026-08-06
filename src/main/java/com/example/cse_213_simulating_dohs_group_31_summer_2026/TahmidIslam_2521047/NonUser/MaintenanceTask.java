@@ -10,6 +10,7 @@ public class MaintenanceTask implements Serializable {
     private boolean isCompleted;
 
 
+
     public int getRequestId() {
         return requestId;
     }

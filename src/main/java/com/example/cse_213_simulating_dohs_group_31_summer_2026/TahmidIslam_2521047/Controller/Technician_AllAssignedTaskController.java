@@ -58,6 +58,10 @@ public class Technician_AllAssignedTaskController
             Utility.showAlert("Error", "Please select any task to accept");
             return;
         }
+        if(technician.getCurrentAcceptedTask()!=null){
+            Utility.showAlert("Error", "You can not take another task until you finish the current task");
+            return;
+        }
 
         technician.acceptMaintenanceTask(mtask, taskList);
     }

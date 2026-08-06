@@ -109,5 +109,10 @@ public class MaintenanceTechnician extends User implements Serializable {
         }
         Utility.showAlert("Success", "Task Accepted");
     }
+
+    public void requestParts(Tools t){
+        Utility.saveObject("RequestToolsData.bin", t, true);
+        Utility.showAlert("Success", "Parts Requested");
+    }
 }
 

@@ -19,6 +19,10 @@ public class Technician_CreateReportController
 
     @javafx.fxml.FXML
     public void submitReportOnAction(ActionEvent actionEvent) {
+        if(reportDescriptionTextField.getText().isEmpty()){
+            Utility.showAlert("Error", "Please write something to generate the report");
+            return;
+        }
         mt.generateReport(reportDescriptionTextField.getText());
         mt.completeMaintenanceTask();
         Utility.openFxml(actionEvent, "Maintenance Technician", "MaintenanceTechnician_2521047/Technician-Dashboard-View.fxml");
