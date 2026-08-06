@@ -27,6 +27,8 @@ public class StaffSupervisor extends User {
         this.supervisorId = supervisorId;
     }
 
+
+
     public String getSupervisorId() {return supervisorId;}
 
     public void setSupervisorId(String supervisorId) {this.supervisorId = supervisorId;}
