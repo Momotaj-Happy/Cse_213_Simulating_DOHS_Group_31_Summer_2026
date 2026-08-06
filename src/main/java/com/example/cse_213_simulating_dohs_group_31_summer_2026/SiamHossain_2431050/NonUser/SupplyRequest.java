@@ -20,27 +20,49 @@ public class SupplyRequest {
         this.status = status;
     }
 
-    public String getStaffName() {return staffName;}
+    public String getStaffName() {
+        return staffName;
+    }
 
-    public void setStaffName(String staffName) {this.staffName = staffName;}
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
 
-    public String getItem() {return item;}
+    public String getItem() {
+        return item;
+    }
 
-    public void setItem(String item) {this.item = item;}
+    public void setItem(String item) {
+        this.item = item;
+    }
 
-    public int getQuantity() {return quantity;}
+    public int getQuantity() {
+        return quantity;
+    }
 
-    public void setQuantity(int quantity) {this.quantity = quantity;}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-    public String getReason() {return reason;}
+    public String getReason() {
+        return reason;
+    }
 
-    public void setReason(String reason) {this.reason = reason;}
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 
-    public String getUrgency() {return urgency;}
+    public String getUrgency() {
+        return urgency;
+    }
 
-    public void setUrgency(String urgency) {this.urgency = urgency;}
+    public void setUrgency(String urgency) {
+        this.urgency = urgency;
+    }
 
-    public String getStatus() {return status;}
+    public String getStatus() {
+        return status;
+    }
 
     public void setStatus(String status) {
         this.status = status;
@@ -51,9 +73,6 @@ public class SupplyRequest {
         return "SupplyRequest{" +
                 "staffName='" + staffName + '\'' +
                 ", item='" + item + '\'' +
-                ", quantity=" + quantity +
-                ", reason='" + reason + '\'' +
-                ", urgency='" + urgency + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }

@@ -1,45 +1,75 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import org.w3c.dom.Text;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.LeaveApplication;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
-import javax.swing.table.TableColumn;
-import javax.swing.text.TableView;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 
-public class Staff_LeaveController {
-    @javafx.fxml.FXML
+
+
+public class Staff_LeaveController
+{
+    @FXML
     private ComboBox<String> selectLeaveTypeComboBox;
-    @javafx.fxml.FXML
-    private DatePicker endDateDatePicker;
-    @javafx.fxml.FXML
-    private TableColumn startDateTableCol;
-    @javafx.fxml.FXML
-    private Text totalLeaveDaysText;
-    @javafx.fxml.FXML
+    @FXML
     private DatePicker startDateDatePicker;
-    @javafx.fxml.FXML
+    @FXML
+    private DatePicker endDateDatePicker;
+    @FXML
     private TextArea reasonTextArea;
-    @javafx.fxml.FXML
-    private TableColumn endDateTableCol;
-    @javafx.fxml.FXML
-    private TableColumn statusTableCol;
-    @javafx.fxml.FXML
-    private TableView leaveHistoryTableView;
-    @javafx.fxml.FXML
-    private TableColumn leaveIdTableCol;
+    @FXML
+    private Text totalLeaveDaysText;
+    @FXML
+    private TableView<LeaveApplication> leaveHistoryTableView;
+    @FXML
+    private TableColumn<LeaveApplication, String> leaveIdTableCol;
+    @FXML
+    private TableColumn<LeaveApplication, String> startDateTableCol;
+    @FXML
+    private TableColumn<LeaveApplication, String> endDateTableCol;
+    @FXML
+    private TableColumn<LeaveApplication, String> statusTableCol;
 
-    @javafx.fxml.FXML
-    public void submitApplicationOnAction(ActionEvent actionEvent) {
+    private final ObservableList<LeaveApplication> history = FXCollections.observableArrayList();
+
+    @FXML
+    public void initialize() {
+        selectLeaveTypeComboBox.getItems().addAll("Casual Leave", "Sick Leave", "Earned Leave", "Emergency Leave");
+
+        leaveIdTableCol.setCellValueFactory(new PropertyValueFactory<>("leaveId"));
+        startDateTableCol.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        endDateTableCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+        statusTableCol.setCellValueFactory(new PropertyValueFactory<>("status"));
+        leaveHistoryTableView.setItems(history);
+        history.setAll(SessionManager.residentialOperationsStaff.getMyLeaveHistory());
     }
 
-    @javafx.fxml.FXML
-    public void backOnAction(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
+    @FXML
     public void attachDocumentOnAction(ActionEvent actionEvent) {
+        Utility.showAlert("Document Attached", "Supporting document attached (optional).");
     }
+
+    @FXML
+    public void submitApplicationOnAction(ActionEvent actionEvent) {
+        LeaveApplication application = SessionManager.residentialOperationsStaff.applyForLeave(
+                selectLeaveTypeComboBox.getValue(), startDateDatePicker.getValue(), endDateDatePicker.getValue(), reasonTextArea.getText());
+        if (application == null) {
+            Utility.showAlert("Error", "Please pick a valid leave type and date range.");
+            return;
+        }
+        totalLeaveDaysText.setText(application.getTotalDays() + " day(s)");
+        history.add(application);
+        Utility.showAlert("Submitted", "Leave application saved with status Pending.");
+        reasonTextArea.clear();
+    }
+
+    @FXML
+    public void backOnAction(ActionEvent actionEvent) {Utility.openFxml(actionEvent, "Residential Operations Staff", "ResidentialOperationsStaff_2431050/Staff-Dashboard-View.fxml");}
 }

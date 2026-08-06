@@ -8,7 +8,10 @@ public class AttendanceRecord {
     private LocalDate date;
     private LocalTime checkIn;
     private LocalTime checkOut;
-    private String status;
+    private String status; // Present / Late / Absent / On Leave
+
+    public AttendanceRecord() {
+    }
 
     public AttendanceRecord(String staffName, LocalDate date, LocalTime checkIn, LocalTime checkOut, String status) {
         this.staffName = staffName;
@@ -18,33 +21,51 @@ public class AttendanceRecord {
         this.status = status;
     }
 
-    public String getStaffName() {return staffName;}
+    public String getStaffName() {
+        return staffName;
+    }
 
-    public void setStaffName(String staffName) {this.staffName = staffName;}
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
 
-    public LocalDate getDate() {return date;}
+    public LocalDate getDate() {
+        return date;
+    }
 
-    public void setDate(LocalDate date) {this.date = date;}
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
-    public LocalTime getCheckIn() {return checkIn;}
+    public LocalTime getCheckIn() {
+        return checkIn;
+    }
 
-    public void setCheckIn(LocalTime checkIn) {this.checkIn = checkIn;}
+    public void setCheckIn(LocalTime checkIn) {
+        this.checkIn = checkIn;
+    }
 
-    public LocalTime getCheckOut() {return checkOut;}
+    public LocalTime getCheckOut() {
+        return checkOut;
+    }
 
-    public void setCheckOut(LocalTime checkOut) {this.checkOut = checkOut;}
+    public void setCheckOut(LocalTime checkOut) {
+        this.checkOut = checkOut;
+    }
 
-    public String getStatus() {return status;}
+    public String getStatus() {
+        return status;
+    }
 
-    public void setStatus(String status) {this.status = status;}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {
         return "AttendanceRecord{" +
                 "staffName='" + staffName + '\'' +
                 ", date=" + date +
-                ", checkIn=" + checkIn +
-                ", checkOut=" + checkOut +
                 ", status='" + status + '\'' +
                 '}';
     }

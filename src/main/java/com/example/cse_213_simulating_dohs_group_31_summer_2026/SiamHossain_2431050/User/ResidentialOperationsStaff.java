@@ -1,7 +1,7 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User;
 
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.*;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.User;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.*;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -10,7 +10,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class ResidentialOperationsStaff extends User {
-
     private String staffId;
     private String dutyType;
     private String zoneLocation;
@@ -20,11 +19,7 @@ public class ResidentialOperationsStaff extends User {
     private LocalTime checkInTime;
     private LocalTime checkOutTime;
 
-
-
-
-    public static ArrayList<StaffComplaint>complaintList = new ArrayList<>();
-
+    public static ArrayList<StaffComplaint> complaintList = new ArrayList<>();
 
     public ResidentialOperationsStaff() {
         super();
@@ -32,7 +27,7 @@ public class ResidentialOperationsStaff extends User {
         this.checkedIn = false;
     }
 
-    public ResidentialOperationsStaff(int userId, String name, String role, String password, boolean isLoggedIn, String staffId, String dutyType, String zoneLocation, String shiftTime, String supervisorName, boolean checkedIn) {
+    public ResidentialOperationsStaff(int userId, String name, String role, String password, boolean isLoggedIn, String staffId) {
         super(userId, name, role, password, isLoggedIn);
         this.staffId = staffId;
         this.dutyType = "Cleaner";
@@ -41,6 +36,7 @@ public class ResidentialOperationsStaff extends User {
         this.supervisorName = "Staff Supervisor";
         this.checkedIn = false;
     }
+
 
     public ArrayList<Task> getMyTasks() {
         ArrayList<Task> myTasks = new ArrayList<>();
@@ -51,6 +47,7 @@ public class ResidentialOperationsStaff extends User {
         }
         return myTasks;
     }
+
 
     public boolean checkIn() {
         if (checkedIn) {
@@ -78,6 +75,7 @@ public class ResidentialOperationsStaff extends User {
         long minutes = ChronoUnit.MINUTES.between(checkInTime, checkOutTime);
         return String.format("%d hr %d min", minutes / 60, minutes % 60);
     }
+
 
     public boolean completeTask(Task task, String completionStatus, String notes) {
         if (task == null || completionStatus == null) {
@@ -173,38 +171,55 @@ public class ResidentialOperationsStaff extends User {
         return complaintList.add(complaint);
     }
 
+    public String getStaffId() {
+        return staffId;
+    }
 
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
 
-    public String getStaffId() {return staffId;}
+    public String getDutyType() {
+        return dutyType;
+    }
 
-    public String getDutyType() {return dutyType;}
+    public void setDutyType(String dutyType) {
+        this.dutyType = dutyType;
+    }
 
-    public String getZoneLocation() {return zoneLocation;}
+    public String getZoneLocation() {
+        return zoneLocation;
+    }
 
-    public String getShiftTime() {return shiftTime;}
+    public void setZoneLocation(String zoneLocation) {
+        this.zoneLocation = zoneLocation;
+    }
 
-    public String getSupervisorName() {return supervisorName;}
+    public String getShiftTime() {
+        return shiftTime;
+    }
 
-    public boolean isCheckedIn() {return checkedIn;}
+    public void setShiftTime(String shiftTime) {
+        this.shiftTime = shiftTime;
+    }
 
-    public LocalTime getCheckInTime() {return checkInTime;}
+    public String getSupervisorName() {
+        return supervisorName;
+    }
 
-    public LocalTime getCheckOutTime() {return checkOutTime;}
+    public void setSupervisorName(String supervisorName) {
+        this.supervisorName = supervisorName;
+    }
 
-    public void setStaffId(String staffId) {this.staffId = staffId;}
-
-    public void setDutyType(String dutyType) {this.dutyType = dutyType;}
-
-    public void setZoneLocation(String zoneLocation) {this.zoneLocation = zoneLocation;}
-
-    public void setShiftTime(String shiftTime) {this.shiftTime = shiftTime;}
-
-    public void setSupervisorName(String supervisorName) {this.supervisorName = supervisorName;}
+    public boolean isCheckedIn() {
+        return checkedIn;
+    }
 
     @Override
     public String toString() {
         return "ResidentialOperationsStaff{" +
                 "staffId='" + staffId + '\'' +
+                ", " + super.toString() +
                 '}';
     }
 }

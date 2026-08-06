@@ -2,6 +2,7 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_243
 
 import java.time.LocalDate;
 
+
 public class OccasionSchedule {
     private String occasionName;
     private LocalDate date;
@@ -24,44 +25,67 @@ public class OccasionSchedule {
         this.status = status;
     }
 
-    public String getOccasionName() {return occasionName;}
+    public String getOccasionName() {
+        return occasionName;
+    }
 
-    public void setOccasionName(String occasionName) {this.occasionName = occasionName;}
+    public void setOccasionName(String occasionName) {
+        this.occasionName = occasionName;
+    }
 
-    public String getStatus() {return status;}
+    public LocalDate getDate() {
+        return date;
+    }
 
-    public void setStatus(String status) {this.status = status;}
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
-    public String getAffectedAreas() {return affectedAreas;}
+    public String getStartTime() {
+        return startTime;
+    }
 
-    public void setAffectedAreas(String affectedAreas) {this.affectedAreas = affectedAreas;}
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
 
-    public String getEndTime() {return endTime;}
+    public String getEndTime() {
+        return endTime;
+    }
 
-    public void setEndTime(String endTime) {this.endTime = endTime;}
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
-    public String getServiceType() {return serviceType;}
+    public String getServiceType() {
+        return serviceType;
+    }
 
-    public void setServiceType(String serviceType) {this.serviceType = serviceType;}
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
 
-    public String getStartTime() {return startTime;}
+    public String getAffectedAreas() {
+        return affectedAreas;
+    }
 
-    public void setStartTime(String startTime) {this.startTime = startTime;}
+    public void setAffectedAreas(String affectedAreas) {
+        this.affectedAreas = affectedAreas;
+    }
 
-    public LocalDate getDate() {return date;}
+    public String getStatus() {
+        return status;
+    }
 
-    public void setDate(LocalDate date) {this.date = date;}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @Override
     public String toString() {
         return "OccasionSchedule{" +
                 "occasionName='" + occasionName + '\'' +
                 ", date=" + date +
-                ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", serviceType='" + serviceType + '\'' +
-                ", affectedAreas='" + affectedAreas + '\'' +
-                ", status='" + status + '\'' +
                 '}';
     }
 }

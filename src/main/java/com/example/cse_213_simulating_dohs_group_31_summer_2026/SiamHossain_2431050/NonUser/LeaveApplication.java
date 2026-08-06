@@ -26,49 +26,76 @@ public class LeaveApplication {
         this.totalDays = totalDays;
     }
 
-    public String getLeaveId() {return leaveId;}
+    public String getLeaveId() {
+        return leaveId;
+    }
 
-    public void setLeaveId(String leaveId) {this.leaveId = leaveId;}
+    public void setLeaveId(String leaveId) {
+        this.leaveId = leaveId;
+    }
 
-    public String getStaffName() {return staffName;}
+    public String getStaffName() {
+        return staffName;
+    }
 
-    public void setStaffName(String staffName) {this.staffName = staffName;}
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
 
-    public String getLeaveType() {return leaveType;}
+    public String getLeaveType() {
+        return leaveType;
+    }
 
-    public void setLeaveType(String leaveType) {this.leaveType = leaveType;}
+    public void setLeaveType(String leaveType) {
+        this.leaveType = leaveType;
+    }
 
-    public LocalDate getStartDate() {return startDate;}
+    public LocalDate getStartDate() {
+        return startDate;
+    }
 
-    public void setStartDate(LocalDate startDate) {this.startDate = startDate;}
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
 
-    public LocalDate getEndDate() {return endDate;}
+    public LocalDate getEndDate() {
+        return endDate;
+    }
 
-    public void setEndDate(LocalDate endDate) {this.endDate = endDate;}
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
 
-    public String getReason() {return reason;}
+    public String getReason() {
+        return reason;
+    }
 
-    public void setReason(String reason) {this.reason = reason;}
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 
-    public String getStatus() {return status;}
+    public String getStatus() {
+        return status;
+    }
 
-    public void setStatus(String status) {this.status = status;}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-    public int getTotalDays() {return totalDays;}
+    public int getTotalDays() {
+        return totalDays;
+    }
 
-    public void setTotalDays(int totalDays) {this.totalDays = totalDays;}
+    public void setTotalDays(int totalDays) {
+        this.totalDays = totalDays;
+    }
 
     @Override
     public String toString() {
         return "LeaveApplication{" +
                 "leaveId='" + leaveId + '\'' +
                 ", staffName='" + staffName + '\'' +
-                ", leaveType='" + leaveType + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", reason='" + reason + '\'' +
                 ", status='" + status + '\'' +
-                ", totalDays=" + totalDays +
                 '}';
     }
 }

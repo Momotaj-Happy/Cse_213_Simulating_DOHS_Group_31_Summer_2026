@@ -1,26 +1,41 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller;
 
-import org.w3c.dom.Text;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.DutyRotation;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
-import java.awt.event.ActionEvent;
-
-public class Staff_DutyRotationController {
-    @javafx.fxml.FXML
-    private Text zoneText;
-    @javafx.fxml.FXML
-    private Text nextWeekDutyText;
-    @javafx.fxml.FXML
+public class Staff_DutyRotationController
+{
+    @FXML
     private Text dutyTypeText;
-    @javafx.fxml.FXML
+    @FXML
+    private Text zoneText;
+    @FXML
     private Text shiftTimeText;
-    @javafx.fxml.FXML
+    @FXML
     private Text supervisorNameText;
+    @FXML
+    private Text nextWeekDutyText;
 
-    @javafx.fxml.FXML
+    @FXML
+    public void initialize() {
+        DutyRotation myDuty = SessionManager.residentialOperationsStaff.getMyDutyRotation();
+        dutyTypeText.setText(myDuty.getSuggestedDuty() != null ? myDuty.getSuggestedDuty() : myDuty.getCurrentRole());
+        zoneText.setText(myDuty.getZoneLocation() != null ? myDuty.getZoneLocation() : SessionManager.residentialOperationsStaff.getZoneLocation());
+        shiftTimeText.setText(myDuty.getShiftTime() != null ? myDuty.getShiftTime() : SessionManager.residentialOperationsStaff.getShiftTime());
+        supervisorNameText.setText(myDuty.getSupervisorName() != null ? myDuty.getSupervisorName() : SessionManager.residentialOperationsStaff.getSupervisorName());
+        nextWeekDutyText.setText("Not published yet");
+    }
+
+    @FXML
     public void viewNextWeekOnAction(ActionEvent actionEvent) {
+        DutyRotation myDuty = SessionManager.residentialOperationsStaff.getMyDutyRotation();
+        nextWeekDutyText.setText(myDuty.getSuggestedDuty() != null ? myDuty.getSuggestedDuty() : "Not published yet");
     }
 
-    @javafx.fxml.FXML
-    public void backOnAction(ActionEvent actionEvent) {
-    }
+    @FXML
+    public void backOnAction(ActionEvent actionEvent) {Utility.openFxml(actionEvent, "Residential Operations Staff", "ResidentialOperationsStaff_2431050/Staff-Dashboard-View.fxml");}
 }
