@@ -27,7 +27,7 @@ public class ResidentialOperationsStaff extends User {
         this.checkedIn = false;
     }
 
-    public ResidentialOperationsStaff(int userId, String name, String role, String password, boolean isLoggedIn, String staffId, String dutyType, String zoneLocation, String shiftTime, String supervisorName, boolean checkedIn) {
+    public ResidentialOperationsStaff(int userId, String name, String role, String password, boolean isLoggedIn, String staffId) {
         super(userId, name, role, password, isLoggedIn);
         this.staffId = staffId;
         this.dutyType = "Cleaner";
@@ -36,6 +36,7 @@ public class ResidentialOperationsStaff extends User {
         this.supervisorName = "Staff Supervisor";
         this.checkedIn = false;
     }
+
 
 
     public ArrayList<Task> getMyTasks() {

@@ -1,10 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User.ResidentialOperationsStaff;
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User.StaffSupervisor;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.MaintenanceTechnician;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User.StaffSupervisor;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User.ResidentialOperationsStaff;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -75,14 +75,9 @@ public class LoginViewController
             Utility.openFxml(actionEvent, "President", "President/PresidentDashboard.fxml");
 
         }
-
-
-
         else if (userTypeComboBox.getValue().equals("Residential Operations Staff")) {
-            ResidentialOperationsStaff staff =
-                    new ResidentialOperationsStaff(
-                            Integer.parseInt(userId), "Rakib", "Residential Operations Staff", password, true, "RS001", "Cleaner", "Road No 5", "8:00 AM - 4:00 PM", "Staff Supervisor", false
-                    );
+            ResidentialOperationsStaff staff = new ResidentialOperationsStaff(userid, "Rakib",
+                    "Residential Operations Staff", password, true, userId);
             SessionManager.residentialOperationsStaff = staff;
             Utility.openFxml(actionEvent, "Residential Operations Staff", "ResidentialOperationsStaff_2431050/Staff-Dashboard-View.fxml");
 
@@ -95,5 +90,8 @@ public class LoginViewController
 
         }
 
+        else{
+
+        }
     }
 }
