@@ -32,6 +32,6 @@ public class StaffDashboardController
 
     @javafx.fxml.FXML
     public void logOutOnAction(ActionEvent actionEvent) {
-        Utility.openFxml(actionEvent, "Login", "Login-View.fxml");
+        Utility.openFxml(actionEvent, "Login", "LoginView.fxml");
     }
 }
