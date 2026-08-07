@@ -55,12 +55,12 @@ public class Tools implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public Tools(String toolName, String customSpecification, int quantity, int eachPrice, int totalPrice, boolean isRequested) {
+    public Tools(String toolName, String customSpecification, int quantity, int eachPrice, boolean isRequested) {
         this.toolName = toolName;
         this.customSpecification = customSpecification;
         this.quantity = quantity;
         this.eachPrice = eachPrice;
-        this.totalPrice = totalPrice;
+        this.totalPrice = quantity*eachPrice;
         this.isRequested = isRequested;
     }
 

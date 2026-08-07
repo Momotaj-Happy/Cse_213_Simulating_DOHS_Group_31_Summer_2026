@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class MaintenanceTask implements Serializable {
     private int requestId;
-    private String residentName, requestType, residentAddress, requestDescription;
+    private String residentName, requestType, residentAddress, requestDescription, status;
     private LocalDate taskGivenDate;
     private boolean isCompleted;
 
@@ -13,6 +13,14 @@ public class MaintenanceTask implements Serializable {
 
     public int getRequestId() {
         return requestId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getRequestDescription() {
@@ -74,6 +82,18 @@ public class MaintenanceTask implements Serializable {
         this.requestType = requestType;
         this.residentAddress = residentAddress;
         this.requestDescription = requestDescription;
+        this.taskGivenDate = taskGivenDate;
+        this.isCompleted = isCompleted;
+        this.status = "No";
+    }
+
+    public MaintenanceTask(int requestId, String residentName, String requestType, String residentAddress, String requestDescription, String status, LocalDate taskGivenDate, boolean isCompleted) {
+        this.requestId = requestId;
+        this.residentName = residentName;
+        this.requestType = requestType;
+        this.residentAddress = residentAddress;
+        this.requestDescription = requestDescription;
+        this.status = status;
         this.taskGivenDate = taskGivenDate;
         this.isCompleted = isCompleted;
     }

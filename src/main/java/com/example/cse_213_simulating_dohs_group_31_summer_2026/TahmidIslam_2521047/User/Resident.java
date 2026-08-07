@@ -82,7 +82,16 @@ public class Resident extends User implements Serializable {
         Resident resident = new Resident(getResidentId(), newName,super.getPassword(),
                 newAddress, bookedFacility);
 
-        Utility.saveObject("ResidentData.bin", resident, false);
+        ArrayList<Resident> resList = Utility.loadObject("ResidentData.bin");
+        resList.remove(this);
+        File resFile = new File("ResidentData.bin");
+        if (resFile.exists()){
+            resFile.delete();
+        }
+        Utility.saveObject("ResidentData.bin", this, true);
+        for(Resident r: resList){
+            Utility.saveObject("ResidentData.bin", r, true);
+        }
         Utility.showAlert("Success", "Profile Updated");
         Utility.openFxml(actionEvent, "Profile", "Resident_2521047/Resident-Profile-View.fxml");
     }
@@ -90,7 +99,12 @@ public class Resident extends User implements Serializable {
     public void bookFacility(Facility f){
         bookedFacility.add(f);
         ArrayList<Facility> fac= Utility.loadObject("FacilityData.bin");
-        fac.remove(f);
+        for (Facility facility: fac){
+            if(f.getFacilityId()==facility.getFacilityId()){
+                fac.remove(facility);
+                break;
+            }
+        }
         f.setAvailability(false);
         fac.add(f);
         File facilityFile = new File("FacilityData.bin");
@@ -102,8 +116,16 @@ public class Resident extends User implements Serializable {
             Utility.saveObject("FacilityData.bin", facility, true);
         }
 
-
+        ArrayList<Resident> resList = Utility.loadObject("ResidentData.bin");
+        resList.remove(this);
+        File resFile = new File("ResidentData.bin");
+        if (resFile.exists()){
+            resFile.delete();
+        }
         Utility.saveObject("ResidentData.bin", this, true);
+        for(Resident r: resList){
+            Utility.saveObject("ResidentData.bin", r, true);
+        }
 
         Utility.showAlert("Success", "Facility Booking Successful");
     }

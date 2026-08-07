@@ -47,5 +47,6 @@ public class Resident_MaintenanceRequestController
                 selectRequiredMaintenanceComboBox.getValue(), res.getResidentAddress(), maintenanceWorkTextField.getText(),
                 LocalDate.now(),false);
         res.requestMaintenanceWork(m);
+        maintenanceWorkTextField.clear();
     }
 }

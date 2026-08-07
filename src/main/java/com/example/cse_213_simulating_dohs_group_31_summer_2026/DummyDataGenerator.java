@@ -2,6 +2,7 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Bill;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Tools;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.UtilityConsumption;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -26,10 +27,16 @@ public class DummyDataGenerator extends Application {
         Bill bill2 = new Bill(2, 150, 2026, "March","Pay Bill", false);
         Bill bill3= new Bill(3, 200, 2026, "April", "Pay Bill", false);
         Bill bill4 = new Bill(4, 5000, 2026, "July", "Pay Bill",  false);
+        Bill bill5 = new Bill(5, 10000, 2026, "January","Technician Payment", true);
+        Bill bill6 = new Bill(6, 15000, 2026, "March","Technician Payment", true);
+        Bill bill7= new Bill(7, 20000, 2026, "April", "Technician Payment", true);
         Utility.saveObject("BillData.bin", bill, true);
         Utility.saveObject("BillData.bin", bill2, true);
         Utility.saveObject("BillData.bin", bill3, true);
         Utility.saveObject("BillData.bin", bill4, true);
+        Utility.saveObject("BillData.bin", bill5, true);
+        Utility.saveObject("BillData.bin", bill6, true);
+        Utility.saveObject("BillData.bin", bill7, true);
         System.out.println("Bill Save Successfull");
 
 
@@ -48,7 +55,7 @@ public class DummyDataGenerator extends Application {
         Utility.saveObject("UtilityConsumptionData.bin", uc, true);
         Utility.saveObject("UtilityConsumptionData.bin", uc2, true);
         Utility.saveObject("UtilityConsumptionData.bin", uc3, true);
-        System.out.println("Utility Consumption Save Successfull");
+        System.out.println("Utility Consumption Save Successful");
 
 
 
@@ -73,7 +80,27 @@ public class DummyDataGenerator extends Application {
         Utility.saveObject("FacilityData.bin", facility3, true);
         Utility.saveObject("FacilityData.bin", facility4, true);
         Utility.saveObject("FacilityData.bin", facility5, true);
-        System.out.println("Facility Save Successfull");
+        System.out.println("Facility Save Successful");
 
+
+
+        File toolsFile = new File("ToolsData.bin");
+        if (toolsFile.exists()) {
+            toolsFile.delete();
+        }
+
+        Tools tools = new Tools("Wrench", "None", 4,
+                350, false);
+        Tools tools2 = new Tools("Hammer", "None", 6,
+                530, false);
+        Tools tools3 = new Tools("Screwdriver", "None", 5,
+                200, false);
+        Tools tools4 = new Tools("Screw", "Steel", 50,
+                15, false);
+        Utility.saveObject("ToolsData.bin", tools, true);
+        Utility.saveObject("ToolsData.bin", tools2, true);
+        Utility.saveObject("ToolsData.bin", tools3, true);
+        Utility.saveObject("ToolsData.bin", tools4, true);
+        System.out.println("Tools Save Successful");
     }
 }
