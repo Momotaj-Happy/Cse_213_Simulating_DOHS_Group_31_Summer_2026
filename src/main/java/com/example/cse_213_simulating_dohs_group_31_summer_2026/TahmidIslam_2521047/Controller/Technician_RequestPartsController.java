@@ -43,10 +43,10 @@ public class Technician_RequestPartsController
             return;
         }
         Tools tools = new Tools(enterToolNameTextField.getText(), customSpecificationTextField.getText(),
-                Integer.parseInt(enterQuantityTextField.getText()), 0, 0, true);
+                Integer.parseInt(enterQuantityTextField.getText()), 0, true);
         mt.requestParts(tools);
         enterQuantityTextField.clear();
         customSpecificationTextField.clear();
-        enterQuantityTextField.clear();
+        enterToolNameTextField.clear();
     }
 }

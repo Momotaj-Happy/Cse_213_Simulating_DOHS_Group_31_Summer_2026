@@ -43,7 +43,7 @@ public class Resident_TransactionsController
 
 
         for (Bill b: bList){
-            if(b.getPaid()) {
+            if(b.getPaid() && b.getTransactionType().equals("Pay Bill")) {
                 transactionsTableView.getItems().add(b);
             }
         }

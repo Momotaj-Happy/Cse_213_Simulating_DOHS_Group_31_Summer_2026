@@ -18,7 +18,7 @@ public class Technician_AllAcceptedTaskController
     @javafx.fxml.FXML
     private TableColumn<MaintenanceTask, String> residentNameTableCol;
     @javafx.fxml.FXML
-    private TableColumn<MaintenanceTask, Boolean> isCompletedTableCol;
+    private TableColumn<MaintenanceTask, String> isCompletedTableCol;
     @javafx.fxml.FXML
     private TableView<MaintenanceTask> allAcceptedTaskTableView;
     @javafx.fxml.FXML
@@ -35,7 +35,7 @@ public class Technician_AllAcceptedTaskController
     @javafx.fxml.FXML
     public void initialize() {
         residentNameTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceTask, String>("residentName"));
-        isCompletedTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceTask, Boolean>("isCompleted"));
+        isCompletedTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceTask, String>("status"));
         addressTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceTask, String>("residentAddress"));
         taskGivenDateTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceTask, LocalDate>("taskGivenDate"));
         residentIdTaleCol.setCellValueFactory(new PropertyValueFactory<MaintenanceTask, Integer>("requestId"));

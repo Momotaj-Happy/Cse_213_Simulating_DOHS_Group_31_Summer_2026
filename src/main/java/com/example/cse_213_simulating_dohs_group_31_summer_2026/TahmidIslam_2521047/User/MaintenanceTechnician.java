@@ -87,12 +87,28 @@ public class MaintenanceTechnician extends User implements Serializable {
             if(mt == currentAcceptedTask){
                 allAcceptedTask.remove(mt);
                 currentAcceptedTask.setCompleted(true);
+                currentAcceptedTask.setStatus("Yes");
                 allAcceptedTask.add(currentAcceptedTask);
                 currentAcceptedTask=null;
                 break;
             }
         }
-        Utility.saveObject("TechnicianData.bin", this, false);
+        ArrayList<MaintenanceTechnician> techList = Utility.loadObject("TechnicianData.bin");
+        for(MaintenanceTechnician t: techList) {
+            if (t.getTechnicianId() == this.getTechnicianId()) {
+                techList.remove(t);
+                break;
+            }
+        }
+        techList.add(this);
+        File technicianFile = new File("TechnicianData.bin");
+        if (technicianFile.exists()){
+            technicianFile.delete();
+        }
+
+        for(MaintenanceTechnician t: techList){
+            Utility.saveObject("TechnicianData.bin", t, true);
+        }
     }
 
     public void acceptMaintenanceTask(MaintenanceTask mt, ArrayList<MaintenanceTask> taskList){
@@ -108,6 +124,22 @@ public class MaintenanceTechnician extends User implements Serializable {
             Utility.saveObject("MaintenanceTaskData.bin", m, true);
         }
         Utility.showAlert("Success", "Task Accepted");
+
+        ArrayList<MaintenanceTechnician> mtList = Utility.loadObject("TechnicianData.bin");
+        for(MaintenanceTechnician t: mtList){
+            if(t.getTechnicianId() == this.getTechnicianId()){
+                mtList.remove(t);
+                break;
+            }
+        }
+        mtList.add(this);
+        File techFile = new File("TechnicianData.bin");
+        if (techFile.exists()){
+            techFile.delete();
+        }
+        for(MaintenanceTechnician mainTechnician: mtList){
+            Utility.saveObject("TechnicianData.bin", mainTechnician, true);
+        }
     }
 
     public void requestParts(Tools t){

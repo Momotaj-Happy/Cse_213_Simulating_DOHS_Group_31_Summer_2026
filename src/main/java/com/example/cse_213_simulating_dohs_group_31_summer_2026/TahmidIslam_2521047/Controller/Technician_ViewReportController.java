@@ -31,7 +31,7 @@ public class Technician_ViewReportController {
         completionDateTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceReport, LocalDate>("reportGenerateTime"));
         generatedReportTableCol.setCellValueFactory(new PropertyValueFactory<MaintenanceReport, String>("reportDescription"));
 
-        ArrayList<MaintenanceReport> reportsList = Utility.loadObject("MantenanceReportData.bin");
+        ArrayList<MaintenanceReport> reportsList = Utility.loadObject("MaintenanceReportData.bin");
         for (MaintenanceReport mr : reportsList) {
             viewMaintenanceTableView.getItems().add(mr);
         }

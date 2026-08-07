@@ -52,6 +52,14 @@ public class LoginViewController
             return;
         }
         if (userTypeComboBox.getValue().equals("Resident")) {
+            ArrayList<Resident> resList = Utility.loadObject("ResidentData.bin");
+            for(Resident r: resList){
+                if(Integer.parseInt(userId) == r.getResidentId()){
+                    SessionManager.resident= r;
+                    Utility.openFxml(actionEvent, "Resident Dashboard", "Resident_2521047/Resident-Dashboard-View.fxml");
+                    return;
+                }
+            }
             Resident r = new Resident(userid,"Resident", passwordField.getText(),
                     "Address", new ArrayList<Facility>());
             Utility.saveObject("ResidentData.bin", r, true);
@@ -60,11 +68,20 @@ public class LoginViewController
             Utility.openFxml(actionEvent, "Resident Dashboard", "Resident_2521047/Resident-Dashboard-View.fxml");
         }
         else if (userTypeComboBox.getValue().equals("Maintenance Technician")) {
+            ArrayList<MaintenanceTechnician> mtList = Utility.loadObject("TechnicianData.bin");
+            for(MaintenanceTechnician t: mtList){
+                if(Integer.parseInt(userId) == t.getTechnicianId()){
+                    SessionManager.technician = t;
+                    Utility.openFxml(actionEvent, "Maintenance Technician", "MaintenanceTechnician_2521047/Technician-Dashboard-View.fxml");
+                    return;
+                }
+            }
             MaintenanceTechnician mt = new MaintenanceTechnician(userid, "Maintenance Technician",
                     "Maintenance Technician", password, true, false,
                     null, null, null);
 
             SessionManager.technician = mt;
+            Utility.saveObject("TechnicianData.bin", mt, true);
             Utility.openFxml(actionEvent, "Maintenance Technician", "MaintenanceTechnician_2521047/Technician-Dashboard-View.fxml");
         }
         else if (userTypeComboBox.getValue().equals("Accountant")) {
