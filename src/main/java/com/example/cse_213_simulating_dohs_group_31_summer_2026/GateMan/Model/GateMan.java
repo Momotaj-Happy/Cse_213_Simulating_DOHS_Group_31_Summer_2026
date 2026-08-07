@@ -24,6 +24,29 @@ public class GateMan extends User implements Serializable {
         loadPreRegisteredGuestsFromFile();
         loadBlacklistedVehiclesFromFile();
         loadEmergencyRequestsFromFile();
+        initDummyData();
+    }
+
+    private static void initDummyData() {
+        if (residentVehicles.isEmpty()) {
+            residentVehicles.add(new ResidentVehicle("DHAKA-MET-1111", "Tanvir Hasan", "Apt 1A"));
+            residentVehicles.add(new ResidentVehicle("DHAKA-MET-2222", "Karim Uddin", "Apt 3B"));
+            residentVehicles.add(new ResidentVehicle("DHAKA-MET-3333", "Salma Begum", "Apt 6C"));
+        }
+        if (preRegisteredGuests.isEmpty()) {
+            preRegisteredGuests.add(new PreRegisteredGuest("PR-001", "DHAKA-MET-4444", "Kamal Hossain", LocalDate.now()));
+            preRegisteredGuests.add(new PreRegisteredGuest("PR-002", "DHAKA-MET-5555", "Nusrat Jahan", LocalDate.now()));
+        }
+        if (blacklistedVehicles.isEmpty()) {
+            blacklistedVehicles.add(new BlacklistedVehicle("BLACK-9999", "Suspicious Activity"));
+            blacklistedVehicles.add(new BlacklistedVehicle("DHAKA-BAD-007", "Stolen Vehicle Report"));
+        }
+        if (visitorEntries.isEmpty()) {
+            visitorEntries.add(new VisitorEntry("V-101", "Rafiqul Islam", LocalTime.of(8, 30), null, 1, "DHAKA-MET-7777", "", "inside", "vehicle"));
+        }
+        if (emergencyRequests.isEmpty()) {
+            emergencyRequests.add(new EmergencyRequest("EMG-REQ-1", "DHAKA-EMG-999", java.time.LocalDateTime.now()));
+        }
     }
 
     public GateMan() {

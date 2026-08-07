@@ -30,6 +30,38 @@ public class SecurityInCharge extends User implements Serializable {
         loadSilentAlarmsFromFile();
         loadPropertyWarningsFromFile();
         loadShiftSummariesFromFile();
+        initDummyData();
+    }
+
+    private static void initDummyData() {
+        if (tenantList.isEmpty()) {
+            tenantList.add(new Tenant("T-101", "John Doe", "Apt 4B", "01711223344"));
+            tenantList.add(new Tenant("T-102", "Jane Smith", "Apt 2A", "01811223344"));
+            tenantList.add(new Tenant("T-103", "Rahim Ahmed", "Apt 5C", "01911223344"));
+        }
+        if (silentAlarms.isEmpty()) {
+            silentAlarms.add(new SilentAlarm("ALM-001", "Gate 1", "10:15", "Unauthorized Breach", true));
+            silentAlarms.add(new SilentAlarm("ALM-002", "Block C Main Door", "11:30", "Motion Sensor Alert", true));
+            silentAlarms.add(new SilentAlarm("ALM-003", "South Perimeter", "14:45", "Fence Intrusion", true));
+        }
+        if (incidentLogs.isEmpty()) {
+            incidentLogs.add(new IncidentLog("INC-101", "Officer Tanvir", LocalTime.of(9, 0), LocalDate.now(), "North Gate", "Minor argument at gate", "Visitor X"));
+        }
+        if (hazardReports.isEmpty()) {
+            hazardReports.add(new MaintenanceHazardReport("HAZ-101", "Broken Lamp Post", LocalDate.now(), "Road 3", "Light pole damaged after heavy wind"));
+        }
+        if (parkingViolations.isEmpty()) {
+            parkingViolations.add(new ParkingViolationRecord("PRK-101", "DHAKA-MET-1234", "Building 5 Alley", LocalTime.of(12, 0), LocalDate.now()));
+        }
+        if (propertyWarnings.isEmpty()) {
+            propertyWarnings.add(new PropertyWarning("WRN-101", "House 45 Road 2", LocalTime.of(16, 0), LocalDate.now(), "Loud music warning issued"));
+        }
+        if (emergencyRequests.isEmpty()) {
+            emergencyRequests.add(new EmergencyAssistanceRequest("EMG-101", "Block B Garage", "Medical emergency required", LocalDateTime.now()));
+        }
+        if (shiftSummaries.isEmpty()) {
+            shiftSummaries.add(new ShiftSummary("SUM-101", "All gates monitored smoothly with zero security breaches.", LocalDateTime.now()));
+        }
     }
 
     public SecurityInCharge() {
