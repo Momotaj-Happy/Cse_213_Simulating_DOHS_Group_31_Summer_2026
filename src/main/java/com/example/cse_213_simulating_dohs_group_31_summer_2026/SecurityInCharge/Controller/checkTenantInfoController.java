@@ -40,7 +40,10 @@ public class checkTenantInfoController {
         String searchQuery = txtTenantSearch.getText();
 
         if (searchQuery == null || searchQuery.trim().isEmpty()) {
-            lblTenantStatus.setText("Please enter search query!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a search query!");
+            alert.showAndWait();
             return;
         }
 

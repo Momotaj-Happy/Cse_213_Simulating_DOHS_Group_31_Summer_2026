@@ -2,30 +2,34 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Control
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.GateMan;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class denyBlacklistedVehiclesController
-{
-    @javafx.fxml.FXML
+public class denyBlacklistedVehiclesController {
+    @FXML
     private TextField txtApproachingPlate;
-    @javafx.fxml.FXML
+    @FXML
     private Label lblBlacklistAlert;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void handleCheckBlacklist(ActionEvent actionEvent) {
         String licensePlate = txtApproachingPlate.getText();
+
+        if (licensePlate == null || licensePlate.trim().isEmpty()) {
+            lblBlacklistAlert.setText("Please enter approaching license plate!");
+            return;
+        }
+
         boolean isBlacklisted = GateMan.denyBlacklistedVehicle(licensePlate);
 
-        if(isBlacklisted){
+        if (isBlacklisted) {
             lblBlacklistAlert.setText("Entry found in Blacklist for:" + licensePlate);
-        }
-        else {
+        } else {
             lblBlacklistAlert.setText("Entry Does Not exist in Blacklist for:" + licensePlate);
         }
-
     }
 }

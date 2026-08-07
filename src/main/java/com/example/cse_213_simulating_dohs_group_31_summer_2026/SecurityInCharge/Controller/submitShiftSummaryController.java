@@ -2,27 +2,30 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharg
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import static com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge.shiftSummaries;
 
-public class submitShiftSummaryController
-{
-    @javafx.fxml.FXML
+public class submitShiftSummaryController {
+    @FXML
     private Label lblShiftStatus;
-    @javafx.fxml.FXML
+    @FXML
     private TextArea txtShiftActivities;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void handleSubmitSummary(ActionEvent actionEvent) {
         String activitiesText = txtShiftActivities.getText();
 
         if (activitiesText == null || activitiesText.trim().isEmpty()) {
-            lblShiftStatus.setText("Please fill out summary input fields!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill out summary input field!");
+            alert.showAndWait();
             return;
         }
 

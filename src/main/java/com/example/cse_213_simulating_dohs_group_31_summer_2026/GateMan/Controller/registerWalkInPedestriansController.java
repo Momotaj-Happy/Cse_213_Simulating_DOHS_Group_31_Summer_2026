@@ -2,38 +2,61 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Control
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.GateMan;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.time.LocalTime;
 
-public class registerWalkInPedestriansController
-{
-    @javafx.fxml.FXML
+public class registerWalkInPedestriansController {
+    @FXML
     private TextField txtPedestrianName;
-    @javafx.fxml.FXML
+    @FXML
     private Label lblPedestrianStatus;
-    @javafx.fxml.FXML
+    @FXML
     private TextField txtPedestrianTime;
-    @javafx.fxml.FXML
+    @FXML
     private ComboBox<Integer> cmbGateNo;
-    @javafx.fxml.FXML
+    @FXML
     private TextField txtPedestrianId;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
-        cmbGateNo.getItems().setAll(1,2);
-
+        cmbGateNo.getItems().setAll(1, 2);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void handleRegisterPedestrian(ActionEvent actionEvent) {
-        int gateNo = cmbGateNo.getValue();
         String name = txtPedestrianName.getText();
-        LocalTime entryTime = LocalTime.parse(txtPedestrianTime.getText());
+        String timeStr = txtPedestrianTime.getText();
         String identificationNo = txtPedestrianId.getText();
+        Integer gateNoObj = cmbGateNo.getValue();
 
-        GateMan.logVisitorEntry(name,entryTime,gateNo,identificationNo);
+        if (name == null || name.trim().isEmpty()) {
+            lblPedestrianStatus.setText("Please enter pedestrian name!");
+            return;
+        }
+        if (timeStr == null || timeStr.trim().isEmpty()) {
+            lblPedestrianStatus.setText("Please enter pedestrian entry time!");
+            return;
+        }
+        if (gateNoObj == null) {
+            lblPedestrianStatus.setText("Please select gate number!");
+            return;
+        }
+        if (identificationNo == null || identificationNo.trim().isEmpty()) {
+            lblPedestrianStatus.setText("Please enter pedestrian ID!");
+            return;
+        }
 
-        lblPedestrianStatus.setText("entry done for nid:"+ identificationNo);
+        LocalTime entryTime;
+        try {
+            entryTime = LocalTime.parse(timeStr);
+        } catch (Exception e) {
+            lblPedestrianStatus.setText("Please enter valid time format (HH:MM)!");
+            return;
+        }
+
+        GateMan.logVisitorEntry(name, entryTime, gateNoObj, identificationNo);
+        lblPedestrianStatus.setText("entry done for nid:" + identificationNo);
     }
 }

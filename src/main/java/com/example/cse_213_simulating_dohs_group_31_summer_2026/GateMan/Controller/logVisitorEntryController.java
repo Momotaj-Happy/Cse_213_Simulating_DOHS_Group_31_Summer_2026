@@ -1,42 +1,62 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.GateMan;
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.VisitorEntry;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.sql.Time;
 import java.time.LocalTime;
-import java.util.ArrayList;
 
-public class logVisitorEntryController
-{
-    @javafx.fxml.FXML
+public class logVisitorEntryController {
+    @FXML
     private TextField txtEntryTime;
-    @javafx.fxml.FXML
+    @FXML
     private TextField txtVehicleNumber;
-    @javafx.fxml.FXML
+    @FXML
     private Label lblLogVisitorStatus;
-    @javafx.fxml.FXML
+    @FXML
     private ComboBox<Integer> cmbGateNo;
-    @javafx.fxml.FXML
+    @FXML
     private TextField txtGuestName;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
-        cmbGateNo.getItems().setAll(1,2);
-
+        cmbGateNo.getItems().setAll(1, 2);
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void handleLogVisitorEntry(ActionEvent actionEvent) {
-        int gateNo = cmbGateNo.getValue();
         String name = txtGuestName.getText();
-        LocalTime entryTime = LocalTime.parse(txtEntryTime.getText());
+        String timeStr = txtEntryTime.getText();
         String vehicleNo = txtVehicleNumber.getText();
+        Integer gateNoObj = cmbGateNo.getValue();
 
-        GateMan.logVisitorEntry(name,entryTime,gateNo,vehicleNo);
+        if (name == null || name.trim().isEmpty()) {
+            lblLogVisitorStatus.setText("Please enter guest name!");
+            return;
+        }
+        if (timeStr == null || timeStr.trim().isEmpty()) {
+            lblLogVisitorStatus.setText("Please enter entry time!");
+            return;
+        }
+        if (gateNoObj == null) {
+            lblLogVisitorStatus.setText("Please select gate number!");
+            return;
+        }
+        if (vehicleNo == null || vehicleNo.trim().isEmpty()) {
+            lblLogVisitorStatus.setText("Please enter vehicle number!");
+            return;
+        }
 
-        lblLogVisitorStatus.setText("entry done for vehicle:"+ vehicleNo);
+        LocalTime entryTime;
+        try {
+            entryTime = LocalTime.parse(timeStr);
+        } catch (Exception e) {
+            lblLogVisitorStatus.setText("Please enter valid time format (HH:MM)!");
+            return;
+        }
+
+        GateMan.logVisitorEntry(name, entryTime, gateNoObj, vehicleNo);
+        lblLogVisitorStatus.setText("entry done for vehicle:" + vehicleNo);
     }
 }

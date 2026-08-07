@@ -2,57 +2,69 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharg
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.time.LocalDate;
 
 import static com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge.hazardReports;
 
-public class reportMaintenanceHazardController
-{
-    @javafx.fxml.FXML
+public class reportMaintenanceHazardController {
+    @FXML
     private DatePicker dpHazardDate;
-    @javafx.fxml.FXML
+    @FXML
     private TextField txtHazardLocation;
-    @javafx.fxml.FXML
+    @FXML
     private TextArea txtHazardDescription;
-    @javafx.fxml.FXML
+    @FXML
     private TextField txtHazardName;
-    @javafx.fxml.FXML
+    @FXML
     private Label lblHazardStatus;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void handleSubmitHazard(ActionEvent actionEvent) {
         String hazardName = txtHazardName.getText();
         LocalDate date = dpHazardDate.getValue();
         String location = txtHazardLocation.getText();
         String description = txtHazardDescription.getText();
 
-        if (hazardName == null || hazardName.trim().isEmpty()){
-            lblHazardStatus.setText("Please fill out hazardName input fields!");
+        if (hazardName == null || hazardName.trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill out hazard name!");
+            alert.showAndWait();
             return;
         }
-        if (date == null ){
-            lblHazardStatus.setText("Please fill out date input fields!");
-            return;
-
-        }
-        if (date.isAfter(LocalDate.now()) ){
-            lblHazardStatus.setText("Please make sure date input is not in future!");
-            return;
-
-        }
-
-        if ( location == null || location.trim().isEmpty()){
-            lblHazardStatus.setText("Please fill out location input fields!");
+        if (date == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a date!");
+            alert.showAndWait();
             return;
         }
-        if (description == null || description.trim().isEmpty()){
-            lblHazardStatus.setText("Please fill out description input fields!");
+        if (date.isAfter(LocalDate.now())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please make sure date input is not in future!");
+            alert.showAndWait();
+            return;
+        }
+        if (location == null || location.trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill out location!");
+            alert.showAndWait();
+            return;
+        }
+        if (description == null || description.trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill out description!");
+            alert.showAndWait();
             return;
         }
 
