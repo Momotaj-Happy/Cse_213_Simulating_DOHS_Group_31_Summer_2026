@@ -5,7 +5,7 @@ public class User {
     private String name;
     private String role;
     private String password;
-    private boolean isLoggedIn;
+    public boolean isLoggedIn;
 
     public User() {
         this.userId = 0;

@@ -1,6 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model;
 
-public class GateControl {
+import java.io.Serializable;
+
+public class GateControl implements Serializable {
     private String gateId;
     private boolean isBypassModeActive;
     private String currentStatus;

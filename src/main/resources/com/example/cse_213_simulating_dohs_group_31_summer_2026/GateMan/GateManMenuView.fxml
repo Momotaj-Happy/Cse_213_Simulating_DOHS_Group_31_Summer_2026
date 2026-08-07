@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15.0" prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.GateManMenuController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <children>
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="GateMan Menu" />
+        <Button prefWidth="250.0" text="Log Visitor Entry" onAction="#handleLogVisitorEntry" />
+        <Button prefWidth="250.0" text="Deny Blacklisted Vehicles" onAction="#handleDenyBlacklistedVehicles" />
+        <Button prefWidth="250.0" text="Log Vehicle Exit" onAction="#handleLogVehicleExit" />
+        <Button prefWidth="250.0" text="Register Walk-In Pedestrians" onAction="#handleRegisterWalkInPedestrians" />
+        <Button prefWidth="250.0" text="Search Resident Vehicle" onAction="#handleSearchResidentVehicle" />
+        <Button prefWidth="250.0" text="Toggle Emergency Bypass" onAction="#handleToggleEmergencyBypass" />
+        <Button prefWidth="250.0" text="Verify Pre-Registered Guests" onAction="#handleVerifyPreRegisteredGuests" />
+        <Button prefWidth="250.0" text="Back to Main Menu" onAction="#handleBack" />
+    </children>
+</VBox>

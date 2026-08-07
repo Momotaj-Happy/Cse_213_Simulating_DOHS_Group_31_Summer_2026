@@ -1,9 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class PropertyWarning {
+public class PropertyWarning implements Serializable {
     private String warningId;
     private String propertyAddress;
     private LocalTime time;

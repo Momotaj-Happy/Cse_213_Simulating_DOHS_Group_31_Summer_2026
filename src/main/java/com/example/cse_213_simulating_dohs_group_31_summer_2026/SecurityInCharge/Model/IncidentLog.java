@@ -1,9 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class IncidentLog {
+public class IncidentLog implements Serializable {
     private String logId;
     private String name;
     private LocalTime time;

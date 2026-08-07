@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class EmergencyRequest {
+public class EmergencyRequest implements Serializable {
     private String requestId;
     private String plateNumber;
     private LocalDateTime timestamp;
