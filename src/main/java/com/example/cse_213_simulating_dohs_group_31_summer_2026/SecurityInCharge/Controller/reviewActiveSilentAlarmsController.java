@@ -3,8 +3,10 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharg
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SilentAlarm;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.Tenant;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class reviewActiveSilentAlarmsController
 {
@@ -26,17 +28,23 @@ public class reviewActiveSilentAlarmsController
     @javafx.fxml.FXML
     public void initialize() {
         cmbSelectedAlarm.getItems().setAll(SecurityInCharge.reviewActiveSilentAlarms());
+        colAlarmId.setCellValueFactory(new PropertyValueFactory<SilentAlarm,String>("alarmId"));
+        colAlarmLocation.setCellValueFactory(new PropertyValueFactory<SilentAlarm,String>("location"));
+        colAlarmTime.setCellValueFactory(new PropertyValueFactory<SilentAlarm,String>("time"));
+        colAlarmType.setCellValueFactory(new PropertyValueFactory<SilentAlarm,String>("type"));
     }
 
-    @Deprecated
-    public void handleViewAlarmDetails(ActionEvent actionEvent) {
-    }
 
     @javafx.fxml.FXML
     public void handleFetchAlarms(ActionEvent actionEvent) {
+        tblActiveAlarms.getItems().clear();
+        tblActiveAlarms.getItems().setAll(SecurityInCharge.reviewActiveSilentAlarms());
+
     }
 
     @javafx.fxml.FXML
     public void handleMuteAlarm(ActionEvent actionEvent) {
+        SilentAlarm selectedAlarm = cmbSelectedAlarm.getValue();
+        selectedAlarm.setActive(false);
     }
 }

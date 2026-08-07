@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MaintenanceHazardReport {
+public class MaintenanceHazardReport implements Serializable {
     private String reportId;
     private String hazardName;
     private LocalDate date;

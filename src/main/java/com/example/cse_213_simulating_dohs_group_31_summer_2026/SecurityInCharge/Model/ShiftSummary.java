@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ShiftSummary {
+public class ShiftSummary implements Serializable {
     private String summaryId;
     private String activitiesText;
     private LocalDateTime timestamp;

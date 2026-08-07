@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class VisitorEntry {
+public class VisitorEntry implements Serializable {
     private String entryId;
     private String guestName;
     private LocalTime timeIn;

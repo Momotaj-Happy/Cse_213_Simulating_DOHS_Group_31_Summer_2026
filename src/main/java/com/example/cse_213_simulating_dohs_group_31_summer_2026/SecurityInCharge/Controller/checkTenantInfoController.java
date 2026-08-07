@@ -1,31 +1,57 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.Tenant;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class checkTenantInfoController
-{
-    @javafx.fxml.FXML
+import java.util.ArrayList;
+
+public class checkTenantInfoController {
+
+    @FXML
     private TextField txtTenantSearch;
-    @javafx.fxml.FXML
-    private TableColumn<Tenant,String> colApartment;
-    @javafx.fxml.FXML
-    private TableColumn<Tenant,String> colTenantName;
-    @javafx.fxml.FXML
-    private Label lblTenantStatus;
-    @javafx.fxml.FXML
+    @FXML
     private TableView<Tenant> tblTenantInfo;
-    @javafx.fxml.FXML
-    private TableColumn<Tenant,String> colTenantId;
-    @javafx.fxml.FXML
-    private TableColumn<Tenant,String> colMobile;
+    @FXML
+    private TableColumn<Tenant, String> colTenantId;
+    @FXML
+    private TableColumn<Tenant, String> colTenantName;
+    @FXML
+    private TableColumn<Tenant, String> colApartment;
+    @FXML
+    private TableColumn<Tenant, String> colMobile;
+    @FXML
+    private Label lblTenantStatus;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
+        colTenantId.setCellValueFactory(new PropertyValueFactory<>("tenantId"));
+        colTenantName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colApartment.setCellValueFactory(new PropertyValueFactory<>("apartment"));
+        colMobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
     }
 
-    @javafx.fxml.FXML
+    @FXML
     public void handleSearchTenant(ActionEvent actionEvent) {
+        String searchQuery = txtTenantSearch.getText();
+
+        if (searchQuery == null || searchQuery.trim().isEmpty()) {
+            lblTenantStatus.setText("Please enter search query!");
+            return;
+        }
+
+        ArrayList<Tenant> matchedTenants = SecurityInCharge.checkTenantInformation(searchQuery);
+
+        if (matchedTenants.isEmpty()) {
+            lblTenantStatus.setText("No tenant found matching criteria!");
+            tblTenantInfo.setItems(FXCollections.observableArrayList());
+        } else {
+            tblTenantInfo.setItems(FXCollections.observableArrayList(matchedTenants));
+            lblTenantStatus.setText("Tenant information fetched successfully!");
+        }
     }
 }

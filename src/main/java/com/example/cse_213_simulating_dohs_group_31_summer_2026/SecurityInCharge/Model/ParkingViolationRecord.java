@@ -1,9 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class ParkingViolationRecord {
+public class ParkingViolationRecord implements Serializable {
     private String violationId;
     private String licensePlateNumber;
     private String location;

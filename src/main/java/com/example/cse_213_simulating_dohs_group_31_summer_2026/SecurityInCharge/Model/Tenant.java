@@ -1,6 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model;
 
-public class Tenant {
+import java.io.Serializable;
+
+public class Tenant implements Serializable {
     private String tenantId;
     private String name;
     private String apartment;
