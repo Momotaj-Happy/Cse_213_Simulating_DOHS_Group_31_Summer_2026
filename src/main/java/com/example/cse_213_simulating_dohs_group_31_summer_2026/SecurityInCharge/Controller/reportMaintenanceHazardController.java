@@ -1,9 +1,12 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.MaintenanceHazardReport;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 
@@ -22,7 +25,27 @@ public class reportMaintenanceHazardController {
     private Label lblHazardStatus;
 
     @FXML
+    private TableView<MaintenanceHazardReport> tblHazardReports;
+    @FXML
+    private TableColumn<MaintenanceHazardReport, String> colHazardId;
+    @FXML
+    private TableColumn<MaintenanceHazardReport, String> colHazardName;
+    @FXML
+    private TableColumn<MaintenanceHazardReport, LocalDate> colDate;
+    @FXML
+    private TableColumn<MaintenanceHazardReport, String> colLocation;
+    @FXML
+    private TableColumn<MaintenanceHazardReport, String> colDescription;
+
+    @FXML
     public void initialize() {
+        colHazardId.setCellValueFactory(new PropertyValueFactory<>("reportId"));
+        colHazardName.setCellValueFactory(new PropertyValueFactory<>("hazardName"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+        tblHazardReports.setItems(FXCollections.observableArrayList(hazardReports));
     }
 
     @FXML
@@ -71,7 +94,8 @@ public class reportMaintenanceHazardController {
         boolean isSaved = SecurityInCharge.reportMaintenanceHazard(hazardName, date, location, description);
 
         if (isSaved) {
-            lblHazardStatus.setText("Hazard report stored successfully " + hazardReports);
+            tblHazardReports.setItems(FXCollections.observableArrayList(hazardReports));
+            lblHazardStatus.setText("Hazard report stored successfully!");
         } else {
             lblHazardStatus.setText("Failed to store hazard report!");
         }

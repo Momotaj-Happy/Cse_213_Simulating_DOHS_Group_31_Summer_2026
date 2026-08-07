@@ -1,9 +1,12 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.ParkingViolationRecord;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,7 +26,27 @@ public class logUnauthorizedParkingController {
     private TextField txtParkingPlate;
 
     @FXML
+    private TableView<ParkingViolationRecord> tblParkingViolations;
+    @FXML
+    private TableColumn<ParkingViolationRecord, String> colViolationId;
+    @FXML
+    private TableColumn<ParkingViolationRecord, String> colLicensePlate;
+    @FXML
+    private TableColumn<ParkingViolationRecord, String> colLocation;
+    @FXML
+    private TableColumn<ParkingViolationRecord, LocalTime> colTime;
+    @FXML
+    private TableColumn<ParkingViolationRecord, LocalDate> colDate;
+
+    @FXML
     public void initialize() {
+        colViolationId.setCellValueFactory(new PropertyValueFactory<>("violationId"));
+        colLicensePlate.setCellValueFactory(new PropertyValueFactory<>("licensePlateNumber"));
+        colLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        tblParkingViolations.setItems(FXCollections.observableArrayList(parkingViolations));
     }
 
     @FXML
@@ -76,7 +99,8 @@ public class logUnauthorizedParkingController {
         boolean isSaved = SecurityInCharge.logUnauthorizedParking(licensePlate, location, time, date);
 
         if (isSaved) {
-            lblParkingStatus.setText("Parking violation saved successfully " + parkingViolations);
+            tblParkingViolations.setItems(FXCollections.observableArrayList(parkingViolations));
+            lblParkingStatus.setText("Parking violation saved successfully!");
         } else {
             lblParkingStatus.setText("Failed to save parking violation!");
         }

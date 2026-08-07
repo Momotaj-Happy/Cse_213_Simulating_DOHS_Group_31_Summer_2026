@@ -1,9 +1,14 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.GateMan;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.PreRegisteredGuest;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.time.LocalDate;
 
 public class verifyPreRegisteredGuestsController {
     @FXML
@@ -12,7 +17,24 @@ public class verifyPreRegisteredGuestsController {
     private TextField txtGuestLicensePlate;
 
     @FXML
+    private TableView<PreRegisteredGuest> tblPreRegisteredGuests;
+    @FXML
+    private TableColumn<PreRegisteredGuest, String> colPreRegId;
+    @FXML
+    private TableColumn<PreRegisteredGuest, String> colLicensePlate;
+    @FXML
+    private TableColumn<PreRegisteredGuest, String> colHostName;
+    @FXML
+    private TableColumn<PreRegisteredGuest, LocalDate> colExpectedDate;
+
+    @FXML
     public void initialize() {
+        colPreRegId.setCellValueFactory(new PropertyValueFactory<>("preRegId"));
+        colLicensePlate.setCellValueFactory(new PropertyValueFactory<>("licensePlate"));
+        colHostName.setCellValueFactory(new PropertyValueFactory<>("hostResidentName"));
+        colExpectedDate.setCellValueFactory(new PropertyValueFactory<>("expectedDate"));
+
+        tblPreRegisteredGuests.setItems(FXCollections.observableArrayList(GateMan.preRegisteredGuests));
     }
 
     @FXML

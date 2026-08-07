@@ -1,9 +1,12 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.IncidentLog;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,7 +30,30 @@ public class fileIncidentLogController {
     private TextField txtIncidentTime;
 
     @FXML
+    private TableView<IncidentLog> tblIncidentLogs;
+    @FXML
+    private TableColumn<IncidentLog, String> colLogId;
+    @FXML
+    private TableColumn<IncidentLog, String> colReporter;
+    @FXML
+    private TableColumn<IncidentLog, LocalTime> colTime;
+    @FXML
+    private TableColumn<IncidentLog, LocalDate> colDate;
+    @FXML
+    private TableColumn<IncidentLog, String> colLocation;
+    @FXML
+    private TableColumn<IncidentLog, String> colPersonInvolved;
+
+    @FXML
     public void initialize() {
+        colLogId.setCellValueFactory(new PropertyValueFactory<>("logId"));
+        colReporter.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        colPersonInvolved.setCellValueFactory(new PropertyValueFactory<>("personInvolved"));
+
+        tblIncidentLogs.setItems(FXCollections.observableArrayList(incidentLogs));
     }
 
     @FXML
@@ -95,7 +121,8 @@ public class fileIncidentLogController {
 
         boolean isSaved = SecurityInCharge.fileIncidentLog(name, time, date, location, description, personInvolve);
         if (isSaved) {
-            lblIncidentStatus.setText("Saved incident data successfully " + incidentLogs);
+            tblIncidentLogs.setItems(FXCollections.observableArrayList(incidentLogs));
+            lblIncidentStatus.setText("Saved incident data successfully!");
         } else {
             lblIncidentStatus.setText("Failed to save incident data!");
         }

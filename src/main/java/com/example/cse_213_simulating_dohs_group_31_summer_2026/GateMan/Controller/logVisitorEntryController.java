@@ -1,9 +1,12 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.GateMan;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.VisitorEntry;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalTime;
 
@@ -20,8 +23,32 @@ public class logVisitorEntryController {
     private TextField txtGuestName;
 
     @FXML
+    private TableView<VisitorEntry> tblVisitorEntries;
+    @FXML
+    private TableColumn<VisitorEntry, String> colEntryId;
+    @FXML
+    private TableColumn<VisitorEntry, String> colGuestName;
+    @FXML
+    private TableColumn<VisitorEntry, LocalTime> colEntryTime;
+    @FXML
+    private TableColumn<VisitorEntry, Integer> colGateNo;
+    @FXML
+    private TableColumn<VisitorEntry, String> colVehicleNo;
+    @FXML
+    private TableColumn<VisitorEntry, String> colStatus;
+
+    @FXML
     public void initialize() {
         cmbGateNo.getItems().setAll(1, 2);
+
+        colEntryId.setCellValueFactory(new PropertyValueFactory<>("entryId"));
+        colGuestName.setCellValueFactory(new PropertyValueFactory<>("guestName"));
+        colEntryTime.setCellValueFactory(new PropertyValueFactory<>("timeIn"));
+        colGateNo.setCellValueFactory(new PropertyValueFactory<>("gateNo"));
+        colVehicleNo.setCellValueFactory(new PropertyValueFactory<>("vehicleNumber"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        tblVisitorEntries.setItems(FXCollections.observableArrayList(GateMan.visitorEntries));
     }
 
     @FXML
@@ -57,6 +84,7 @@ public class logVisitorEntryController {
         }
 
         GateMan.logVisitorEntry(name, entryTime, gateNoObj, vehicleNo);
+        tblVisitorEntries.setItems(FXCollections.observableArrayList(GateMan.visitorEntries));
         lblLogVisitorStatus.setText("entry done for vehicle:" + vehicleNo);
     }
 }
