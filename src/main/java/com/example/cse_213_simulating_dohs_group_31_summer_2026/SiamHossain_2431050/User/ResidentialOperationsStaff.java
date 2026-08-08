@@ -2,8 +2,6 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_243
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.User;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.*;
-
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -17,11 +15,6 @@ public class ResidentialOperationsStaff extends User {
 
     public static ArrayList<StaffComplaint> complaintList = new ArrayList<>();
 
-    public ResidentialOperationsStaff() {
-        super();
-        this.staffId = "";
-        this.checkedIn = false;
-    }
 
     public ResidentialOperationsStaff(int userId, String name, String role, String password, boolean isLoggedIn, String staffId) {
         super(userId, name, role, password, isLoggedIn);
@@ -125,7 +118,7 @@ public class ResidentialOperationsStaff extends User {
         int totalDays = 0;
         LocalDate day = startDate;
         while (!day.isAfter(endDate)) {
-            if (day.getDayOfWeek() != DayOfWeek.FRIDAY) {
+            if (day.toEpochDay() % 7 != 1) { // skips Fridays (1970-01-01 was a Thursday, so Friday = epochDay % 7 == 1)
                 totalDays++;
             }
             day = day.plusDays(1);

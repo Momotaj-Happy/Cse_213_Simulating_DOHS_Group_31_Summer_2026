@@ -204,14 +204,6 @@ public class StaffSupervisor extends User {
         return noticeList.add(notice);
     }
 
-    public String getSupervisorId() {
-        return supervisorId;
-    }
-
-    public void setSupervisorId(String supervisorId) {
-        this.supervisorId = supervisorId;
-    }
-
     @Override
     public String toString() {
         return "StaffSupervisor{" +
