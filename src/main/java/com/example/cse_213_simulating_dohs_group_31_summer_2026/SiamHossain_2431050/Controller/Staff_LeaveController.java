@@ -11,9 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
-
-
-
 public class Staff_LeaveController
 {
     @FXML
