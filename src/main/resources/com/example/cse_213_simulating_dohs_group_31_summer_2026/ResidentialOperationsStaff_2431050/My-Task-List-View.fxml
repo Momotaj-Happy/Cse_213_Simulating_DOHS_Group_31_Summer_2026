@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="460.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller.Staff_TaskListController">
+   <children>
+      <Text layoutX="34.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Task List">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <TableView fx:id="taskListTableView" layoutX="26.0" layoutY="85.0" prefHeight="180.0" prefWidth="548.0">
+         <columns>
+            <TableColumn fx:id="taskIdTableCol" prefWidth="80.0" text="Task ID" />
+            <TableColumn fx:id="taskTypeTableCol" prefWidth="110.0" text="Task Type" />
+            <TableColumn fx:id="locationTableCol" prefWidth="120.0" text="Location" />
+            <TableColumn fx:id="timeSlotTableCol" prefWidth="100.0" text="Time Slot" />
+            <TableColumn fx:id="statusTableCol" prefWidth="100.0" text="Status" />
+         </columns>
+      </TableView>
+      <Text layoutX="26.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task Details:" />
+      <TextArea fx:id="taskDetailsTextArea" layoutX="26.0" layoutY="316.0" prefHeight="70.0" prefWidth="548.0" />
+      <Button layoutX="36.0" layoutY="413.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <Button layoutX="300.0" layoutY="413.0" mnemonicParsing="false" onAction="#viewTaskDetailsOnAction" prefHeight="26.0" prefWidth="150.0" text="View Task Details" />
+      <Button layoutX="460.0" layoutY="413.0" mnemonicParsing="false" onAction="#completeSelectedTaskOnAction" prefHeight="26.0" prefWidth="114.0" text="Complete Task" />
+   </children>
+</AnchorPane>

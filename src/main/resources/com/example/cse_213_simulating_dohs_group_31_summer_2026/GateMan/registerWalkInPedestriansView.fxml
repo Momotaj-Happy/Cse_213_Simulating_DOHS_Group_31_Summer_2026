@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.registerWalkInPedestriansController">
+    <children>
+        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Register Walk-In Pedestrians" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
+        <Label layoutX="30.0" layoutY="70.0" text="Pedestrian Name:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
+        <TextField fx:id="txtPedestrianName" layoutX="150.0" layoutY="65.0" prefHeight="25.0" prefWidth="170.0" promptText="Enter pedestrian name" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="65.0" />
+        <Label layoutX="30.0" layoutY="115.0" text="Time:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="115.0" />
+        <TextField fx:id="txtPedestrianTime" layoutX="150.0" layoutY="110.0" prefHeight="25.0" prefWidth="170.0" promptText="HH:MM" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="110.0" />
+        <Label layoutX="30.0" layoutY="160.0" text="Gate Number:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="160.0" />
+        <ComboBox fx:id="cmbGateNo" layoutX="150.0" layoutY="155.0" prefHeight="25.0" prefWidth="170.0" promptText="Select Gate" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="155.0" />
+        <Label layoutX="30.0" layoutY="205.0" text="NID / Identification:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0" />
+        <TextField fx:id="txtPedestrianId" layoutX="150.0" layoutY="200.0" prefHeight="25.0" prefWidth="170.0" promptText="Enter NID/ID" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="200.0" />
+        <Button layoutX="340.0" layoutY="200.0" onAction="#handleRegisterPedestrian" prefWidth="170.0" text="Register Pedestrian" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="200.0" />
+
+        <TableView fx:id="tblPedestrianEntries" layoutX="30.0" layoutY="250.0" prefHeight="220.0" prefWidth="490.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="250.0">
+            <columns>
+                <TableColumn fx:id="colEntryId" prefWidth="85.0" text="Entry ID" />
+                <TableColumn fx:id="colName" prefWidth="120.0" text="Name" />
+                <TableColumn fx:id="colTimeIn" prefWidth="80.0" text="Time In" />
+                <TableColumn fx:id="colGateNo" prefWidth="55.0" text="Gate" />
+                <TableColumn fx:id="colIdentification" prefWidth="90.0" text="Identification" />
+                <TableColumn fx:id="colStatus" prefWidth="60.0" text="Status" />
+            </columns>
+        </TableView>
+
+        <Label fx:id="lblPedestrianStatus" layoutX="30.0" layoutY="490.0" text="" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="490.0" />
+    </children>
+</AnchorPane>

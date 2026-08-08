@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.Controller.Technician_ViewReportController">
+   <children>
+      <Text layoutX="27.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Maintenance Report">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <TableView fx:id="viewMaintenanceTableView" layoutX="16.0" layoutY="89.0" prefHeight="238.0" prefWidth="562.0">
+        <columns>
+          <TableColumn fx:id="taskIdTableCol" prefWidth="108.79998779296875" text="Task ID" />
+          <TableColumn fx:id="completionDateTableCol" prefWidth="168.0" text="Completion Date" />
+            <TableColumn fx:id="generatedReportTableCol" prefWidth="287.20001220703125" text="Generated Report" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

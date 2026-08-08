@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.Controller.Supervisor_DutyRotationController">
+   <children>
+      <Text layoutX="34.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekly Duty Rotation">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="26.0" layoutY="90.0" mnemonicParsing="false" onAction="#fetchStaffDutiesOnAction" prefHeight="26.0" prefWidth="230.0" text="Fetch Staff &amp; Previous Duties" />
+      <TableView fx:id="dutyRotationTableView" layoutX="26.0" layoutY="130.0" prefHeight="190.0" prefWidth="548.0">
+         <columns>
+            <TableColumn fx:id="staffNameTableCol" prefWidth="110.0" text="Staff Name" />
+            <TableColumn fx:id="currentRoleTableCol" prefWidth="100.0" text="Current Role" />
+            <TableColumn fx:id="previousDutyTableCol" prefWidth="100.0" text="Previous Duty" />
+            <TableColumn fx:id="workloadCountTableCol" prefWidth="80.0" text="Workload" />
+            <TableColumn fx:id="suggestedDutyTableCol" prefWidth="110.0" text="Suggested Duty" />
+         </columns>
+      </TableView>
+      <Button layoutX="36.0" layoutY="353.0" mnemonicParsing="false" onAction="#backOnAction" prefHeight="26.0" prefWidth="80.0" text="Back" />
+      <Button layoutX="300.0" layoutY="353.0" mnemonicParsing="false" onAction="#saveRotationOnAction" prefHeight="26.0" prefWidth="120.0" text="Save Rotation" />
+      <Button layoutX="430.0" layoutY="353.0" mnemonicParsing="false" onAction="#publishRotationOnAction" prefHeight="26.0" prefWidth="140.0" text="Publish Rotation" />
+   </children>
+</AnchorPane>
