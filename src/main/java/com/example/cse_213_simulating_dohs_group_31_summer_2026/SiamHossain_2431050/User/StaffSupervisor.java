@@ -28,14 +28,21 @@ public class StaffSupervisor extends User {
         this.supervisorId = supervisorId;
     }
 
-    // Goal-1: build a suggested task list for a given day based on duty type.
     public static ArrayList<Task> generateSuggestedTasks(LocalDate forDate) {
         ArrayList<Task> suggested = new ArrayList<>();
         String[][] sample = {
                 {"Rakib", "Road Cleaning", "Road No 5"},
                 {"Sumon", "Garbage Collection", "Block A Route"},
                 {"Jashim", "Mosque Cleaning", "Central Mosque"},
-                {"Karim", "Common Area Cleaning", "Lift Lobby, Building 3"}
+                {"Karim", "Common Area Cleaning", "Lift Lobby, Building 3"},
+                {"Xiam", "Drainage Cleaning", "Main Gate Avenue"},
+                {"Rafiq", "Park Maintenance", "Community Park South"},
+                {"Tariq", "Lawn Mowing", "Playground Zone B"},
+                {"Salim", "Dustbin Emptying", "Sector 4 Market Area"},
+                {"Habib", "Staircase Sweeping", "Building 2 - All Floors"},
+                {"Arif", "Water Tank Inspection", "Rooftop, Building 1"},
+                {"Sohan", "Glass Panel Cleaning", "Main Office Entrance"},
+                {"Kabir", "Waste Segregation", "Central Transfer Station"}
         };
         for (String[] row : sample) {
             String id = "TSK-" + (taskList.size() + suggested.size() + 1);

@@ -5,8 +5,6 @@ import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class ResidentialOperationsStaff extends User {
@@ -16,8 +14,6 @@ public class ResidentialOperationsStaff extends User {
     private String shiftTime;
     private String supervisorName;
     private boolean checkedIn;
-    private LocalTime checkInTime;
-    private LocalTime checkOutTime;
 
     public static ArrayList<StaffComplaint> complaintList = new ArrayList<>();
 
@@ -54,27 +50,24 @@ public class ResidentialOperationsStaff extends User {
         if (checkedIn) {
             return false;
         }
-        checkInTime = LocalTime.now();
         checkedIn = true;
-        String status = checkInTime.isAfter(LocalTime.of(8, 15)) ? "Late" : "Present";
-        AttendanceRecord record = new AttendanceRecord(getName(), LocalDate.now(), checkInTime, null, status);
+        String status = "Present";
+        AttendanceRecord record = new AttendanceRecord(getName(), LocalDate.now(), status);
         StaffSupervisor.attendanceList.add(record);
         return true;
     }
 
-    public String checkOut() {
+    public boolean checkOut() {
         if (!checkedIn) {
-            return null;
+            return false;
         }
-        checkOutTime = LocalTime.now();
         checkedIn = false;
         for (AttendanceRecord record : StaffSupervisor.attendanceList) {
             if (record.getStaffName().equalsIgnoreCase(getName()) && record.getDate().equals(LocalDate.now())) {
-                record.setCheckOut(checkOutTime);
+                record.setStatus("Checked Out");
             }
         }
-        long minutes = ChronoUnit.MINUTES.between(checkInTime, checkOutTime);
-        return String.format("%d hr %d min", minutes / 60, minutes % 60);
+        return true;
     }
 
 
@@ -83,7 +76,7 @@ public class ResidentialOperationsStaff extends User {
             return false;
         }
         task.setNotes(notes);
-        task.setCompletionTime(LocalTime.now().toString());
+        task.setCompletionTime(LocalDate.now().toString());
         if (completionStatus.equals("Issue Found")) {
             task.setStatus("Issue Reported");
             ProblemReport report = new ProblemReport("PR-" + (StaffSupervisor.problemReportList.size() + 1),
