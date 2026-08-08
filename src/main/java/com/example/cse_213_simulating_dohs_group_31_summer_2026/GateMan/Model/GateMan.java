@@ -55,7 +55,7 @@ public class GateMan extends User implements Serializable {
     }
 
     public GateMan(String userId, String name, String role, String password, boolean isLoggedIn, String gateManId) {
-        super(userId, name, role, password, isLoggedIn);
+        super(Integer.parseInt(userId), name, role, password, isLoggedIn);
         this.gateManId = gateManId;
     }
 
