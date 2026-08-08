@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class MaintenanceReport implements Serializable {
-    private int reportId;
+    private final int reportId;
     private String reportDescription;
     private LocalDate reportGenerateTime;
 
@@ -12,9 +12,6 @@ public class MaintenanceReport implements Serializable {
         return reportId;
     }
 
-    public void setReportId(int reportId) {
-        this.reportId = reportId;
-    }
 
     public String getReportDescription() {
         return reportDescription;
