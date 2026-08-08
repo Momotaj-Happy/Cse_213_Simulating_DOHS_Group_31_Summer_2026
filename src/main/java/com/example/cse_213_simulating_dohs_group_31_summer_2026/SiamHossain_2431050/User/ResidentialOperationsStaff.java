@@ -15,6 +15,11 @@ public class ResidentialOperationsStaff extends User {
 
     public static ArrayList<StaffComplaint> complaintList = new ArrayList<>();
 
+    public ResidentialOperationsStaff() {
+        super();
+        this.staffId = "";
+        this.checkedIn = false;
+    }
 
     public ResidentialOperationsStaff(int userId, String name, String role, String password, boolean isLoggedIn, String staffId) {
         super(userId, name, role, password, isLoggedIn);
