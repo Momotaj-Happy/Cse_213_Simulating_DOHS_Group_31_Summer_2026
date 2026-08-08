@@ -9,7 +9,7 @@ public class SupplyRequest implements Serializable {
     private int quantity;
     private String reason;
     private String urgency;
-    private String status; // Pending / Approved / Rejected / Forwarded
+    private String status;
 
 
     public SupplyRequest(String requestId, String staffName, String item, int quantity, String reason, String urgency, String status) {

@@ -8,8 +8,8 @@ public class Task implements Serializable {
     private String dutyType;
     private String location;
     private String timeSlot;
-    private String status;       // Pending / Done / Late / Issue Reported
-    private String availability; // used only while generating suggested tasks
+    private String status;
+    private String availability;
     private String instruction;
     private String completionTime;
     private String notes;

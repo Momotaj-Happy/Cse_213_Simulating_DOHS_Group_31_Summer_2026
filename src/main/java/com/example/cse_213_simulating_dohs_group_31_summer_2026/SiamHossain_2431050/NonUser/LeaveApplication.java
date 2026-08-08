@@ -10,7 +10,7 @@ public class LeaveApplication implements Serializable {
     private LocalDate startDate;
     private LocalDate endDate;
     private String reason;
-    private String status; // Pending / Approved / Rejected
+    private String status;
     private int totalDays;
 
     public LeaveApplication(String leaveId, String staffName, String leaveType, LocalDate startDate, LocalDate endDate, String reason, String status, int totalDays) {

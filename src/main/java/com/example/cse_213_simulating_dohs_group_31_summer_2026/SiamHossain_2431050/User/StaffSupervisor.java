@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class StaffSupervisor extends User {
     private final String supervisorId;
 
-
     public static final String TASK_FILE = "TaskData.bin";
     public static final String DUTY_ROTATION_FILE = "DutyRotationData.bin";
     public static final String PROBLEM_REPORT_FILE = "ProblemReportData.bin";

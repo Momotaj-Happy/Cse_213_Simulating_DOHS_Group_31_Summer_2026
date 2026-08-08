@@ -8,7 +8,7 @@ public class StaffComplaint implements Serializable {
     private String complaintType;
     private LocalDate incidentDate;
     private String details;
-    private String status; // Submitted / Reviewed
+    private String status;
 
 
     public StaffComplaint(String staffName, String complaintType, LocalDate incidentDate, String details, String status) {
