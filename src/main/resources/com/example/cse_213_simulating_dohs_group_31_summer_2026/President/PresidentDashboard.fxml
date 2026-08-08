@@ -12,18 +12,18 @@
       </Label>
       <Label fx:id="summaryLabel" layoutX="30.0" layoutY="50.0" prefWidth="560.0" text="Total plots: - | Allotted: - | Vacant: - | Pending tenancy: -" />
 
-      <Button layoutX="30.0" layoutY="95.0" prefWidth="260.0" onAction="#goRegisterAllotment" text="Register New Plot Allotment" />
-      <Button layoutX="310.0" layoutY="95.0" prefWidth="260.0" onAction="#goPlotTransfer" text="Plot Transfer" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="95.0" prefWidth="260.0" onAction="#goRegisterAllotment" text="Register New Plot Allotment" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="95.0" prefWidth="260.0" onAction="#goPlotTransfer" text="Plot Transfer" />
 
-      <Button layoutX="30.0" layoutY="140.0" prefWidth="260.0" onAction="#goTenancyApplications" text="Tenancy Applications" />
-      <Button layoutX="310.0" layoutY="140.0" prefWidth="260.0" onAction="#goEncroachmentViolations" text="Encroachment &amp; Violations" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="140.0" prefWidth="260.0" onAction="#goTenancyApplications" text="Tenancy Applications" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="140.0" prefWidth="260.0" onAction="#goEncroachmentViolations" text="Encroachment &amp; Violations" />
 
-      <Button layoutX="30.0" layoutY="185.0" prefWidth="260.0" onAction="#goPlotRegistry" text="Plot Registry" />
-      <Button layoutX="310.0" layoutY="185.0" prefWidth="260.0" onAction="#goOccupancyCertificate" text="Occupancy Certificate" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="185.0" prefWidth="260.0" onAction="#goPlotRegistry" text="Plot Registry" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="185.0" prefWidth="260.0" onAction="#goOccupancyCertificate" text="Occupancy Certificate" />
 
-      <Button layoutX="30.0" layoutY="230.0" prefWidth="260.0" onAction="#goPlotStatusReport" text="Plot Status Report" />
-      <Button layoutX="310.0" layoutY="230.0" prefWidth="260.0" onAction="#goTenancyManagement" text="Tenancy Management (Departure)" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="230.0" prefWidth="260.0" onAction="#goPlotStatusReport" text="Plot Status Report" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="230.0" prefWidth="260.0" onAction="#goTenancyManagement" text="Tenancy Management (Departure)" />
 
-      <Button layoutX="30.0" layoutY="410.0" prefWidth="120.0" onAction="#signOutOnAction" text="Sign Out" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="410.0" prefWidth="120.0" onAction="#signOutOnAction" text="Sign Out" />
    </children>
 </AnchorPane>
