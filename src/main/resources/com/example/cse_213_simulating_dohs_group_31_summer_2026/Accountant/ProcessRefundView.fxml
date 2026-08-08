@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.Accountant.Controller.ProcessRefundController">
+   <children>
+      <Label layoutX="30.0" layoutY="14.0" text="Process Refund"><font><Font name="System Bold" size="18.0" /></font></Label>
+      <Label layoutX="30.0" layoutY="70.0" text="Plot Number:" />
+      <TextField fx:id="plotNumberField" layoutX="300.0" layoutY="66.0" prefWidth="200.0" />
+      <Label layoutX="30.0" layoutY="110.0" text="Refund Amount:" />
+      <TextField fx:id="refundAmountField" layoutX="300.0" layoutY="106.0" prefWidth="200.0" />
+      <Label layoutX="30.0" layoutY="150.0" text="Refund Method:" />
+      <ComboBox fx:id="methodComboBox" layoutX="300.0" layoutY="146.0" prefWidth="200.0" />
+      <Label layoutX="30.0" layoutY="190.0" text="Justification / Remarks:" />
+      <TextArea fx:id="remarksArea" layoutX="30.0" layoutY="215.0" prefHeight="60.0" prefWidth="540.0" />
+
+      <Button layoutX="300.0" layoutY="290.0" onAction="#processButtonOnAction" prefWidth="200.0" text="Process Refund" />
+      <Label fx:id="statusLabel" layoutX="30.0" layoutY="340.0" prefWidth="540.0" wrapText="true" />
+      <Button layoutX="30.0" layoutY="390.0" onAction="#backButtonOnAction" prefWidth="100.0" text="Back" />
+   </children>
+</AnchorPane>

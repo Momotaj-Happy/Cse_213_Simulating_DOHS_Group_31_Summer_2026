@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.Accountant.Controller.GenerateArrearReportController">
+   <children>
+      <Label layoutX="30.0" layoutY="14.0" text="Arrear Report"><font><Font name="System Bold" size="18.0" /></font></Label>
+      <Label layoutX="30.0" layoutY="70.0" text="Road Number (optional):" />
+      <TextField fx:id="roadNumberField" layoutX="300.0" layoutY="66.0" prefWidth="200.0" />
+      <Label layoutX="30.0" layoutY="110.0" text="Min Overdue Months (optional):" />
+      <TextField fx:id="minMonthsField" layoutX="300.0" layoutY="106.0" prefWidth="200.0" />
+
+      <Button layoutX="300.0" layoutY="160.0" onAction="#generateButtonOnAction" prefWidth="200.0" text="Generate Report" />
+      <Label fx:id="statusLabel" layoutX="30.0" layoutY="210.0" prefWidth="540.0" wrapText="true" />
+      <Button layoutX="30.0" layoutY="350.0" onAction="#backButtonOnAction" prefWidth="100.0" text="Back" />
+   </children>
+</AnchorPane>
