@@ -1,6 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
-public class DutyRotation {
+import java.io.Serializable;
+
+public class DutyRotation implements Serializable {
     private String staffName;
     private String currentRole;
     private String previousDuty;

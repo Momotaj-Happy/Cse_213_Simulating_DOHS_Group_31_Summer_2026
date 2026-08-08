@@ -1,6 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
     private String taskId;
     private String staffName;
     private String dutyType;

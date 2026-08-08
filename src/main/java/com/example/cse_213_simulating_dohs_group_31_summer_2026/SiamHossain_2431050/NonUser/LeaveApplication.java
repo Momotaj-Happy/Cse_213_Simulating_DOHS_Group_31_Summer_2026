@@ -1,8 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class LeaveApplication {
+public class LeaveApplication implements Serializable {
     private String leaveId;
     private String staffName;
     private String leaveType;

@@ -1,22 +1,26 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.User;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.*;
 
+import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class StaffSupervisor extends User {
     private final String supervisorId;
 
-    public static ArrayList<Task> taskList = new ArrayList<>();
-    public static ArrayList<DutyRotation> dutyRotationList = new ArrayList<>();
-    public static ArrayList<ProblemReport> problemReportList = new ArrayList<>();
-    public static ArrayList<SupplyRequest> supplyRequestList = new ArrayList<>();
-    public static ArrayList<AttendanceRecord> attendanceList = new ArrayList<>();
-    public static ArrayList<LeaveApplication> leaveList = new ArrayList<>();
-    public static ArrayList<OccasionSchedule> occasionList = new ArrayList<>();
-    public static ArrayList<StaffNotice> noticeList = new ArrayList<>();
+
+    public static final String TASK_FILE = "TaskData.bin";
+    public static final String DUTY_ROTATION_FILE = "DutyRotationData.bin";
+    public static final String PROBLEM_REPORT_FILE = "ProblemReportData.bin";
+    public static final String SUPPLY_REQUEST_FILE = "SupplyRequestData.bin";
+    public static final String ATTENDANCE_FILE = "AttendanceData.bin";
+    public static final String LEAVE_FILE = "LeaveData.bin";
+    public static final String OCCASION_FILE = "OccasionData.bin";
+    public static final String NOTICE_FILE = "NoticeData.bin";
 
     public StaffSupervisor() {
         super();
@@ -28,8 +32,17 @@ public class StaffSupervisor extends User {
         this.supervisorId = supervisorId;
     }
 
+    // Deletes the file then re-writes every remaining record - used whenever an
+    // existing record needs to be updated in place (append-only won't do).
+    static <T extends Serializable> void rewriteAll(String fileName, ArrayList<T> list) {
+        File file = new File(fileName);
+        if (file.exists()) file.delete();
+        for (T o : list) Utility.saveObject(fileName, o, true);
+    }
+
     public static ArrayList<Task> generateSuggestedTasks(LocalDate forDate) {
         ArrayList<Task> suggested = new ArrayList<>();
+        ArrayList<Task> existing = Utility.loadObject(TASK_FILE);
         String[][] sample = {
                 {"Rakib", "Road Cleaning", "Road No 5"},
                 {"Sumon", "Garbage Collection", "Block A Route"},
@@ -45,7 +58,7 @@ public class StaffSupervisor extends User {
                 {"Kabir", "Waste Segregation", "Central Transfer Station"}
         };
         for (String[] row : sample) {
-            String id = "TSK-" + (taskList.size() + suggested.size() + 1);
+            String id = "TSK-" + (existing.size() + suggested.size() + 1);
             Task t = new Task(id, row[0], row[1], row[2], "9:00 AM", "Pending", "Available");
             suggested.add(t);
         }
@@ -62,7 +75,9 @@ public class StaffSupervisor extends User {
                 return false;
             }
         }
-        taskList.addAll(tasks);
+        for (Task t : tasks) {
+            Utility.saveObject(TASK_FILE, t, true);
+        }
         return true;
     }
 
@@ -87,19 +102,18 @@ public class StaffSupervisor extends User {
         if (rotation == null || rotation.isEmpty()) {
             return false;
         }
-        dutyRotationList.clear();
-        dutyRotationList.addAll(rotation);
+        rewriteAll(DUTY_ROTATION_FILE, rotation);
         return true;
     }
 
     public static boolean publishWeeklyRotation() {
-        return !dutyRotationList.isEmpty();
+        return !Utility.<DutyRotation>loadObject(DUTY_ROTATION_FILE).isEmpty();
     }
 
 
     public static ArrayList<Task> getTaskProgress(String statusFilter) {
         ArrayList<Task> result = new ArrayList<>();
-        for (Task t : taskList) {
+        for (Task t : Utility.<Task>loadObject(TASK_FILE)) {
             if (statusFilter == null || statusFilter.equals("All") || statusFilter.equals(t.getStatus())) {
                 result.add(t);
             }
@@ -115,6 +129,14 @@ public class StaffSupervisor extends User {
         if (task == null || newStaffName == null || newStaffName.isEmpty()) {
             return false;
         }
+        ArrayList<Task> tasks = Utility.loadObject(TASK_FILE);
+        for (Task t : tasks) {
+            if (t.getTaskId() != null && t.getTaskId().equals(task.getTaskId())) {
+                t.setStaffName(newStaffName);
+                t.setStatus("Pending");
+            }
+        }
+        rewriteAll(TASK_FILE, tasks);
         task.setStaffName(newStaffName);
         task.setStatus("Pending");
         return true;
@@ -126,13 +148,14 @@ public class StaffSupervisor extends User {
             return false;
         }
         schedule.setStatus("Scheduled");
-        return occasionList.add(schedule);
+        Utility.saveObject(OCCASION_FILE, schedule, true);
+        return true;
     }
 
 
     public static ArrayList<ProblemReport> getPendingProblemReports() {
         ArrayList<ProblemReport> result = new ArrayList<>();
-        for (ProblemReport p : problemReportList) {
+        for (ProblemReport p : Utility.<ProblemReport>loadObject(PROBLEM_REPORT_FILE)) {
             if (!"Resolved".equals(p.getStatus())) {
                 result.add(p);
             }
@@ -144,13 +167,20 @@ public class StaffSupervisor extends User {
         if (report == null || action == null || action.isEmpty()) {
             return false;
         }
+        ArrayList<ProblemReport> reports = Utility.loadObject(PROBLEM_REPORT_FILE);
+        for (ProblemReport p : reports) {
+            if (p.getReportId() != null && p.getReportId().equals(report.getReportId())) {
+                p.setStatus(action);
+            }
+        }
+        rewriteAll(PROBLEM_REPORT_FILE, reports);
         report.setStatus(action);
         return true;
     }
 
     public static ArrayList<SupplyRequest> getPendingSupplyRequests() {
         ArrayList<SupplyRequest> result = new ArrayList<>();
-        for (SupplyRequest s : supplyRequestList) {
+        for (SupplyRequest s : Utility.<SupplyRequest>loadObject(SUPPLY_REQUEST_FILE)) {
             if ("Pending".equals(s.getStatus())) {
                 result.add(s);
             }
@@ -165,13 +195,21 @@ public class StaffSupervisor extends User {
         if (decision.equals("Reject") && (rejectionReason == null || rejectionReason.isEmpty())) {
             return false;
         }
-        request.setStatus(decision.equals("Approve") ? "Approved" : decision.equals("Reject") ? "Rejected" : "Forwarded");
+        String newStatus = decision.equals("Approve") ? "Approved" : decision.equals("Reject") ? "Rejected" : "Forwarded";
+        ArrayList<SupplyRequest> requests = Utility.loadObject(SUPPLY_REQUEST_FILE);
+        for (SupplyRequest s : requests) {
+            if (s.getRequestId() != null && s.getRequestId().equals(request.getRequestId())) {
+                s.setStatus(newStatus);
+            }
+        }
+        rewriteAll(SUPPLY_REQUEST_FILE, requests);
+        request.setStatus(newStatus);
         return true;
     }
 
     public static ArrayList<AttendanceRecord> getTodayAttendance() {
         ArrayList<AttendanceRecord> result = new ArrayList<>();
-        for (AttendanceRecord a : attendanceList) {
+        for (AttendanceRecord a : Utility.<AttendanceRecord>loadObject(ATTENDANCE_FILE)) {
             if (a.getDate() != null && a.getDate().equals(LocalDate.now())) {
                 result.add(a);
             }
@@ -188,7 +226,7 @@ public class StaffSupervisor extends User {
 
     public static ArrayList<LeaveApplication> getPendingLeaveApplications() {
         ArrayList<LeaveApplication> result = new ArrayList<>();
-        for (LeaveApplication l : leaveList) {
+        for (LeaveApplication l : Utility.<LeaveApplication>loadObject(LEAVE_FILE)) {
             if ("Pending".equals(l.getStatus())) {
                 result.add(l);
             }
@@ -200,6 +238,13 @@ public class StaffSupervisor extends User {
         if (application == null || decision == null) {
             return false;
         }
+        ArrayList<LeaveApplication> leaves = Utility.loadObject(LEAVE_FILE);
+        for (LeaveApplication l : leaves) {
+            if (l.getLeaveId() != null && l.getLeaveId().equals(application.getLeaveId())) {
+                l.setStatus(decision);
+            }
+        }
+        rewriteAll(LEAVE_FILE, leaves);
         application.setStatus(decision);
         return true;
     }
@@ -210,7 +255,8 @@ public class StaffSupervisor extends User {
             return false;
         }
         notice.setDatePosted(LocalDate.now());
-        return noticeList.add(notice);
+        Utility.saveObject(NOTICE_FILE, notice, true);
+        return true;
     }
 
     @Override
