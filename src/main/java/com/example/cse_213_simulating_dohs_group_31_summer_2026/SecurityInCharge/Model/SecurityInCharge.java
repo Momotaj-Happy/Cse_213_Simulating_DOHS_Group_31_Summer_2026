@@ -74,6 +74,11 @@ public class SecurityInCharge extends User implements Serializable {
         this.securityId = securityId;
     }
 
+    public SecurityInCharge(String userId, String name, String role, String password, boolean isLoggedIn, String securityId) {
+        super(Integer.parseInt(userId), name, role, password, isLoggedIn);
+        this.securityId = securityId;
+    }
+
 
     public static void loadIncidentLogsFromFile() {
         incidentLogs = new ArrayList<>();

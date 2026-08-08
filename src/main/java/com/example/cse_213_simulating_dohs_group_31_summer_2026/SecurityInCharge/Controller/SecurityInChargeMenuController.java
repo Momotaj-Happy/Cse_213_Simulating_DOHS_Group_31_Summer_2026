@@ -1,9 +1,10 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Controller;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -66,7 +67,7 @@ public class SecurityInChargeMenuController {
 
     @FXML
     public void handleBack(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+        SessionManager.securityInCharge = null;
+        Utility.openFxml(event, "Login", "LoginView.fxml");
     }
 }

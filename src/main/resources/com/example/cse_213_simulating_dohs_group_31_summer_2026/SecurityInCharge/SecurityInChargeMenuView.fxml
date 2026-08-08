@@ -19,6 +19,6 @@
         <Button prefWidth="250.0" text="Review Active Silent Alarms" onAction="#handleReviewActiveSilentAlarms" />
         <Button prefWidth="250.0" text="Send Emergency Assistance" onAction="#handleSendEmergencyAssistance" />
         <Button prefWidth="250.0" text="Submit Shift Summary" onAction="#handleSubmitShiftSummary" />
-        <Button prefWidth="250.0" text="Back to Main Menu" onAction="#handleBack" />
+        <Button prefWidth="250.0" text="Sign Out" onAction="#handleBack" />
     </children>
 </VBox>

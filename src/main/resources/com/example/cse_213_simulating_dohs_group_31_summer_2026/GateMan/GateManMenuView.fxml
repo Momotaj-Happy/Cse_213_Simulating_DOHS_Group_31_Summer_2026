@@ -18,6 +18,6 @@
         <Button prefWidth="250.0" text="Search Resident Vehicle" onAction="#handleSearchResidentVehicle" />
         <Button prefWidth="250.0" text="Toggle Emergency Bypass" onAction="#handleToggleEmergencyBypass" />
         <Button prefWidth="250.0" text="Verify Pre-Registered Guests" onAction="#handleVerifyPreRegisteredGuests" />
-        <Button prefWidth="250.0" text="Back to Main Menu" onAction="#handleBack" />
+        <Button prefWidth="250.0" text="Sign Out" onAction="#handleBack" />
     </children>
 </VBox>

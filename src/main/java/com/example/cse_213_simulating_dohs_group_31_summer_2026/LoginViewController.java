@@ -1,5 +1,7 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026;
 
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Model.GateMan;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SecurityInCharge.Model.SecurityInCharge;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.MaintenanceTechnician;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
@@ -110,9 +112,15 @@ public class LoginViewController
             Utility.openFxml(actionEvent, "Staff Supervisor", "StaffSupervisor_2431050/Supervisor-Dashboard-View.fxml");
 
         }
-
-        else{
-
+        else if (userTypeComboBox.getValue().equals("Gate Man")) {
+            GateMan gateMan = new GateMan(userId, "Gate Man", "Gate Man", password, true, userId);
+            SessionManager.gateMan = gateMan;
+            Utility.openFxml(actionEvent, "Gate Man Dashboard", "GateMan/GateManMenuView.fxml");
+        }
+        else if (userTypeComboBox.getValue().equals("Security In charge")) {
+            SecurityInCharge securityInCharge = new SecurityInCharge(userId, "Security In charge", "Security In charge", password, true, userId);
+            SessionManager.securityInCharge = securityInCharge;
+            Utility.openFxml(actionEvent, "Security In-Charge Dashboard", "SecurityInCharge/SecurityInChargeMenuView.fxml");
         }
     }
 }
