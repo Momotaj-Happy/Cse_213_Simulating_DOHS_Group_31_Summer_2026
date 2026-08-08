@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class DummyDataGenerator extends Application {
 
@@ -23,6 +24,10 @@ public class DummyDataGenerator extends Application {
             billFile.delete();
         }
 
+        ArrayList<com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.Accountant.NonUser.Bill> b = Utility.loadObject("AccountantBillData.bin");
+        for (com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.Accountant.NonUser.Bill bill: b){
+            System.out.println(bill.getBillingPeriod());
+        }
         Bill bill = new Bill(1, 100, 2026, "January","Pay Bill", false);
         Bill bill2 = new Bill(2, 150, 2026, "March","Pay Bill", false);
         Bill bill3= new Bill(3, 200, 2026, "April", "Pay Bill", false);

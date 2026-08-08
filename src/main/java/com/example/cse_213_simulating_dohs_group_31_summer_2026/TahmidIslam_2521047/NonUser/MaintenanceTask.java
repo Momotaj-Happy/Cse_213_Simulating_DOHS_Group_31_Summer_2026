@@ -11,7 +11,7 @@ public class MaintenanceTask implements Serializable {
 
 
 
-    public int getRequestId() {
+    public final int getRequestId() {
         return requestId;
     }
 

@@ -3,7 +3,8 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_252
 import java.io.Serializable;
 
 public class UtilityConsumption implements Serializable {
-    private int electricityAmount, waterAmount, gasAmount, utilityConsumptionId;
+    private int electricityAmount, waterAmount, gasAmount;
+    private final int utilityConsumptionId;
 
 
     public int getElectricityAmount() {
@@ -12,10 +13,6 @@ public class UtilityConsumption implements Serializable {
 
     public int getUtilityConsumptionId() {
         return utilityConsumptionId;
-    }
-
-    public void setUtilityConsumptionId(int utilityConsumptionId) {
-        this.utilityConsumptionId = utilityConsumptionId;
     }
 
     public UtilityConsumption(int utilityConsumptionId, int electricityAmount, int waterAmount, int gasAmount) {
@@ -45,5 +42,13 @@ public class UtilityConsumption implements Serializable {
         this.gasAmount = gasAmount;
     }
 
-
+    @Override
+    public String toString() {
+        return "UtilityConsumption{" +
+                "electricityAmount=" + electricityAmount +
+                ", waterAmount=" + waterAmount +
+                ", gasAmount=" + gasAmount +
+                ", utilityConsumptionId=" + utilityConsumptionId +
+                '}';
+    }
 }
