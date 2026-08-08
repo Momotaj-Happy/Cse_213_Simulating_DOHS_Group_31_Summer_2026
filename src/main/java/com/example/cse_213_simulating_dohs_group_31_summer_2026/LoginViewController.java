@@ -5,6 +5,8 @@ import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.User.Resident;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User.StaffSupervisor;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User.ResidentialOperationsStaff;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.President.User.President;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.Accountant.User.Accountant;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -85,12 +87,14 @@ public class LoginViewController
             Utility.openFxml(actionEvent, "Maintenance Technician", "MaintenanceTechnician_2521047/Technician-Dashboard-View.fxml");
         }
         else if (userTypeComboBox.getValue().equals("Accountant")) {
+            Accountant accountant = new Accountant(userid, "Accountant", password);
+            SessionManager.accountant = accountant;
             Utility.openFxml(actionEvent, "Accountant", "Accountant/AccountantDashboard.fxml");
-
         }
         else if (userTypeComboBox.getValue().equals("President")) {
+            President president = new President(userid, "President", password);
+            SessionManager.president = president;
             Utility.openFxml(actionEvent, "President", "President/PresidentDashboard.fxml");
-
         }
         else if (userTypeComboBox.getValue().equals("Residential Operations Staff")) {
             ResidentialOperationsStaff staff = new ResidentialOperationsStaff(userid, "Rakib",

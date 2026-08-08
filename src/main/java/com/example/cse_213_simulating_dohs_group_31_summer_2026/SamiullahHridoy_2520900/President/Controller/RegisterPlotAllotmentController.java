@@ -1,7 +1,7 @@
 // ********** PACKAGE & IMPORTS **********
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.President.Controller;
 
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.SessionManager;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

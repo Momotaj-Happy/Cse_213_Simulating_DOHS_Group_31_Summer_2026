@@ -3,7 +3,7 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.President.NonUser.TenancyApplication;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.President.User.President;
-import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.SessionManager;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
