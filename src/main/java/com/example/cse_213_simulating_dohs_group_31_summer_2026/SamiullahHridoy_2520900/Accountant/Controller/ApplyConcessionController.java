@@ -32,10 +32,6 @@ public class ApplyConcessionController {
     @FXML
     private Label statusLabel;
 
-    public ApplyConcessionController(DatePicker endDatePicker) {
-        this.endDatePicker = endDatePicker;
-    }
-
     // ********** INITIALIZATION **********
     @FXML
     public void initialize() {

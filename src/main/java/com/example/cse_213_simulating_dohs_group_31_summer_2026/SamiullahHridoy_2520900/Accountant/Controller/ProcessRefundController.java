@@ -4,6 +4,7 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.SessionManager;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,7 +14,8 @@ import javafx.scene.control.TextField;
 public class ProcessRefundController {
 
     // ********** UI COMPONENTS **********
-    @FXML private TextField plotNumberField;
+    @FXML
+    private TextField plotNumberField;
     @FXML private TextField refundAmountField;
     @FXML private ComboBox<String> methodComboBox;
     @FXML private TextArea remarksArea;
