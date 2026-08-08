@@ -4,6 +4,7 @@ import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Facility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.Tools;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_2521047.NonUser.UtilityConsumption;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.SamiullahHridoy_2520900.President.NonUser.Plot;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -102,5 +103,34 @@ public class DummyDataGenerator extends Application {
         Utility.saveObject("ToolsData.bin", tools3, true);
         Utility.saveObject("ToolsData.bin", tools4, true);
         System.out.println("Tools Save Successful");
+
+
+
+        File plotFile = new File("PlotData.bin");
+        if (plotFile.exists()) {
+            plotFile.delete();
+        }
+
+        Plot plot1 = new Plot("P1", "Road 1", 5.0, "Residential", "Vacant", "");
+        Plot plot2 = new Plot("P2", "Road 1", 6.5, "Residential", "Vacant", "");
+        Plot plot3 = new Plot("P3", "Road 2", 4.0, "Commercial", "Vacant", "");
+        Plot plot4 = new Plot("P4", "Road 2", 7.5, "Residential", "Vacant", "");
+        Plot plot5 = new Plot("P5", "Road 3", 5.5, "Residential", "Vacant", "");
+        Plot plot6 = new Plot("P6", "Road 3", 8.0, "Commercial", "Vacant", "");
+        Plot plot7 = new Plot("P7", "Road 4", 4.5, "Residential", "Vacant", "");
+        Plot plot8 = new Plot("P8", "Road 4", 6.0, "Residential", "Vacant", "");
+        Plot plot9 = new Plot("P9", "Road 5", 7.0, "Commercial", "Vacant", "");
+        Plot plot10 = new Plot("P10", "Road 5", 5.0, "Residential", "Vacant", "");
+        Utility.saveObject("PlotData.bin", plot1, true);
+        Utility.saveObject("PlotData.bin", plot2, true);
+        Utility.saveObject("PlotData.bin", plot3, true);
+        Utility.saveObject("PlotData.bin", plot4, true);
+        Utility.saveObject("PlotData.bin", plot5, true);
+        Utility.saveObject("PlotData.bin", plot6, true);
+        Utility.saveObject("PlotData.bin", plot7, true);
+        Utility.saveObject("PlotData.bin", plot8, true);
+        Utility.saveObject("PlotData.bin", plot9, true);
+        Utility.saveObject("PlotData.bin", plot10, true);
+        System.out.println("Plot Save Successful");
     }
 }
