@@ -53,7 +53,6 @@ public class Staff_AttendanceComplaintController
 
     @FXML
     public void submitComplaintTabOnAction(ActionEvent actionEvent) {
-        // Just switches the visible tab in the FXML - no data work needed here.
     }
 
     @FXML

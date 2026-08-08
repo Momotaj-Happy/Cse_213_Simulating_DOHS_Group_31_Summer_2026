@@ -12,9 +12,6 @@ public class LeaveApplication {
     private String status; // Pending / Approved / Rejected
     private int totalDays;
 
-    public LeaveApplication() {
-    }
-
     public LeaveApplication(String leaveId, String staffName, String leaveType, LocalDate startDate, LocalDate endDate, String reason, String status, int totalDays) {
         this.leaveId = leaveId;
         this.staffName = staffName;

@@ -9,8 +9,6 @@ public class ProblemReport {
     private String status; // Pending / Assigned / Escalated / Resolved
     private String description;
 
-    public ProblemReport() {
-    }
 
     public ProblemReport(String reportId, String type, String location, String reportingStaff, String status, String description) {
         this.reportId = reportId;
