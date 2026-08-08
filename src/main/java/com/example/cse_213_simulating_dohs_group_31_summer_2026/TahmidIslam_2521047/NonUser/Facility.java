@@ -3,7 +3,8 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_252
 import java.io.Serializable;
 
 public class Facility implements Serializable {
-    private int facilityId, bookingPrice;
+    private final int facilityId;
+    private int bookingPrice;
     private String facilityType, location, facilityName;
     private boolean availability;
 
@@ -40,7 +41,7 @@ public class Facility implements Serializable {
     }
 
     public void setLocation(String location) {
-        location = location;
+        this.location = location;
     }
 
     public void setFacilityName(String facilityName) {
@@ -54,6 +55,18 @@ public class Facility implements Serializable {
         this.location = location;
         this.facilityName = facilityName;
         this.availability = availability;
+    }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "facilityId=" + facilityId +
+                ", bookingPrice=" + bookingPrice +
+                ", facilityType='" + facilityType + '\'' +
+                ", location='" + location + '\'' +
+                ", facilityName='" + facilityName + '\'' +
+                ", availability=" + availability +
+                '}';
     }
 
     public void setAvailability(boolean availability) {

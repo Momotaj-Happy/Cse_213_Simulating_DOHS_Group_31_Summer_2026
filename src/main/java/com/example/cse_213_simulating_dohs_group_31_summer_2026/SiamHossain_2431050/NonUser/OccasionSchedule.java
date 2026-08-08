@@ -1,9 +1,9 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-
-public class OccasionSchedule {
+public class OccasionSchedule implements Serializable {
     private String occasionName;
     private LocalDate date;
     private String startTime;
@@ -12,8 +12,6 @@ public class OccasionSchedule {
     private String affectedAreas;
     private String status;
 
-    public OccasionSchedule() {
-    }
 
     public OccasionSchedule(String occasionName, LocalDate date, String startTime, String endTime, String serviceType, String affectedAreas, String status) {
         this.occasionName = occasionName;

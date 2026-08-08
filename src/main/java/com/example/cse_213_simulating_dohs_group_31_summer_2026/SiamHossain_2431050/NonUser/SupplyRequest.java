@@ -1,23 +1,33 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
-public class SupplyRequest {
+import java.io.Serializable;
+
+public class SupplyRequest implements Serializable {
+    private String requestId;
     private String staffName;
     private String item;
     private int quantity;
     private String reason;
     private String urgency;
-    private String status; // Pending / Approved / Rejected / Forwarded
+    private String status;
 
-    public SupplyRequest() {
-    }
 
-    public SupplyRequest(String staffName, String item, int quantity, String reason, String urgency, String status) {
+    public SupplyRequest(String requestId, String staffName, String item, int quantity, String reason, String urgency, String status) {
+        this.requestId = requestId;
         this.staffName = staffName;
         this.item = item;
         this.quantity = quantity;
         this.reason = reason;
         this.urgency = urgency;
         this.status = status;
+    }
+
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
     }
 
     public String getStaffName() {

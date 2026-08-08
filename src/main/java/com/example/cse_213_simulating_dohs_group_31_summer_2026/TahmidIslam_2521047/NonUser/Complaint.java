@@ -3,7 +3,7 @@ package com.example.cse_213_simulating_dohs_group_31_summer_2026.TahmidIslam_252
 import java.io.Serializable;
 
 public class Complaint implements Serializable {
-    private int complaintId;
+    private final int complaintId;
     private String complaintContent, status;
 
 
@@ -19,9 +19,6 @@ public class Complaint implements Serializable {
         return status;
     }
 
-    public void setComplaintId(int complaintId) {
-        this.complaintId = complaintId;
-    }
 
     public void setComplaintContent(String complaintContent) {
         this.complaintContent = complaintContent;

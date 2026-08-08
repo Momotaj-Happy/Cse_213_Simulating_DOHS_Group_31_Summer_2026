@@ -1,13 +1,15 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
     private String taskId;
     private String staffName;
     private String dutyType;
     private String location;
     private String timeSlot;
-    private String status;       // Pending / Done / Late / Issue Reported
-    private String availability; // used only while generating suggested tasks
+    private String status;
+    private String availability;
     private String instruction;
     private String completionTime;
     private String notes;

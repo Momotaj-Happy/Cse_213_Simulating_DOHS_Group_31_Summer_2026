@@ -1,16 +1,16 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 
-public class ProblemReport {
+
+public class ProblemReport implements Serializable {
     private String reportId;
     private String type;
     private String location;
     private String reportingStaff;
-    private String status; // Pending / Assigned / Escalated / Resolved
+    private String status;
     private String description;
 
-    public ProblemReport() {
-    }
 
     public ProblemReport(String reportId, String type, String location, String reportingStaff, String status, String description) {
         this.reportId = reportId;

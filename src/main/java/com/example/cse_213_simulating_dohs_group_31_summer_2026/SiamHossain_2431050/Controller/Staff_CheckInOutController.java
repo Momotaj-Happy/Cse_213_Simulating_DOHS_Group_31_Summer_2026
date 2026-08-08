@@ -11,8 +11,6 @@ public class Staff_CheckInOutController
     private Text currentStatusText;
     @FXML
     private Text shiftStartTimeText;
-    @FXML
-    private Text totalHoursWorkedText;
 
     @FXML
     public void initialize() {
@@ -37,13 +35,12 @@ public class Staff_CheckInOutController
 
     @FXML
     public void checkOutOnAction(ActionEvent actionEvent) {
-        String hoursWorked = SessionManager.residentialOperationsStaff.checkOut();
-        if (hoursWorked == null) {
+        boolean success = SessionManager.residentialOperationsStaff.checkOut();
+        if (!success) {
             Utility.showAlert("Error", "You must check in before you can check out.");
             return;
         }
-        totalHoursWorkedText.setText(hoursWorked);
-        Utility.showAlert("Checked Out", "Total hours worked: " + hoursWorked);
+        Utility.showAlert("Checked Out", "Check-out recorded successfully.");
         refreshStatus();
     }
 

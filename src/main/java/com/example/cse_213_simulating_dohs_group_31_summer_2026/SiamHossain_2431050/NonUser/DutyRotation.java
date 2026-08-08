@@ -1,7 +1,8 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 
-public class DutyRotation {
+public class DutyRotation implements Serializable {
     private String staffName;
     private String currentRole;
     private String previousDuty;
@@ -12,8 +13,6 @@ public class DutyRotation {
     private String supervisorName;
     private String nextWeekDuty;
 
-    public DutyRotation() {
-    }
 
     public DutyRotation(String staffName, String currentRole, String previousDuty, int workloadCount, String suggestedDuty) {
         this.staffName = staffName;

@@ -1,16 +1,15 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class StaffComplaint {
+public class StaffComplaint implements Serializable {
     private String staffName;
     private String complaintType;
     private LocalDate incidentDate;
     private String details;
-    private String status; // Submitted / Reviewed
+    private String status;
 
-    public StaffComplaint() {
-    }
 
     public StaffComplaint(String staffName, String complaintType, LocalDate incidentDate, String details, String status) {
         this.staffName = staffName;

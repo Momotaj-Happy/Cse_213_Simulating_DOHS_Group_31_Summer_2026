@@ -4,13 +4,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Bill implements Serializable {
-    private int billId, amount, year;
+    private final int billId;
+    private int amount, year;
     private String month, transactionType;
     private Boolean isPaid;
 
-    public void setBillId(int billId) {
-        this.billId = billId;
-    }
 
     public Boolean getPaid() {
         return isPaid;

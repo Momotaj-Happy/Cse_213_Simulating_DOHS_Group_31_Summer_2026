@@ -1,15 +1,14 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class StaffNotice {
+public class StaffNotice implements Serializable {
     private String audience;
     private String title;
     private String message;
     private LocalDate datePosted;
 
-    public StaffNotice() {
-    }
 
     public StaffNotice(String audience, String title, String message, LocalDate datePosted) {
         this.audience = audience;

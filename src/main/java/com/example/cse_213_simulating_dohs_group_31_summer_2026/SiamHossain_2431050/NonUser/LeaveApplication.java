@@ -1,19 +1,17 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class LeaveApplication {
+public class LeaveApplication implements Serializable {
     private String leaveId;
     private String staffName;
     private String leaveType;
     private LocalDate startDate;
     private LocalDate endDate;
     private String reason;
-    private String status; // Pending / Approved / Rejected
+    private String status;
     private int totalDays;
-
-    public LeaveApplication() {
-    }
 
     public LeaveApplication(String leaveId, String staffName, String leaveType, LocalDate startDate, LocalDate endDate, String reason, String status, int totalDays) {
         this.leaveId = leaveId;

@@ -1,12 +1,11 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.User;
 
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.User;
+import com.example.cse_213_simulating_dohs_group_31_summer_2026.Utility;
 import com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser.*;
-
-import java.time.DayOfWeek;
+import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class ResidentialOperationsStaff extends User {
@@ -16,10 +15,8 @@ public class ResidentialOperationsStaff extends User {
     private String shiftTime;
     private String supervisorName;
     private boolean checkedIn;
-    private LocalTime checkInTime;
-    private LocalTime checkOutTime;
 
-    public static ArrayList<StaffComplaint> complaintList = new ArrayList<>();
+    public static final String COMPLAINT_FILE = "ComplaintData.bin";
 
     public ResidentialOperationsStaff() {
         super();
@@ -37,11 +34,18 @@ public class ResidentialOperationsStaff extends User {
         this.checkedIn = false;
     }
 
+    // Deletes the file then re-writes every remaining record - used whenever an
+    // existing record needs to be updated in place (append-only won't do).
+    private static <T extends Serializable> void rewriteAll(String fileName, ArrayList<T> list) {
+        File file = new File(fileName);
+        if (file.exists()) file.delete();
+        for (T o : list) Utility.saveObject(fileName, o, true);
+    }
 
 
     public ArrayList<Task> getMyTasks() {
         ArrayList<Task> myTasks = new ArrayList<>();
-        for (Task t : StaffSupervisor.taskList) {
+        for (Task t : Utility.<Task>loadObject(StaffSupervisor.TASK_FILE)) {
             if (t.getStaffName() != null && t.getStaffName().equalsIgnoreCase(getName())) {
                 myTasks.add(t);
             }
@@ -54,27 +58,26 @@ public class ResidentialOperationsStaff extends User {
         if (checkedIn) {
             return false;
         }
-        checkInTime = LocalTime.now();
         checkedIn = true;
-        String status = checkInTime.isAfter(LocalTime.of(8, 15)) ? "Late" : "Present";
-        AttendanceRecord record = new AttendanceRecord(getName(), LocalDate.now(), checkInTime, null, status);
-        StaffSupervisor.attendanceList.add(record);
+        String status = "Present";
+        AttendanceRecord record = new AttendanceRecord(getName(), LocalDate.now(), status);
+        Utility.saveObject(StaffSupervisor.ATTENDANCE_FILE, record, true);
         return true;
     }
 
-    public String checkOut() {
+    public boolean checkOut() {
         if (!checkedIn) {
-            return null;
+            return false;
         }
-        checkOutTime = LocalTime.now();
         checkedIn = false;
-        for (AttendanceRecord record : StaffSupervisor.attendanceList) {
+        ArrayList<AttendanceRecord> records = Utility.loadObject(StaffSupervisor.ATTENDANCE_FILE);
+        for (AttendanceRecord record : records) {
             if (record.getStaffName().equalsIgnoreCase(getName()) && record.getDate().equals(LocalDate.now())) {
-                record.setCheckOut(checkOutTime);
+                record.setStatus("Checked Out");
             }
         }
-        long minutes = ChronoUnit.MINUTES.between(checkInTime, checkOutTime);
-        return String.format("%d hr %d min", minutes / 60, minutes % 60);
+        rewriteAll(StaffSupervisor.ATTENDANCE_FILE, records);
+        return true;
     }
 
 
@@ -82,13 +85,28 @@ public class ResidentialOperationsStaff extends User {
         if (task == null || completionStatus == null) {
             return false;
         }
+        ArrayList<Task> tasks = Utility.loadObject(StaffSupervisor.TASK_FILE);
+        for (Task t : tasks) {
+            if (t.getTaskId() != null && t.getTaskId().equals(task.getTaskId())) {
+                t.setNotes(notes);
+                t.setCompletionTime(LocalDate.now().toString());
+                if (completionStatus.equals("Issue Found")) {
+                    t.setStatus("Issue Reported");
+                } else {
+                    t.setStatus("Done");
+                }
+            }
+        }
+        rewriteAll(StaffSupervisor.TASK_FILE, tasks);
+
         task.setNotes(notes);
-        task.setCompletionTime(LocalTime.now().toString());
+        task.setCompletionTime(LocalDate.now().toString());
         if (completionStatus.equals("Issue Found")) {
             task.setStatus("Issue Reported");
-            ProblemReport report = new ProblemReport("PR-" + (StaffSupervisor.problemReportList.size() + 1),
+            int reportCount = Utility.<ProblemReport>loadObject(StaffSupervisor.PROBLEM_REPORT_FILE).size();
+            ProblemReport report = new ProblemReport("PR-" + (reportCount + 1),
                     "Task Issue", task.getLocation(), getName(), "Pending", notes);
-            StaffSupervisor.problemReportList.add(report);
+            Utility.saveObject(StaffSupervisor.PROBLEM_REPORT_FILE, report, true);
         } else {
             task.setStatus("Done");
         }
@@ -99,21 +117,25 @@ public class ResidentialOperationsStaff extends User {
         if (problemType == null || location == null || location.isEmpty()) {
             return false;
         }
-        ProblemReport report = new ProblemReport("PR-" + (StaffSupervisor.problemReportList.size() + 1),
+        int reportCount = Utility.<ProblemReport>loadObject(StaffSupervisor.PROBLEM_REPORT_FILE).size();
+        ProblemReport report = new ProblemReport("PR-" + (reportCount + 1),
                 problemType, location, getName(), "Pending", description);
-        return StaffSupervisor.problemReportList.add(report);
+        Utility.saveObject(StaffSupervisor.PROBLEM_REPORT_FILE, report, true);
+        return true;
     }
 
     public boolean requestSupplies(String item, int quantity, String reason) {
         if (item == null || item.isEmpty() || quantity <= 0) {
             return false;
         }
-        SupplyRequest request = new SupplyRequest(getName(), item, quantity, reason, "Normal", "Pending");
-        return StaffSupervisor.supplyRequestList.add(request);
+        int requestCount = Utility.<SupplyRequest>loadObject(StaffSupervisor.SUPPLY_REQUEST_FILE).size();
+        SupplyRequest request = new SupplyRequest("SR-" + (requestCount + 1), getName(), item, quantity, reason, "Normal", "Pending");
+        Utility.saveObject(StaffSupervisor.SUPPLY_REQUEST_FILE, request, true);
+        return true;
     }
 
     public DutyRotation getMyDutyRotation() {
-        for (DutyRotation d : StaffSupervisor.dutyRotationList) {
+        for (DutyRotation d : Utility.<DutyRotation>loadObject(StaffSupervisor.DUTY_ROTATION_FILE)) {
             if (d.getStaffName() != null && d.getStaffName().equalsIgnoreCase(getName())) {
                 return d;
             }
@@ -132,20 +154,21 @@ public class ResidentialOperationsStaff extends User {
         int totalDays = 0;
         LocalDate day = startDate;
         while (!day.isAfter(endDate)) {
-            if (day.getDayOfWeek() != DayOfWeek.FRIDAY) {
+            if (day.toEpochDay() % 7 != 1) { // skips Fridays (1970-01-01 was a Thursday, so Friday = epochDay % 7 == 1)
                 totalDays++;
             }
             day = day.plusDays(1);
         }
-        LeaveApplication application = new LeaveApplication("LV-" + (StaffSupervisor.leaveList.size() + 1),
+        int leaveCount = Utility.<LeaveApplication>loadObject(StaffSupervisor.LEAVE_FILE).size();
+        LeaveApplication application = new LeaveApplication("LV-" + (leaveCount + 1),
                 getName(), leaveType, startDate, endDate, reason, "Pending", totalDays);
-        StaffSupervisor.leaveList.add(application);
+        Utility.saveObject(StaffSupervisor.LEAVE_FILE, application, true);
         return application;
     }
 
     public ArrayList<LeaveApplication> getMyLeaveHistory() {
         ArrayList<LeaveApplication> history = new ArrayList<>();
-        for (LeaveApplication l : StaffSupervisor.leaveList) {
+        for (LeaveApplication l : Utility.<LeaveApplication>loadObject(StaffSupervisor.LEAVE_FILE)) {
             if (l.getStaffName() != null && l.getStaffName().equalsIgnoreCase(getName())) {
                 history.add(l);
             }
@@ -155,7 +178,7 @@ public class ResidentialOperationsStaff extends User {
 
     public ArrayList<AttendanceRecord> getMyAttendance() {
         ArrayList<AttendanceRecord> records = new ArrayList<>();
-        for (AttendanceRecord a : StaffSupervisor.attendanceList) {
+        for (AttendanceRecord a : Utility.<AttendanceRecord>loadObject(StaffSupervisor.ATTENDANCE_FILE)) {
             if (a.getStaffName() != null && a.getStaffName().equalsIgnoreCase(getName())
                     && a.getDate().getMonth() == LocalDate.now().getMonth()) {
                 records.add(a);
@@ -169,7 +192,8 @@ public class ResidentialOperationsStaff extends User {
             return false;
         }
         StaffComplaint complaint = new StaffComplaint(getName(), complaintType, incidentDate, details, "Submitted");
-        return complaintList.add(complaint);
+        Utility.saveObject(COMPLAINT_FILE, complaint, true);
+        return true;
     }
 
     public String getStaffId() {
