@@ -34,8 +34,6 @@ public class ResidentialOperationsStaff extends User {
         this.checkedIn = false;
     }
 
-    // Deletes the file then re-writes every remaining record - used whenever an
-    // existing record needs to be updated in place (append-only won't do).
     private static <T extends Serializable> void rewriteAll(String fileName, ArrayList<T> list) {
         File file = new File(fileName);
         if (file.exists()) file.delete();
