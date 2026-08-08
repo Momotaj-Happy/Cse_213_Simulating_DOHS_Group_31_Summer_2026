@@ -9,8 +9,6 @@ public class StaffComplaint {
     private String details;
     private String status; // Submitted / Reviewed
 
-    public StaffComplaint() {
-    }
 
     public StaffComplaint(String staffName, String complaintType, LocalDate incidentDate, String details, String status) {
         this.staffName = staffName;

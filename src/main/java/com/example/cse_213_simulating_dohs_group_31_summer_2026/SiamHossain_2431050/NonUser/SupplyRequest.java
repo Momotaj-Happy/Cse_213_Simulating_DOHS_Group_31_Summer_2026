@@ -8,8 +8,6 @@ public class SupplyRequest {
     private String urgency;
     private String status; // Pending / Approved / Rejected / Forwarded
 
-    public SupplyRequest() {
-    }
 
     public SupplyRequest(String staffName, String item, int quantity, String reason, String urgency, String status) {
         this.staffName = staffName;

@@ -1,6 +1,5 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.SiamHossain_2431050.NonUser;
 
-
 public class DutyRotation {
     private String staffName;
     private String currentRole;
@@ -12,8 +11,6 @@ public class DutyRotation {
     private String supervisorName;
     private String nextWeekDuty;
 
-    public DutyRotation() {
-    }
 
     public DutyRotation(String staffName, String currentRole, String previousDuty, int workloadCount, String suggestedDuty) {
         this.staffName = staffName;

@@ -8,8 +8,6 @@ public class StaffNotice {
     private String message;
     private LocalDate datePosted;
 
-    public StaffNotice() {
-    }
 
     public StaffNotice(String audience, String title, String message, LocalDate datePosted) {
         this.audience = audience;

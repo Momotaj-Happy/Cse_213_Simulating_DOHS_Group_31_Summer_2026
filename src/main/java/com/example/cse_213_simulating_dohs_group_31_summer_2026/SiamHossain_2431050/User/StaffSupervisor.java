@@ -68,18 +68,18 @@ public class StaffSupervisor extends User {
 
     public static ArrayList<DutyRotation> fetchStaffForRotation() {
         ArrayList<DutyRotation> list = new ArrayList<>();
-        list.add(new DutyRotation("Rakib", "Cleaner", "Road Cleaning", 5, "Garbage Collection"));
-        list.add(new DutyRotation("Sumon", "Collector", "Garbage Collection", 4, "Mosque Duty"));
+        list.add(new DutyRotation("Rakib", "Cleaners", "Road Cleaning", 5, "Garbage Collection"));
+        list.add(new DutyRotation("Sumon", "Collectors", "Garbage Collection", 4, "Mosque Duty"));
         list.add(new DutyRotation("Jashim", "Mosque Staff", "Mosque Cleaning", 6, "Garden Duty"));
-        list.add(new DutyRotation("Karim", "Cleaner", "Common Area Cleaning", 3, "Road Cleaning"));
-        list.add(new DutyRotation("Xiam", "Cleaner", "Drainage Cleaning", 4, "Common Area Cleaning"));
-        list.add(new DutyRotation("Rafiq", "Gardener", "Park Maintenance", 5, "Lawn Mowing"));
-        list.add(new DutyRotation("Tariq", "Gardener", "Lawn Mowing", 2, "Park Maintenance"));
-        list.add(new DutyRotation("Salim", "Collector", "Dustbin Emptying", 6, "Garbage Collection"));
-        list.add(new DutyRotation("Habib", "Cleaner", "Staircase Sweeping", 3, "Common Area Cleaning"));
-        list.add(new DutyRotation("Arif", "Maintenance", "Water Tank Inspection", 7, "Drainage Cleaning"));
-        list.add(new DutyRotation("Sohan", "Cleaner", "Glass Panel Cleaning", 4, "Staircase Sweeping"));
-        list.add(new DutyRotation("Kabir", "Collector", "Waste Segregation", 5, "Dustbin Emptying"));
+        list.add(new DutyRotation("Karim", "Cleaners", "Common Area Cleaning", 3, "Road Cleaning"));
+        list.add(new DutyRotation("Xiam", "Caretakers", "Drainage Cleaning", 4, "Common Area Cleaning"));
+        list.add(new DutyRotation("Rafiq", "Gardeners", "Park Maintenance", 5, "Lawn Mowing"));
+        list.add(new DutyRotation("Tariq", "Gardeners", "Lawn Mowing", 2, "Park Maintenance"));
+        list.add(new DutyRotation("Salim", "Collectors", "Dustbin Emptying", 6, "Garbage Collection"));
+        list.add(new DutyRotation("Habib", "Cleaners", "Staircase Sweeping", 3, "Common Area Cleaning"));
+        list.add(new DutyRotation("Arif", "Liftmen", "Water Tank Inspection", 7, "Drainage Cleaning"));
+        list.add(new DutyRotation("Sohan", "Caretakers", "Glass Panel Cleaning", 4, "Staircase Sweeping"));
+        list.add(new DutyRotation("Kabir", "Collectors", "Waste Segregation", 5, "Dustbin Emptying"));
         return list;
     }
 
