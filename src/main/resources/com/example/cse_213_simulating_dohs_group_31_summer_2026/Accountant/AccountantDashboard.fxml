@@ -12,18 +12,18 @@
       </Label>
       <Label fx:id="summaryLabel" layoutX="30.0" layoutY="50.0" prefWidth="560.0" text="Total bills: - | Unpaid: - | Overdue amount: -" />
 
-      <Button layoutX="30.0" layoutY="95.0" prefWidth="260.0" onAction="#goGenerateMonthlyBills" text="Generate Monthly Bills" />
-      <Button layoutX="310.0" layoutY="95.0" prefWidth="260.0" onAction="#goRecordPayment" text="Record Payment" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="95.0" prefWidth="260.0" onAction="#goGenerateMonthlyBills" text="Generate Monthly Bills" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="95.0" prefWidth="260.0" onAction="#goRecordPayment" text="Record Payment" />
 
-      <Button layoutX="30.0" layoutY="140.0" prefWidth="260.0" onAction="#goArrearReport" text="Arrear Report" />
-      <Button layoutX="310.0" layoutY="140.0" prefWidth="260.0" onAction="#goConcessions" text="Concessions &amp; Adjustments" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="140.0" prefWidth="260.0" onAction="#goArrearReport" text="Arrear Report" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="140.0" prefWidth="260.0" onAction="#goConcessions" text="Concessions &amp; Adjustments" />
 
-      <Button layoutX="30.0" layoutY="185.0" prefWidth="260.0" onAction="#goTaxDemandNotices" text="Tax &amp; Ground Rent Notices" />
-      <Button layoutX="310.0" layoutY="185.0" prefWidth="260.0" onAction="#goBillingHistory" text="Billing History" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="185.0" prefWidth="260.0" onAction="#goTaxDemandNotices" text="Tax &amp; Ground Rent Notices" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="185.0" prefWidth="260.0" onAction="#goBillingHistory" text="Billing History" />
 
-      <Button layoutX="30.0" layoutY="230.0" prefWidth="260.0" onAction="#goRefunds" text="Refunds &amp; Adjustments" />
-      <Button layoutX="310.0" layoutY="230.0" prefWidth="260.0" onAction="#goFinancialSummary" text="Monthly Financial Summary" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="230.0" prefWidth="260.0" onAction="#goRefunds" text="Refunds &amp; Adjustments" />
+      <Button focusTraversable="false" layoutX="310.0" layoutY="230.0" prefWidth="260.0" onAction="#goFinancialSummary" text="Monthly Financial Summary" />
 
-      <Button layoutX="30.0" layoutY="410.0" prefWidth="120.0" onAction="#signOutOnAction" text="Sign Out" />
+      <Button focusTraversable="false" layoutX="30.0" layoutY="410.0" prefWidth="120.0" onAction="#signOutOnAction" text="Sign Out" />
    </children>
 </AnchorPane>
