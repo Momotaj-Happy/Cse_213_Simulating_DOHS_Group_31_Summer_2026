@@ -24,10 +24,10 @@ public class HelloController {
 
     @FXML
     protected void onHappyButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("RoleSelectionView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginView.fxml"));
         Scene scene = new Scene(loader.load());
         Stage stage = new Stage();
-        stage.setTitle("Role Selection Menu");
+        stage.setTitle("DOHS System Login");
         stage.setScene(scene);
         stage.show();
     }
