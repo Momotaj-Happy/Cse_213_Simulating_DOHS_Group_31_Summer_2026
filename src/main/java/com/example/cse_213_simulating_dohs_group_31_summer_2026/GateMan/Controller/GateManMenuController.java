@@ -1,62 +1,98 @@
 package com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
+import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class GateManMenuController {
 
-    private void openInNewWindow(String fxmlPath, String title) {
+    @FXML
+    private VBox sideNav;
+
+    @FXML
+    private StackPane contentArea;
+
+    private boolean isNavCollapsed = false;
+
+    @FXML
+    public void initialize() {
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/LogVisitorEntryView.fxml");
+    }
+
+    private void loadPage(String fxmlPath) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage();
-            stage.setTitle(title);
-            stage.setScene(scene);
-            stage.show();
+            Parent page = loader.load();
+            contentArea.getChildren().setAll(page);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @FXML
+    public void handleToggleNav(ActionEvent event) {
+        TranslateTransition transition = new TranslateTransition(Duration.millis(250), sideNav);
+        if (isNavCollapsed) {
+            sideNav.setVisible(true);
+            sideNav.setManaged(true);
+            transition.setFromX(-250);
+            transition.setToX(0);
+            transition.play();
+            isNavCollapsed = false;
+        } else {
+            transition.setFromX(0);
+            transition.setToX(-250);
+            transition.setOnFinished(e -> {
+                sideNav.setVisible(false);
+                sideNav.setManaged(false);
+            });
+            transition.play();
+            isNavCollapsed = true;
+        }
+    }
+
+    @FXML
     public void handleLogVisitorEntry(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/LogVisitorEntryView.fxml", "Log Visitor Entry");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/LogVisitorEntryView.fxml");
     }
 
     @FXML
     public void handleDenyBlacklistedVehicles(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/denyBlacklistedVehiclesView.fxml", "Deny Blacklisted Vehicles");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/denyBlacklistedVehiclesView.fxml");
     }
 
     @FXML
     public void handleLogVehicleExit(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/logVehicleExitView.fxml", "Log Vehicle Exit");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/logVehicleExitView.fxml");
     }
 
     @FXML
     public void handleRegisterWalkInPedestrians(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/registerWalkInPedestriansView.fxml", "Register Walk-In Pedestrians");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/registerWalkInPedestriansView.fxml");
     }
 
     @FXML
     public void handleSearchResidentVehicle(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/searchResidentVehicleView.fxml", "Search Resident Vehicle");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/searchResidentVehicleView.fxml");
     }
 
     @FXML
     public void handleToggleEmergencyBypass(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/toggleEmergencyBypassView.fxml", "Toggle Emergency Bypass");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/toggleEmergencyBypassView.fxml");
     }
 
     @FXML
     public void handleVerifyPreRegisteredGuests(ActionEvent event) {
-        openInNewWindow("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/verifyPreRegisteredGuestsView.fxml", "Verify Pre-Registered Guests");
+        loadPage("/com/example/cse_213_simulating_dohs_group_31_summer_2026/GateMan/verifyPreRegisteredGuestsView.fxml");
     }
 
     @FXML
