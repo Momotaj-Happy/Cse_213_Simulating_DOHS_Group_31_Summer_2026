@@ -3,15 +3,48 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
-<VBox alignment="CENTER" spacing="20.0" prefHeight="250.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.RoleSelectionController">
+<VBox alignment="CENTER" spacing="20.0" prefHeight="350.0" prefWidth="420.0" style="-fx-background-color: #F8FAFC;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.RoleSelectionController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
     </padding>
     <children>
-        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Select Dashboard" />
-        <Button prefWidth="200.0" text="Security In-Charge" onAction="#onSecurityInChargeClick" />
-        <Button prefWidth="200.0" text="Gateman" onAction="#onGateManClick" />
+        <VBox alignment="CENTER" spacing="8.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 12px; -fx-border-color: #E2E8F0; -fx-border-radius: 12px; -fx-padding: 20px;">
+            <children>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <SVGPath content="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4z" fill="#4C6EF5" scaleX="1.2" scaleY="1.2" />
+                        <Label style="-fx-font-family: 'Segoe UI'; -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1E293B;" text="Select Role Portal" />
+                    </children>
+                </HBox>
+                <Label style="-fx-font-family: 'Segoe UI'; -fx-font-size: 13px; -fx-text-fill: #64748B;" text="Choose your designated role dashboard" />
+            </children>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="12.0">
+            <children>
+                <Button onAction="#onSecurityInChargeClick" prefHeight="45.0" prefWidth="280.0" style="-fx-background-color: #4C6EF5; -fx-text-fill: white; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8px; -fx-cursor: hand;" text="Security In-Charge">
+                    <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                            <children>
+                                <SVGPath content="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4z" fill="white" />
+                            </children>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button onAction="#onGateManClick" prefHeight="45.0" prefWidth="280.0" style="-fx-background-color: #20C997; -fx-text-fill: white; -fx-font-family: 'Segoe UI'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8px; -fx-cursor: hand;" text="Gateman">
+                    <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                            <children>
+                                <SVGPath content="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z" fill="white" />
+                            </children>
+                        </HBox>
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
     </children>
 </VBox>

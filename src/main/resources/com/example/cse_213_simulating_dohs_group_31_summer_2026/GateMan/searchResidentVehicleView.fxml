@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane prefHeight="450.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.searchResidentVehicleController">
+<AnchorPane prefHeight="500.0" prefWidth="580.0" style="-fx-background-color: #F8FAFC;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.searchResidentVehicleController">
     <children>
-        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Search Resident Vehicle Number Plates" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
-        <TextField fx:id="txtResidentPlateSearch" layoutX="30.0" layoutY="65.0" prefHeight="25.0" prefWidth="179.0" promptText="Enter License Plate Number" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="65.0" />
-        <Button layoutX="241.0" layoutY="65.0" onAction="#handleSearchResidentPlate" prefWidth="165.0" text="Search Resident Plates" AnchorPane.rightAnchor="143.66666666666663" AnchorPane.topAnchor="65.0" />
-        <TableView fx:id="tblResidentVehicle" layoutX="30.0" layoutY="110.0" prefHeight="260.0" prefWidth="490.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="110.0">
-            <columns>
-                <TableColumn fx:id="colLicensePlate" maxWidth="1500.0" minWidth="30.0" prefWidth="150.0" text="License Plate" />
-                <TableColumn fx:id="colOwnerName" maxWidth="1800.0" minWidth="30.0" prefWidth="180.0" text="Owner Name" />
-                <TableColumn fx:id="colApartmentNo" maxWidth="1500.0" minWidth="30.0" prefWidth="158.66665649414062" text="Apartment No" />
-            </columns>
-        </TableView>
-        <Label fx:id="lblSearchResult" layoutX="30.0" layoutY="390.0" text="" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="30.0" />
+        <VBox layoutX="24.0" layoutY="20.0" spacing="16.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <SVGPath content="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#20C997" scaleX="1.2" scaleY="1.2" />
+                        <Label style="-fx-font-family: 'Segoe UI'; -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1E293B;" text="Search Resident Vehicle" />
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-color: #E2E8F0; -fx-border-radius: 10px; -fx-padding: 12px 16px;">
+                    <children>
+                        <TextField fx:id="txtResidentPlateSearch" prefHeight="36.0" prefWidth="320.0" promptText="Enter resident plate or owner name..." style="-fx-background-color: #F1F5F9; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 6px 12px; -fx-font-family: 'Segoe UI';" />
+                        <Button onAction="#handleSearchResidentPlate" prefHeight="36.0" prefWidth="180.0" style="-fx-background-color: #20C997; -fx-text-fill: white; -fx-font-family: 'Segoe UI'; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;" text="Search Resident Plates">
+                            <graphic>
+                                <SVGPath content="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="white" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+
+                <TableView fx:id="tblResidentVehicle" prefHeight="260.0" prefWidth="532.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-color: #E2E8F0; -fx-border-radius: 10px;">
+                    <columns>
+                        <TableColumn fx:id="colLicensePlate" prefWidth="170.0" text="License Plate" />
+                        <TableColumn fx:id="colOwnerName" prefWidth="200.0" text="Owner Name" />
+                        <TableColumn fx:id="colApartmentNo" prefWidth="160.0" text="Apartment No" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblSearchResult" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 13px; -fx-text-fill: #059669; -fx-font-weight: bold;" text="" />
+            </children>
+        </VBox>
     </children>
 </AnchorPane>

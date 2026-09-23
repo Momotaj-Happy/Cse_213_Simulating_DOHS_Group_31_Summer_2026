@@ -1,26 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane prefHeight="450.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.denyBlacklistedVehiclesController">
+<AnchorPane prefHeight="500.0" prefWidth="560.0" style="-fx-background-color: #F8FAFC;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cse_213_simulating_dohs_group_31_summer_2026.GateMan.Controller.denyBlacklistedVehiclesController">
     <children>
-        <Label layoutX="30.0" layoutY="25.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Deny Blacklisted Vehicles" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="25.0" />
-        <Label layoutX="30.0" layoutY="70.0" text="Approaching Plate:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
-        <TextField fx:id="txtApproachingPlate" layoutX="160.0" layoutY="65.0" prefHeight="25.0" prefWidth="160.0" promptText="Enter license plate" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="65.0" />
-        <Button layoutX="335.0" layoutY="65.0" onAction="#handleCheckBlacklist" prefWidth="135.0" text="Check Blacklist" AnchorPane.leftAnchor="335.0" AnchorPane.topAnchor="65.0" />
-        
-        <TableView fx:id="tblBlacklistedVehicles" layoutX="30.0" layoutY="110.0" prefHeight="260.0" prefWidth="440.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="110.0">
-            <columns>
-                <TableColumn fx:id="colLicensePlate" prefWidth="180.0" text="License Plate" />
-                <TableColumn fx:id="colReason" prefWidth="255.0" text="Reason For Blacklist" />
-            </columns>
-        </TableView>
+        <VBox layoutX="24.0" layoutY="20.0" spacing="16.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="20.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <SVGPath content="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V10h2v2z" fill="#FA5252" scaleX="1.2" scaleY="1.2" />
+                        <Label style="-fx-font-family: 'Segoe UI'; -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1E293B;" text="Deny Blacklisted Vehicles" />
+                    </children>
+                </HBox>
 
-        <Label fx:id="lblBlacklistAlert" layoutX="30.0" layoutY="390.0" text="" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="390.0" />
+                <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-color: #E2E8F0; -fx-border-radius: 10px; -fx-padding: 12px 16px;">
+                    <children>
+                        <TextField fx:id="txtApproachingPlate" prefHeight="36.0" prefWidth="320.0" promptText="Enter approaching license plate..." style="-fx-background-color: #F1F5F9; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 6px 12px; -fx-font-family: 'Segoe UI';" />
+                        <Button onAction="#handleCheckBlacklist" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #20C997; -fx-text-fill: white; -fx-font-family: 'Segoe UI'; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-cursor: hand;" text="Check Blacklist" />
+                    </children>
+                </HBox>
+
+                <TableView fx:id="tblBlacklistedVehicles" prefHeight="260.0" prefWidth="512.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px; -fx-border-color: #E2E8F0; -fx-border-radius: 10px;">
+                    <columns>
+                        <TableColumn fx:id="colLicensePlate" prefWidth="180.0" text="License Plate" />
+                        <TableColumn fx:id="colReason" prefWidth="330.0" text="Reason For Blacklist" />
+                    </columns>
+                </TableView>
+
+                <Label fx:id="lblBlacklistAlert" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 13px; -fx-text-fill: #E11D48; -fx-font-weight: bold;" text="" />
+            </children>
+        </VBox>
     </children>
 </AnchorPane>
